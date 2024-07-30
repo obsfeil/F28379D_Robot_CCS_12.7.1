@@ -1,0 +1,236 @@
+\doxysection{UART\+\_\+\+Chip\+\_\+\+Main.\+c File Reference}
+\hypertarget{_u_a_r_t___chip___main_8c}{}\label{_u_a_r_t___chip___main_8c}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include "{}F28x\+\_\+\+Project.\+h"{}}\newline
+{\ttfamily \#include "{}driverlib.\+h"{}}\newline
+{\ttfamily \#include "{}device.\+h"{}}\newline
+{\ttfamily \#include "{}f28379d\+Serial.\+h"{}}\newline
+{\ttfamily \#include "{}LEDPatterns.\+h"{}}\newline
+{\ttfamily \#include "{}song.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a598a3330b3c21701223ee0ca14316eca}{PI}}~3.\+1415926535897932384626433832795
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a4912c64aec0c943b7985db6cb61ff83a}{TWOPI}}~6.\+283185307179586476925286766559
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a59d83d878ab677f99e48bd48ad80eef0}{HALFPI}}~1.\+5707963267948966192313216916398
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a86fe0c671efefef1c28fbd97ea76e877}{cpu\+\_\+timer0\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a30977770440e333a1ceef9eaf48849e4}{cpu\+\_\+timer1\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a111765978a6788bfdd41176b94a0efea}{cpu\+\_\+timer2\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a227552a4fee98154077bdff5de6d82c1}{SWI\+\_\+isr}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a4bccff1bd644f3a8fc17373e920eecc1}{serial\+RXA}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char data)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a626f3d78526b1bcba0d2868e61255cf9}{serial\+RXC}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char data)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a359d8ee30e1fdd2cd449a11b53b00cbf}{num\+Timer0calls}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_u_a_r_t___chip___main_8c_ad4277f93f06ab692088fba564b326516}{num\+SWIcalls}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a1c854a19cf671bacd6d72b01852af1f7}{num\+RXA}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a87dea28501134dbab375f2c5fd62bb59}{UARTPrint}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_u_a_r_t___chip___main_8c_ab21d76af30d4dcf078c2f25f0ce7516d}{LEDdisplaynum}} = 0
+\item 
+char \mbox{\hyperlink{_u_a_r_t___chip___main_8c_a1b6825db1ce4ea04ff3f004c0f7af146}{sendback}} \mbox{[}10\mbox{]}
+\item 
+char \mbox{\hyperlink{_u_a_r_t___chip___main_8c_ad5671ba8b64e0b6af5d9e6b407e76b44}{past}} \mbox{[}10\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_u_a_r_t___chip___main_8c_a59d83d878ab677f99e48bd48ad80eef0}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!HALFPI@{HALFPI}}
+\index{HALFPI@{HALFPI}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{HALFPI}{HALFPI}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a59d83d878ab677f99e48bd48ad80eef0} 
+\#define HALFPI~1.\+5707963267948966192313216916398}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00023}{23}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a598a3330b3c21701223ee0ca14316eca}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!PI@{PI}}
+\index{PI@{PI}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a598a3330b3c21701223ee0ca14316eca} 
+\#define PI~3.\+1415926535897932384626433832795}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00021}{21}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a4912c64aec0c943b7985db6cb61ff83a}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!TWOPI@{TWOPI}}
+\index{TWOPI@{TWOPI}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{TWOPI}{TWOPI}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a4912c64aec0c943b7985db6cb61ff83a} 
+\#define TWOPI~6.\+283185307179586476925286766559}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00022}{22}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_a_r_t___chip___main_8c_a86fe0c671efefef1c28fbd97ea76e877}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!cpu\_timer0\_isr@{cpu\_timer0\_isr}}
+\index{cpu\_timer0\_isr@{cpu\_timer0\_isr}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{cpu\_timer0\_isr()}{cpu\_timer0\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a86fe0c671efefef1c28fbd97ea76e877} 
+\+\_\+\+\_\+interrupt void cpu\+\_\+timer0\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00314}{314}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a30977770440e333a1ceef9eaf48849e4}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!cpu\_timer1\_isr@{cpu\_timer1\_isr}}
+\index{cpu\_timer1\_isr@{cpu\_timer1\_isr}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{cpu\_timer1\_isr()}{cpu\_timer1\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a30977770440e333a1ceef9eaf48849e4} 
+\+\_\+\+\_\+interrupt void cpu\+\_\+timer1\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00340}{340}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a111765978a6788bfdd41176b94a0efea}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!cpu\_timer2\_isr@{cpu\_timer2\_isr}}
+\index{cpu\_timer2\_isr@{cpu\_timer2\_isr}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{cpu\_timer2\_isr()}{cpu\_timer2\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a111765978a6788bfdd41176b94a0efea} 
+\+\_\+\+\_\+interrupt void cpu\+\_\+timer2\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00348}{348}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!main@{main}}
+\index{main@{main}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a6288eba0f8e8ad3ab1544ad731eb7667} 
+void main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00043}{43}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a4bccff1bd644f3a8fc17373e920eecc1}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!serialRXA@{serialRXA}}
+\index{serialRXA@{serialRXA}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{serialRXA()}{serialRXA()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a4bccff1bd644f3a8fc17373e920eecc1} 
+void serial\+RXA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{char}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00364}{364}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a626f3d78526b1bcba0d2868e61255cf9}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!serialRXC@{serialRXC}}
+\index{serialRXC@{serialRXC}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{serialRXC()}{serialRXC()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a626f3d78526b1bcba0d2868e61255cf9} 
+void serial\+RXC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{char}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00371}{371}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a227552a4fee98154077bdff5de6d82c1}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!SWI\_isr@{SWI\_isr}}
+\index{SWI\_isr@{SWI\_isr}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{SWI\_isr()}{SWI\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a227552a4fee98154077bdff5de6d82c1} 
+\+\_\+\+\_\+interrupt void SWI\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00294}{294}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_u_a_r_t___chip___main_8c_ab21d76af30d4dcf078c2f25f0ce7516d}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!LEDdisplaynum@{LEDdisplaynum}}
+\index{LEDdisplaynum@{LEDdisplaynum}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{LEDdisplaynum}{LEDdisplaynum}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_ab21d76af30d4dcf078c2f25f0ce7516d} 
+uint16\+\_\+t LEDdisplaynum = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00040}{40}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a1c854a19cf671bacd6d72b01852af1f7}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!numRXA@{numRXA}}
+\index{numRXA@{numRXA}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{numRXA}{numRXA}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a1c854a19cf671bacd6d72b01852af1f7} 
+uint32\+\_\+t num\+RXA = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00038}{38}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_ad4277f93f06ab692088fba564b326516}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!numSWIcalls@{numSWIcalls}}
+\index{numSWIcalls@{numSWIcalls}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{numSWIcalls}{numSWIcalls}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_ad4277f93f06ab692088fba564b326516} 
+uint32\+\_\+t num\+SWIcalls = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00037}{37}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a359d8ee30e1fdd2cd449a11b53b00cbf}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!numTimer0calls@{numTimer0calls}}
+\index{numTimer0calls@{numTimer0calls}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{numTimer0calls}{numTimer0calls}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a359d8ee30e1fdd2cd449a11b53b00cbf} 
+uint32\+\_\+t num\+Timer0calls = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00036}{36}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_ad5671ba8b64e0b6af5d9e6b407e76b44}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!past@{past}}
+\index{past@{past}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{past}{past}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_ad5671ba8b64e0b6af5d9e6b407e76b44} 
+char past\mbox{[}10\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00370}{370}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a1b6825db1ce4ea04ff3f004c0f7af146}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!sendback@{sendback}}
+\index{sendback@{sendback}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{sendback}{sendback}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a1b6825db1ce4ea04ff3f004c0f7af146} 
+char sendback\mbox{[}10\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00369}{369}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+
+\Hypertarget{_u_a_r_t___chip___main_8c_a87dea28501134dbab375f2c5fd62bb59}\index{UART\_Chip\_Main.c@{UART\_Chip\_Main.c}!UARTPrint@{UARTPrint}}
+\index{UARTPrint@{UARTPrint}!UART\_Chip\_Main.c@{UART\_Chip\_Main.c}}
+\doxysubsubsection{\texorpdfstring{UARTPrint}{UARTPrint}}
+{\footnotesize\ttfamily \label{_u_a_r_t___chip___main_8c_a87dea28501134dbab375f2c5fd62bb59} 
+uint16\+\_\+t UARTPrint = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source_l00039}{39}} of file \mbox{\hyperlink{_u_a_r_t___chip___main_8c_source}{UART\+\_\+\+Chip\+\_\+\+Main.\+c}}.
+

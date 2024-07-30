@@ -1,0 +1,272 @@
+\doxysection{F28379d\+Serial.\+h File Reference}
+\hypertarget{_f28379d_serial_8h}{}\label{_f28379d_serial_8h}\index{F28379dSerial.h@{F28379dSerial.h}}
+{\ttfamily \#include $<$buffer.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structserial__s}{serial\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_f28379d_serial_8h_ad3cca2ea52407428d1a9bb8ab23f19a7}{PLL\+\_\+\+IMULT}}~0x28
+\item 
+\#define \mbox{\hyperlink{_f28379d_serial_8h_a320d485e341ec96d7ff7d68707467b65}{OSCCLK\+\_\+\+KHZ}}~10000L
+\item 
+\#define \mbox{\hyperlink{_f28379d_serial_8h_a41f676aff02438bbf0fafee63675f922}{SYSCLKOUT\+\_\+\+KHZ}}~(\mbox{\hyperlink{_f28379d_serial_8h_a320d485e341ec96d7ff7d68707467b65}{OSCCLK\+\_\+\+KHZ}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_f28379d_serial_8h_ad3cca2ea52407428d1a9bb8ab23f19a7}{PLL\+\_\+\+IMULT}}/((Clk\+Cfg\+Regs.\+SYSCLKDIVSEL.\+bit.\+PLLSYSCLKDIV == 0) ? 1 \+: (Clk\+Cfg\+Regs.\+SYSCLKDIVSEL.\+bit.\+PLLSYSCLKDIV\texorpdfstring{$\ast$}{*}2)))
+\item 
+\#define \mbox{\hyperlink{_f28379d_serial_8h_ad893ca31dda196a165bc4c4f34b4cb04}{LSPCLK\+\_\+\+KHZ}}~(\mbox{\hyperlink{_f28379d_serial_8h_a41f676aff02438bbf0fafee63675f922}{SYSCLKOUT\+\_\+\+KHZ}}/((Clk\+Cfg\+Regs.\+LOSPCP.\+bit.\+LSPCLKDIV == 0) ? 1 \+: (Clk\+Cfg\+Regs.\+LOSPCP.\+bit.\+LSPCLKDIV\texorpdfstring{$\ast$}{*}2)))
+\item 
+\#define \mbox{\hyperlink{_f28379d_serial_8h_a45689ad2d09042453b25c98c3663a646}{LSPCLK\+\_\+\+HZ}}~(\mbox{\hyperlink{_f28379d_serial_8h_ad893ca31dda196a165bc4c4f34b4cb04}{LSPCLK\+\_\+\+KHZ}}\texorpdfstring{$\ast$}{*}1000L)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structserial__s}{serial\+\_\+s}} \mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_f28379d_serial_8h_a80f0fc31799be22d67102fc3fb87d534}{init\+\_\+serial}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, Uint32 baud, void(\texorpdfstring{$\ast$}{*}got\+\_\+func)(\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char data))
+\item 
+void \mbox{\hyperlink{_f28379d_serial_8h_af3fe300fda7db09c0888f2fe5fca9099}{uninit\+\_\+serial}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_f28379d_serial_8h_ac6b3508b0f143812c3b9c6d936fbe80e}{serial\+\_\+send}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char \texorpdfstring{$\ast$}{*}data, Uint16 len)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_f28379d_serial_8h_a733b9d119b3e86f6e0e1d9f6c8b7dd1b}{serial\+\_\+printf}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char \texorpdfstring{$\ast$}{*}fmt,...)
+\item 
+void \mbox{\hyperlink{_f28379d_serial_8h_a4202f46c9cbfe66942ff1813f43896c8}{UART\+\_\+printf\+Line}} (unsigned char line, char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+void \mbox{\hyperlink{_f28379d_serial_8h_a03c1c7520627b90d5d12927dacfc2e88}{UART\+\_\+vprintf\+Line}} (unsigned char line, char \texorpdfstring{$\ast$}{*}format, va\+\_\+list ap)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_f28379d_serial_8h_ad265b859e8f4a646951c44fbf80ae378}{TXAINT\+\_\+data\+\_\+sent}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_f28379d_serial_8h_a97febc4442e898ab09fb45145fc9460d}{TXCINT\+\_\+data\+\_\+sent}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_f28379d_serial_8h_a7c5b910731897a8d88ae004a98d030c3}{TXDINT\+\_\+data\+\_\+sent}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_f28379d_serial_8h_a9687fb6f81fe8bbd3b3d2729daaa6ccf}{RXAINT\+\_\+recv\+\_\+ready}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_f28379d_serial_8h_aca4368d5e3ed26eddfaf4ecaf3d22793}{RXCINT\+\_\+recv\+\_\+ready}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_f28379d_serial_8h_ac46ca67a02319c0799247e7e5948e6b1}{RXDINT\+\_\+recv\+\_\+ready}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \mbox{\hyperlink{_f28379d_serial_8h_a43b293f0a3ee2617eba5143fcc3e50d7}{SerialA}}
+\item 
+\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \mbox{\hyperlink{_f28379d_serial_8h_ae801915e5742ce528d32338ac3e7d712}{SerialC}}
+\item 
+\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \mbox{\hyperlink{_f28379d_serial_8h_a74a3cb62cb556e316055d98ade6d309d}{SerialD}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_f28379d_serial_8h_a45689ad2d09042453b25c98c3663a646}\index{F28379dSerial.h@{F28379dSerial.h}!LSPCLK\_HZ@{LSPCLK\_HZ}}
+\index{LSPCLK\_HZ@{LSPCLK\_HZ}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{LSPCLK\_HZ}{LSPCLK\_HZ}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a45689ad2d09042453b25c98c3663a646} 
+\#define LSPCLK\+\_\+\+HZ~(\mbox{\hyperlink{_f28379d_serial_8h_ad893ca31dda196a165bc4c4f34b4cb04}{LSPCLK\+\_\+\+KHZ}}\texorpdfstring{$\ast$}{*}1000L)}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8h_source_l00013}{13}} of file \mbox{\hyperlink{_f28379d_serial_8h_source}{F28379d\+Serial.\+h}}.
+
+\Hypertarget{_f28379d_serial_8h_ad893ca31dda196a165bc4c4f34b4cb04}\index{F28379dSerial.h@{F28379dSerial.h}!LSPCLK\_KHZ@{LSPCLK\_KHZ}}
+\index{LSPCLK\_KHZ@{LSPCLK\_KHZ}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{LSPCLK\_KHZ}{LSPCLK\_KHZ}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_ad893ca31dda196a165bc4c4f34b4cb04} 
+\#define LSPCLK\+\_\+\+KHZ~(\mbox{\hyperlink{_f28379d_serial_8h_a41f676aff02438bbf0fafee63675f922}{SYSCLKOUT\+\_\+\+KHZ}}/((Clk\+Cfg\+Regs.\+LOSPCP.\+bit.\+LSPCLKDIV == 0) ? 1 \+: (Clk\+Cfg\+Regs.\+LOSPCP.\+bit.\+LSPCLKDIV\texorpdfstring{$\ast$}{*}2)))}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8h_source_l00011}{11}} of file \mbox{\hyperlink{_f28379d_serial_8h_source}{F28379d\+Serial.\+h}}.
+
+\Hypertarget{_f28379d_serial_8h_a320d485e341ec96d7ff7d68707467b65}\index{F28379dSerial.h@{F28379dSerial.h}!OSCCLK\_KHZ@{OSCCLK\_KHZ}}
+\index{OSCCLK\_KHZ@{OSCCLK\_KHZ}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{OSCCLK\_KHZ}{OSCCLK\_KHZ}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a320d485e341ec96d7ff7d68707467b65} 
+\#define OSCCLK\+\_\+\+KHZ~10000L}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8h_source_l00007}{7}} of file \mbox{\hyperlink{_f28379d_serial_8h_source}{F28379d\+Serial.\+h}}.
+
+\Hypertarget{_f28379d_serial_8h_ad3cca2ea52407428d1a9bb8ab23f19a7}\index{F28379dSerial.h@{F28379dSerial.h}!PLL\_IMULT@{PLL\_IMULT}}
+\index{PLL\_IMULT@{PLL\_IMULT}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{PLL\_IMULT}{PLL\_IMULT}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_ad3cca2ea52407428d1a9bb8ab23f19a7} 
+\#define PLL\+\_\+\+IMULT~0x28}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8h_source_l00006}{6}} of file \mbox{\hyperlink{_f28379d_serial_8h_source}{F28379d\+Serial.\+h}}.
+
+\Hypertarget{_f28379d_serial_8h_a41f676aff02438bbf0fafee63675f922}\index{F28379dSerial.h@{F28379dSerial.h}!SYSCLKOUT\_KHZ@{SYSCLKOUT\_KHZ}}
+\index{SYSCLKOUT\_KHZ@{SYSCLKOUT\_KHZ}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{SYSCLKOUT\_KHZ}{SYSCLKOUT\_KHZ}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a41f676aff02438bbf0fafee63675f922} 
+\#define SYSCLKOUT\+\_\+\+KHZ~(\mbox{\hyperlink{_f28379d_serial_8h_a320d485e341ec96d7ff7d68707467b65}{OSCCLK\+\_\+\+KHZ}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{_f28379d_serial_8h_ad3cca2ea52407428d1a9bb8ab23f19a7}{PLL\+\_\+\+IMULT}}/((Clk\+Cfg\+Regs.\+SYSCLKDIVSEL.\+bit.\+PLLSYSCLKDIV == 0) ? 1 \+: (Clk\+Cfg\+Regs.\+SYSCLKDIVSEL.\+bit.\+PLLSYSCLKDIV\texorpdfstring{$\ast$}{*}2)))}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8h_source_l00008}{8}} of file \mbox{\hyperlink{_f28379d_serial_8h_source}{F28379d\+Serial.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}\index{F28379dSerial.h@{F28379dSerial.h}!serial\_t@{serial\_t}}
+\index{serial\_t@{serial\_t}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_t}{serial\_t}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd} 
+typedef struct \mbox{\hyperlink{structserial__s}{serial\+\_\+s}} \mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_f28379d_serial_8h_a80f0fc31799be22d67102fc3fb87d534}\index{F28379dSerial.h@{F28379dSerial.h}!init\_serial@{init\_serial}}
+\index{init\_serial@{init\_serial}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{init\_serial()}{init\_serial()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a80f0fc31799be22d67102fc3fb87d534} 
+uint16\+\_\+t init\+\_\+serial (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{Uint32}]{baud}{, }\item[{void(\texorpdfstring{$\ast$}{*}}]{got\+\_\+func~}{)(\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char data)}\end{DoxyParamCaption})}
+
+\Hypertarget{_f28379d_serial_8h_a9687fb6f81fe8bbd3b3d2729daaa6ccf}\index{F28379dSerial.h@{F28379dSerial.h}!RXAINT\_recv\_ready@{RXAINT\_recv\_ready}}
+\index{RXAINT\_recv\_ready@{RXAINT\_recv\_ready}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{RXAINT\_recv\_ready()}{RXAINT\_recv\_ready()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a9687fb6f81fe8bbd3b3d2729daaa6ccf} 
+\+\_\+\+\_\+interrupt void RXAINT\+\_\+recv\+\_\+ready (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00311}{311}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_aca4368d5e3ed26eddfaf4ecaf3d22793}\index{F28379dSerial.h@{F28379dSerial.h}!RXCINT\_recv\_ready@{RXCINT\_recv\_ready}}
+\index{RXCINT\_recv\_ready@{RXCINT\_recv\_ready}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{RXCINT\_recv\_ready()}{RXCINT\_recv\_ready()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_aca4368d5e3ed26eddfaf4ecaf3d22793} 
+\+\_\+\+\_\+interrupt void RXCINT\+\_\+recv\+\_\+ready (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00333}{333}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_ac46ca67a02319c0799247e7e5948e6b1}\index{F28379dSerial.h@{F28379dSerial.h}!RXDINT\_recv\_ready@{RXDINT\_recv\_ready}}
+\index{RXDINT\_recv\_ready@{RXDINT\_recv\_ready}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{RXDINT\_recv\_ready()}{RXDINT\_recv\_ready()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_ac46ca67a02319c0799247e7e5948e6b1} 
+\+\_\+\+\_\+interrupt void RXDINT\+\_\+recv\+\_\+ready (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00345}{345}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_a733b9d119b3e86f6e0e1d9f6c8b7dd1b}\index{F28379dSerial.h@{F28379dSerial.h}!serial\_printf@{serial\_printf}}
+\index{serial\_printf@{serial\_printf}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_printf()}{serial\_printf()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a733b9d119b3e86f6e0e1d9f6c8b7dd1b} 
+uint16\+\_\+t serial\+\_\+printf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00358}{358}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_ac6b3508b0f143812c3b9c6d936fbe80e}\index{F28379dSerial.h@{F28379dSerial.h}!serial\_send@{serial\_send}}
+\index{serial\_send@{serial\_send}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{serial\_send()}{serial\_send()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_ac6b3508b0f143812c3b9c6d936fbe80e} 
+uint16\+\_\+t serial\+\_\+send (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{Uint16}]{len}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_f28379d_serial_8h_ad265b859e8f4a646951c44fbf80ae378}\index{F28379dSerial.h@{F28379dSerial.h}!TXAINT\_data\_sent@{TXAINT\_data\_sent}}
+\index{TXAINT\_data\_sent@{TXAINT\_data\_sent}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{TXAINT\_data\_sent()}{TXAINT\_data\_sent()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_ad265b859e8f4a646951c44fbf80ae378} 
+\+\_\+\+\_\+interrupt void TXAINT\+\_\+data\+\_\+sent (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00209}{209}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_a97febc4442e898ab09fb45145fc9460d}\index{F28379dSerial.h@{F28379dSerial.h}!TXCINT\_data\_sent@{TXCINT\_data\_sent}}
+\index{TXCINT\_data\_sent@{TXCINT\_data\_sent}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{TXCINT\_data\_sent()}{TXCINT\_data\_sent()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a97febc4442e898ab09fb45145fc9460d} 
+\+\_\+\+\_\+interrupt void TXCINT\+\_\+data\+\_\+sent (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00251}{251}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_a7c5b910731897a8d88ae004a98d030c3}\index{F28379dSerial.h@{F28379dSerial.h}!TXDINT\_data\_sent@{TXDINT\_data\_sent}}
+\index{TXDINT\_data\_sent@{TXDINT\_data\_sent}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{TXDINT\_data\_sent()}{TXDINT\_data\_sent()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a7c5b910731897a8d88ae004a98d030c3} 
+\+\_\+\+\_\+interrupt void TXDINT\+\_\+data\+\_\+sent (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00271}{271}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_a4202f46c9cbfe66942ff1813f43896c8}\index{F28379dSerial.h@{F28379dSerial.h}!UART\_printfLine@{UART\_printfLine}}
+\index{UART\_printfLine@{UART\_printfLine}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_printfLine()}{UART\_printfLine()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a4202f46c9cbfe66942ff1813f43896c8} 
+void UART\+\_\+printf\+Line (\begin{DoxyParamCaption}\item[{unsigned char}]{line}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{format}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00393}{393}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_a03c1c7520627b90d5d12927dacfc2e88}\index{F28379dSerial.h@{F28379dSerial.h}!UART\_vprintfLine@{UART\_vprintfLine}}
+\index{UART\_vprintfLine@{UART\_vprintfLine}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{UART\_vprintfLine()}{UART\_vprintfLine()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a03c1c7520627b90d5d12927dacfc2e88} 
+void UART\+\_\+vprintf\+Line (\begin{DoxyParamCaption}\item[{unsigned char}]{line}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{format}{, }\item[{va\+\_\+list}]{ap}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00370}{370}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_af3fe300fda7db09c0888f2fe5fca9099}\index{F28379dSerial.h@{F28379dSerial.h}!uninit\_serial@{uninit\_serial}}
+\index{uninit\_serial@{uninit\_serial}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{uninit\_serial()}{uninit\_serial()}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_af3fe300fda7db09c0888f2fe5fca9099} 
+void uninit\+\_\+serial (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00146}{146}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_f28379d_serial_8h_a43b293f0a3ee2617eba5143fcc3e50d7}\index{F28379dSerial.h@{F28379dSerial.h}!SerialA@{SerialA}}
+\index{SerialA@{SerialA}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{SerialA}{SerialA}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a43b293f0a3ee2617eba5143fcc3e50d7} 
+\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} SerialA\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00022}{22}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_ae801915e5742ce528d32338ac3e7d712}\index{F28379dSerial.h@{F28379dSerial.h}!SerialC@{SerialC}}
+\index{SerialC@{SerialC}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{SerialC}{SerialC}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_ae801915e5742ce528d32338ac3e7d712} 
+\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} SerialC\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00024}{24}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+
+\Hypertarget{_f28379d_serial_8h_a74a3cb62cb556e316055d98ade6d309d}\index{F28379dSerial.h@{F28379dSerial.h}!SerialD@{SerialD}}
+\index{SerialD@{SerialD}!F28379dSerial.h@{F28379dSerial.h}}
+\doxysubsubsection{\texorpdfstring{SerialD}{SerialD}}
+{\footnotesize\ttfamily \label{_f28379d_serial_8h_a74a3cb62cb556e316055d98ade6d309d} 
+\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} SerialD\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{_f28379d_serial_8c_source_l00025}{25}} of file \mbox{\hyperlink{_f28379d_serial_8c_source}{F28379d\+Serial.\+c}}.
+

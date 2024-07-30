@@ -1,0 +1,94 @@
+\doxysection{dsp.\+h}
+\hypertarget{dsp_8h_source}{}\label{dsp_8h_source}\mbox{\hyperlink{dsp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_DSP\_H\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_DSP\_H\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00003}00003\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00004}00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00010}00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00011}00011\ \textcolor{comment}{//\ \ Group:\ \ \ \ \ \ \ \ \ \ C2000}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00012}00012\ \textcolor{comment}{//\ \ Target\ Device:\ \ C28x+FPU32/FPU64}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00013}00013\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00014}00014\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00015}00015\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00016}00016\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00017}00017\ \textcolor{comment}{//\ \$Copyright:\ Copyright\ (C)\ 2024\ Texas\ Instruments\ Incorporated\ -\/}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00018}00018\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ http://www.ti.com/\ ALL\ RIGHTS\ RESERVED\ \$}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00019}00019\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ \_RTS\_IN\_USE\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00022}\mbox{\hyperlink{dsp_8h_a727c9267987123761a7ec5d7559d099c}{00022}}\ \textcolor{preprocessor}{\#define\ \_RTS\_IN\_USE\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00023}00023\ \textcolor{comment}{//This\ conditional\ prevents\ the\ following\ data\ types\ from\ conflicting\ with\ the}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00024}00024\ \textcolor{comment}{//FPUfastRTS\ library}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00026}00026\ \textcolor{comment}{//*****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00027}00027\ \textcolor{comment}{//\ the\ includes}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00028}00028\ \textcolor{comment}{//*****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00035}00035\ \textcolor{comment}{//\ @\{}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00037}00037\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00038}00038\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00039}00039\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00041}00041\ \textcolor{comment}{//*****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00042}00042\ \textcolor{comment}{//defines}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00043}00043\ \textcolor{comment}{//*****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00045}\mbox{\hyperlink{dsp_8h_a8650e6793d46032c617bb7b824f90bfd}{00045}}\ \textcolor{preprocessor}{\#define\ LIBRARY\_VERSION\ \ \ \ \ "{}2.05.00.00"{}}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00048}00048\ \textcolor{comment}{//*****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00049}00049\ \textcolor{comment}{//\ typedefs}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00050}00050\ \textcolor{comment}{//*****************************************************************************}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00051}00051\ \textcolor{comment}{//\ c2000\ types\ for\ IEEE754\ (same\ as\ defined\ in\ <device>/inc/hw\_types.h)}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00052}00052\ \textcolor{preprocessor}{\#ifndef\ C2000\_IEEE754\_TYPES}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00053}\mbox{\hyperlink{dsp_8h_aebedd1cce60951fd692a2714c4576cb5}{00053}}\ \textcolor{preprocessor}{\#define\ C2000\_IEEE754\_TYPES}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00054}00054\ \textcolor{preprocessor}{\#ifdef\ \_\_TI\_EABI\_\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00055}00055\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dsp_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}};}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00056}00056\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{double}\ \ \ \ \ \ \ \ \mbox{\hyperlink{dsp_8h_abf48e6de81b13463344ee4ebcf05d8b6}{float64\_t}};}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00057}00057\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ TI\ COFF}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00058}\mbox{\hyperlink{dsp_8h_a4611b605e45ab401f02cab15c5e38715}{00058}}\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{dsp_8h_a4611b605e45ab401f02cab15c5e38715}{float32\_t}};}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00059}\mbox{\hyperlink{dsp_8h_abf48e6de81b13463344ee4ebcf05d8b6}{00059}}\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double}\ \ \ \mbox{\hyperlink{dsp_8h_abf48e6de81b13463344ee4ebcf05d8b6}{float64\_t}};}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00060}00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_TI\_EABI\_\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00061}00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ C2000\_IEEE754\_TYPES}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00063}00063\ \textcolor{preprocessor}{\#if\ defined(\_\_TMS320C28XX\_FPU64\_\_)}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00072}00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00074}00074\ \ \ \ \ uint64\_t\ \ \ \ ui64;\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00075}00075\ \ \ \ \ int64\_t\ \ \ \ \ i64;\ \ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{dsp_8h_abf48e6de81b13463344ee4ebcf05d8b6}{float64\_t}}\ \ \ f64;\ \ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00077}00077\ \}float64u\_t;}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00078}00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//defined(\_\_TMS320C28XX\_FPU64\_\_)}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00080}00080\ \textcolor{preprocessor}{\#if\ (defined(\_\_TMS320C28XX\_FPU32\_\_)\ ||\ defined(\_\_TMS320C28XX\_FPU64\_\_))}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00089}00089\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00091}00091\ \ \ \ \ uint32\_t\ \ \ \ ui32;\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00092}00092\ \ \ \ \ int32\_t\ \ \ \ \ i32;\ \ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ f32;\ \ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00094}00094\ \}float32u\_t;}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00095}00095\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//defined(\_\_TMS320C28XX\_FPU32\_\_)}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00097}00097\ \textcolor{preprocessor}{\#if\ !(defined(\_\_TMS320C28XX\_FPU32\_\_)\ ||\ defined(\_\_TMS320C28XX\_FPU64\_\_))}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00098}00098\ \textcolor{preprocessor}{\#error\ "{}-\/-\/float\_support=fpu64\ option\ must\ be\ set\ to\ build\ the\ FPU64\ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00099}00099\ \textcolor{preprocessor}{\ \ \ \ version\ of\ the\ library.\ -\/-\/float\_support=fpu32\ must\ be\ set\ to\ build\ the\ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00100}00100\ \textcolor{preprocessor}{\ \ \ \ FPU32\ version\ of\ the\ DSP\ library"{}}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00101}00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ (defined(\_\_TMS320C28XX\_FPU32\_\_)\ ||\ defined(\_\_TMS320C28XX\_FPU64\_\_))}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00105}\mbox{\hyperlink{dsp_8h_a09352de0488d343362dc0b932690c29b}{00105}}\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{dsp_8h_a09352de0488d343362dc0b932690c29b}{v\_pfn\_v}})(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00107}00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_RTS\_IN\_USE\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00109}00109\ \textcolor{comment}{//\ @\}\ //addtogroup}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00111}00111\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00113}00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ extern\ "{}C"{}}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00115}00115\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ end\ of\ \ \_DSP\_H\_}}
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{dsp_8h_source_l00117}00117\ \textcolor{comment}{//\ End\ of\ File}}
+
+\end{DoxyCode}

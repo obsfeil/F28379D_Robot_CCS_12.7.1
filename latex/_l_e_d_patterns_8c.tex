@@ -1,0 +1,237 @@
+\doxysection{LEDPatterns.\+c File Reference}
+\hypertarget{_l_e_d_patterns_8c}{}\label{_l_e_d_patterns_8c}\index{LEDPatterns.c@{LEDPatterns.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include "{}F28x\+\_\+\+Project.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_l_e_d_patterns_8c_a2bc2cbb70a175d9cfa67c82238929887}{set\+LEDLetter}} (uint16\+\_\+t \texorpdfstring{$\ast$}{*}letter)
+\item 
+void \mbox{\hyperlink{_l_e_d_patterns_8c_a1f89d39ad1e3c442c4e29de47ec746cb}{display\+LEDletter}} (uint16\+\_\+t num)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_af352d7f87840247b6ba090d0a0ee1610}{LED\+\_\+0}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,0,0,1,1,1,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a4c9b90e144c929bb935123b8ff9a6612}{LED\+\_\+1}} \mbox{[}15\mbox{]} = \{0,1,0,0,1,1,1,1,1,1,0,0,0,0,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a49c7e8ee9393e38ba6828c1be3253c97}{LED\+\_\+2}} \mbox{[}15\mbox{]} = \{1,0,1,1,1,1,0,1,0,1,1,1,1,0,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a6bc36661c44f66e5058dcdfed8352630}{LED\+\_\+3}} \mbox{[}15\mbox{]} = \{1,0,1,0,1,1,0,1,0,1,1,1,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a4e252fcc5f05db288ac1b1ae821a4023}{LED\+\_\+4}} \mbox{[}15\mbox{]} = \{1,1,1,0,0,0,0,1,0,0,1,1,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_aaf954add9395914ccafde413ab7c0ed3}{LED\+\_\+5}} \mbox{[}15\mbox{]} = \{1,1,1,0,1,1,0,1,0,1,1,0,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a7dc6f8054b2a6846993be5134a3cb0fa}{LED\+\_\+6}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,1,0,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_acb60cf6697a94388921bdb57fbe07476}{LED\+\_\+7}} \mbox{[}15\mbox{]} = \{1,0,0,0,0,1,0,0,0,0,1,1,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_aa2942320b426cf35b0410ec7249bb42b}{LED\+\_\+8}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,1,1,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_ab5dcb90cb959e02366eb1071f1d1d41d}{LED\+\_\+9}} \mbox{[}15\mbox{]} = \{1,1,1,0,1,1,0,1,0,1,1,1,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_ab5e8d147829e5937ca5ec8ccb4c86001}{LED\+\_\+A}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,0,1,1,1,1,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_ad72ccd8d926d81fee58bcd7f28fd4477}{LED\+\_\+B}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,0,1,0,1,0\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_ad3bd97ec97ac51c391f19c68a603b28c}{LED\+\_\+C}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,0,0,1,1,0,0,0,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a353a4f304a34aef914c8b05845909645}{LED\+\_\+D}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,0,0,1,0,1,1,1,0\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a598f198e53a5a35918883e3e5aa48482}{LED\+\_\+E}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,1,0,1,0,1\}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_l_e_d_patterns_8c_a8ff40f711a15521ceafbf06dcdaa118a}{LED\+\_\+F}} \mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,0,1,0,1,0,0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_l_e_d_patterns_8c_a1f89d39ad1e3c442c4e29de47ec746cb}\index{LEDPatterns.c@{LEDPatterns.c}!displayLEDletter@{displayLEDletter}}
+\index{displayLEDletter@{displayLEDletter}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{displayLEDletter()}{displayLEDletter()}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a1f89d39ad1e3c442c4e29de47ec746cb} 
+void display\+LEDletter (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{num}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00356}{356}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a2bc2cbb70a175d9cfa67c82238929887}\index{LEDPatterns.c@{LEDPatterns.c}!setLEDLetter@{setLEDLetter}}
+\index{setLEDLetter@{setLEDLetter}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{setLEDLetter()}{setLEDLetter()}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a2bc2cbb70a175d9cfa67c82238929887} 
+void set\+LEDLetter (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{letter}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00261}{261}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_l_e_d_patterns_8c_af352d7f87840247b6ba090d0a0ee1610}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_0@{LED\_0}}
+\index{LED\_0@{LED\_0}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_0}{LED\_0}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_af352d7f87840247b6ba090d0a0ee1610} 
+uint16\+\_\+t LED\+\_\+0\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,0,0,1,1,1,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00122}{122}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a4c9b90e144c929bb935123b8ff9a6612}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_1@{LED\_1}}
+\index{LED\_1@{LED\_1}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_1}{LED\_1}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a4c9b90e144c929bb935123b8ff9a6612} 
+uint16\+\_\+t LED\+\_\+1\mbox{[}15\mbox{]} = \{0,1,0,0,1,1,1,1,1,1,0,0,0,0,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00131}{131}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a49c7e8ee9393e38ba6828c1be3253c97}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_2@{LED\_2}}
+\index{LED\_2@{LED\_2}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_2}{LED\_2}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a49c7e8ee9393e38ba6828c1be3253c97} 
+uint16\+\_\+t LED\+\_\+2\mbox{[}15\mbox{]} = \{1,0,1,1,1,1,0,1,0,1,1,1,1,0,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00140}{140}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a6bc36661c44f66e5058dcdfed8352630}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_3@{LED\_3}}
+\index{LED\_3@{LED\_3}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_3}{LED\_3}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a6bc36661c44f66e5058dcdfed8352630} 
+uint16\+\_\+t LED\+\_\+3\mbox{[}15\mbox{]} = \{1,0,1,0,1,1,0,1,0,1,1,1,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00149}{149}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a4e252fcc5f05db288ac1b1ae821a4023}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_4@{LED\_4}}
+\index{LED\_4@{LED\_4}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_4}{LED\_4}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a4e252fcc5f05db288ac1b1ae821a4023} 
+uint16\+\_\+t LED\+\_\+4\mbox{[}15\mbox{]} = \{1,1,1,0,0,0,0,1,0,0,1,1,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00158}{158}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_aaf954add9395914ccafde413ab7c0ed3}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_5@{LED\_5}}
+\index{LED\_5@{LED\_5}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_5}{LED\_5}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_aaf954add9395914ccafde413ab7c0ed3} 
+uint16\+\_\+t LED\+\_\+5\mbox{[}15\mbox{]} = \{1,1,1,0,1,1,0,1,0,1,1,0,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00167}{167}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a7dc6f8054b2a6846993be5134a3cb0fa}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_6@{LED\_6}}
+\index{LED\_6@{LED\_6}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_6}{LED\_6}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a7dc6f8054b2a6846993be5134a3cb0fa} 
+uint16\+\_\+t LED\+\_\+6\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,1,0,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00176}{176}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_acb60cf6697a94388921bdb57fbe07476}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_7@{LED\_7}}
+\index{LED\_7@{LED\_7}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_7}{LED\_7}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_acb60cf6697a94388921bdb57fbe07476} 
+uint16\+\_\+t LED\+\_\+7\mbox{[}15\mbox{]} = \{1,0,0,0,0,1,0,0,0,0,1,1,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00185}{185}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_aa2942320b426cf35b0410ec7249bb42b}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_8@{LED\_8}}
+\index{LED\_8@{LED\_8}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_8}{LED\_8}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_aa2942320b426cf35b0410ec7249bb42b} 
+uint16\+\_\+t LED\+\_\+8\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,1,1,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00194}{194}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_ab5dcb90cb959e02366eb1071f1d1d41d}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_9@{LED\_9}}
+\index{LED\_9@{LED\_9}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_9}{LED\_9}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_ab5dcb90cb959e02366eb1071f1d1d41d} 
+uint16\+\_\+t LED\+\_\+9\mbox{[}15\mbox{]} = \{1,1,1,0,1,1,0,1,0,1,1,1,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00203}{203}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_ab5e8d147829e5937ca5ec8ccb4c86001}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_A@{LED\_A}}
+\index{LED\_A@{LED\_A}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_A}{LED\_A}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_ab5e8d147829e5937ca5ec8ccb4c86001} 
+uint16\+\_\+t LED\+\_\+A\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,0,1,1,1,1,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00212}{212}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_ad72ccd8d926d81fee58bcd7f28fd4477}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_B@{LED\_B}}
+\index{LED\_B@{LED\_B}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_B}{LED\_B}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_ad72ccd8d926d81fee58bcd7f28fd4477} 
+uint16\+\_\+t LED\+\_\+B\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,0,1,0,1,0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00221}{221}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_ad3bd97ec97ac51c391f19c68a603b28c}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_C@{LED\_C}}
+\index{LED\_C@{LED\_C}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_C}{LED\_C}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_ad3bd97ec97ac51c391f19c68a603b28c} 
+uint16\+\_\+t LED\+\_\+C\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,0,0,1,1,0,0,0,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00230}{230}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a353a4f304a34aef914c8b05845909645}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_D@{LED\_D}}
+\index{LED\_D@{LED\_D}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_D}{LED\_D}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a353a4f304a34aef914c8b05845909645} 
+uint16\+\_\+t LED\+\_\+D\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,0,0,1,0,1,1,1,0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00239}{239}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a598f198e53a5a35918883e3e5aa48482}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_E@{LED\_E}}
+\index{LED\_E@{LED\_E}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_E}{LED\_E}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a598f198e53a5a35918883e3e5aa48482} 
+uint16\+\_\+t LED\+\_\+E\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,1,1,0,1,0,1\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00248}{248}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+
+\Hypertarget{_l_e_d_patterns_8c_a8ff40f711a15521ceafbf06dcdaa118a}\index{LEDPatterns.c@{LEDPatterns.c}!LED\_F@{LED\_F}}
+\index{LED\_F@{LED\_F}!LEDPatterns.c@{LEDPatterns.c}}
+\doxysubsubsection{\texorpdfstring{LED\_F}{LED\_F}}
+{\footnotesize\ttfamily \label{_l_e_d_patterns_8c_a8ff40f711a15521ceafbf06dcdaa118a} 
+uint16\+\_\+t LED\+\_\+F\mbox{[}15\mbox{]} = \{1,1,1,1,1,1,0,1,0,0,1,0,1,0,0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_l_e_d_patterns_8c_source_l00257}{257}} of file \mbox{\hyperlink{_l_e_d_patterns_8c_source}{LEDPatterns.\+c}}.
+

@@ -1,0 +1,105 @@
+\doxysection{buffer.\+h File Reference}
+\hypertarget{buffer_8h}{}\label{buffer_8h}\index{buffer.h@{buffer.h}}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbuffer__s}{buffer\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{buffer_8h_a6821bafc3c88dfb2e433a095df9940c6}{BUF\+\_\+\+SIZE}}~(4\texorpdfstring{$\ast$}{*}1000 + 8)
+\item 
+\#define \mbox{\hyperlink{buffer_8h_adf7702471c6d9f1b970bb47e11a6db2b}{buf\+\_\+clear}}(b)~\mbox{\hyperlink{buffer_8h_abf06b8c681b5240c8f339889a27fc0cd}{init\+\_\+buffer}}(b)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef volatile struct \mbox{\hyperlink{structbuffer__s}{buffer\+\_\+s}} \mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{buffer_8h_abf06b8c681b5240c8f339889a27fc0cd}{init\+\_\+buffer}} (\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}b)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{buffer_8h_adc65dbd7f4a9bf64cec2679b4b20bc06}{buf\+\_\+write\+\_\+1}} (\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}b, char data)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{buffer_8h_ae8e4fb3486622e0c6a053558ccc4bd61}{buf\+\_\+read\+\_\+1}} (\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}b, Uint16 offset, char \texorpdfstring{$\ast$}{*}data)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{buffer_8h_ab06ddb507540e4dafa19c49a4a5e1468}{buf\+\_\+remove}} (\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}b, Uint16 len)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{buffer_8h_adf7702471c6d9f1b970bb47e11a6db2b}\index{buffer.h@{buffer.h}!buf\_clear@{buf\_clear}}
+\index{buf\_clear@{buf\_clear}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{buf\_clear}{buf\_clear}}
+{\footnotesize\ttfamily \label{buffer_8h_adf7702471c6d9f1b970bb47e11a6db2b} 
+\#define buf\+\_\+clear(\begin{DoxyParamCaption}\item[{}]{b}{}\end{DoxyParamCaption})~\mbox{\hyperlink{buffer_8h_abf06b8c681b5240c8f339889a27fc0cd}{init\+\_\+buffer}}(b)}
+
+
+
+Definition at line \mbox{\hyperlink{buffer_8h_source_l00018}{18}} of file \mbox{\hyperlink{buffer_8h_source}{buffer.\+h}}.
+
+\Hypertarget{buffer_8h_a6821bafc3c88dfb2e433a095df9940c6}\index{buffer.h@{buffer.h}!BUF\_SIZE@{BUF\_SIZE}}
+\index{BUF\_SIZE@{BUF\_SIZE}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{BUF\_SIZE}{BUF\_SIZE}}
+{\footnotesize\ttfamily \label{buffer_8h_a6821bafc3c88dfb2e433a095df9940c6} 
+\#define BUF\+\_\+\+SIZE~(4\texorpdfstring{$\ast$}{*}1000 + 8)}
+
+
+
+Definition at line \mbox{\hyperlink{buffer_8h_source_l00005}{5}} of file \mbox{\hyperlink{buffer_8h_source}{buffer.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}\index{buffer.h@{buffer.h}!buffer\_t@{buffer\_t}}
+\index{buffer\_t@{buffer\_t}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{buffer\_t}{buffer\_t}}
+{\footnotesize\ttfamily \label{buffer_8h_ab3af3c14c7d101a56206931bf7f74286} 
+typedef volatile struct \mbox{\hyperlink{structbuffer__s}{buffer\+\_\+s}} \mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{buffer_8h_ae8e4fb3486622e0c6a053558ccc4bd61}\index{buffer.h@{buffer.h}!buf\_read\_1@{buf\_read\_1}}
+\index{buf\_read\_1@{buf\_read\_1}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{buf\_read\_1()}{buf\_read\_1()}}
+{\footnotesize\ttfamily \label{buffer_8h_ae8e4fb3486622e0c6a053558ccc4bd61} 
+uint16\+\_\+t buf\+\_\+read\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{Uint16}]{offset}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{buffer_8h_source_l00035}{35}} of file \mbox{\hyperlink{buffer_8h_source}{buffer.\+h}}.
+
+\Hypertarget{buffer_8h_ab06ddb507540e4dafa19c49a4a5e1468}\index{buffer.h@{buffer.h}!buf\_remove@{buf\_remove}}
+\index{buf\_remove@{buf\_remove}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{buf\_remove()}{buf\_remove()}}
+{\footnotesize\ttfamily \label{buffer_8h_ab06ddb507540e4dafa19c49a4a5e1468} 
+uint16\+\_\+t buf\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{Uint16}]{len}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{buffer_8h_source_l00045}{45}} of file \mbox{\hyperlink{buffer_8h_source}{buffer.\+h}}.
+
+\Hypertarget{buffer_8h_adc65dbd7f4a9bf64cec2679b4b20bc06}\index{buffer.h@{buffer.h}!buf\_write\_1@{buf\_write\_1}}
+\index{buf\_write\_1@{buf\_write\_1}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{buf\_write\_1()}{buf\_write\_1()}}
+{\footnotesize\ttfamily \label{buffer_8h_adc65dbd7f4a9bf64cec2679b4b20bc06} 
+uint16\+\_\+t buf\+\_\+write\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{b}{, }\item[{char}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{buffer_8h_source_l00023}{23}} of file \mbox{\hyperlink{buffer_8h_source}{buffer.\+h}}.
+
+\Hypertarget{buffer_8h_abf06b8c681b5240c8f339889a27fc0cd}\index{buffer.h@{buffer.h}!init\_buffer@{init\_buffer}}
+\index{init\_buffer@{init\_buffer}!buffer.h@{buffer.h}}
+\doxysubsubsection{\texorpdfstring{init\_buffer()}{init\_buffer()}}
+{\footnotesize\ttfamily \label{buffer_8h_abf06b8c681b5240c8f339889a27fc0cd} 
+void init\+\_\+buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{buffer_8h_ab3af3c14c7d101a56206931bf7f74286}{buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{b}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}, {\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{buffer_8h_source_l00014}{14}} of file \mbox{\hyperlink{buffer_8h_source}{buffer.\+h}}.
+

@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['v_5fpfn_5fv_0',['v_pfn_v',['../dsp_8h.html#a09352de0488d343362dc0b932690c29b',1,'dsp.h']]],
+  ['variabler_1',['variabler',['../md_bed_x_c3_x_b8mmelse__av___a_i.html#autotoc_md16',1,'Globale variabler'],['../md_bed_x_c3_x_b8mmelse__av___a_i.html#autotoc_md35',1,'Globale variabler']]],
+  ['vcu_5fisr_2',['VCU_ISR',['../_f2837x_d___default_i_s_r_8c.html#ac130d0e0a1ce56e345d578006ca2d422',1,'F2837xD_DefaultISR.c']]],
+  ['velwheeldif_3',['velWheelDif',['../_segbot___steer__and___celebrate_8c.html#aa4488ea6dc3180be65f8e323b81e5a48',1,'velWheelDif:&#160;Segbot_Steer_and_Celebrate.c'],['../_u_a_r_t___segbot_8_8c.html#aa4488ea6dc3180be65f8e323b81e5a48',1,'velWheelDif:&#160;UART_Segbot..c'],['../_u_a_r_t___segbot2_8c.html#aa4488ea6dc3180be65f8e323b81e5a48',1,'velWheelDif:&#160;UART_Segbot2.c'],['../_u_a_r_t___segbot3_8c.html#aa4488ea6dc3180be65f8e323b81e5a48',1,'velWheelDif:&#160;UART_Segbot3.c'],['../_u_a_r_t___segbot4_8c.html#aa4488ea6dc3180be65f8e323b81e5a48',1,'velWheelDif:&#160;UART_Segbot4.c']]],
+  ['velwheeldif_5f1_4',['velWheelDif_1',['../_segbot___steer__and___celebrate_8c.html#ab13f49774c1765211de75011b1fc9bce',1,'velWheelDif_1:&#160;Segbot_Steer_and_Celebrate.c'],['../_u_a_r_t___segbot_8_8c.html#ab13f49774c1765211de75011b1fc9bce',1,'velWheelDif_1:&#160;UART_Segbot..c'],['../_u_a_r_t___segbot2_8c.html#ab13f49774c1765211de75011b1fc9bce',1,'velWheelDif_1:&#160;UART_Segbot2.c'],['../_u_a_r_t___segbot3_8c.html#ab13f49774c1765211de75011b1fc9bce',1,'velWheelDif_1:&#160;UART_Segbot3.c'],['../_u_a_r_t___segbot4_8c.html#ab13f49774c1765211de75011b1fc9bce',1,'velWheelDif_1:&#160;UART_Segbot4.c']]]
+];

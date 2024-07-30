@@ -1,0 +1,328 @@
+\doxysection{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c File Reference}
+\hypertarget{_f2837x_d___sys_ctrl_8c}{}\label{_f2837x_d___sys_ctrl_8c}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+{\ttfamily \#include "{}F2837x\+D\+\_\+device.\+h"{}}\newline
+{\ttfamily \#include "{}F2837x\+D\+\_\+\+Examples.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a9024ed05f7df784637ef7b44ca8caf97}{STATUS\+\_\+\+FAIL}}~0
+\item 
+\#define \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_ae56fdb340b23940f7a64ed2e37c1774a}{STATUS\+\_\+\+SUCCESS}}~1
+\item 
+\#define \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a06c1ffadb59fd73ea50a56157fb1fa3d}{TMR1\+SYSCLKCTR}}~0x\+F0000000
+\item 
+\#define \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_ac266e1d4366a6bfb8c873d58834412ee}{TMR2\+INPCLKCTR}}~0x800
+\item 
+\#define \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_ac975a3655594a6b5d097bb6e37a5eed2}{SYSCTRL\+\_\+\+CLKSRCCTL1\+\_\+\+DELAY}}~asm("{} RPT \#250 \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} NOP \textbackslash{}n RPT \#50 \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} NOP"{})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a881937c4bb55a2120533f2e80dcea828}{Init\+Sys\+Ctrl}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a17c664e03a629dcb5c59b71cf5ba6e9c}{Init\+Peripheral\+Clocks}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a6bc7421495cae02a7d7aadee882eeb28}{Disable\+Peripheral\+Clocks}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_acfb15ebe58549117d808383513ee5cc8}{Init\+Flash}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a07d5487ba1355a062dfaa5e959282379}{Flash\+Off}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a925babc12ce633fbbc162d04faf5cee8}{Seize\+Flash\+Pump}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a5c07c65ec2171ba26c524893453b57e8}{Release\+Flash\+Pump}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_aa5e4faa42368a6024ce1b6b65a16d948}{Service\+Dog}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_aecfa6e351779dbb2aed2ff491ce907ce}{Disable\+Dog}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_ad1210d15280256c3f4f67df45f1956b9}{Init\+Aux\+Pll}} (Uint16 clock\+\_\+source, Uint16 imult, Uint16 fmult, Uint16 divsel)
+\item 
+Uint16 \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a5969da080723ffb6a69f29aa7b53dcd1}{Csm\+Unlock}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a437ba03019428ea3caf00c6701f3ed2f}{Sys\+Int\+Osc1\+Sel}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_abc7121b9c44a6b7b42bdb46be52c3f94}{Sys\+Int\+Osc2\+Sel}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_af3f5941b38d4dae8537674fac61ba212}{Sys\+Xtal\+Osc\+Sel}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a01c61a826adaf0956f1cadf1cf513cb1}{Aux\+Int\+Osc2\+Sel}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a130bcafe16f816bd54390295bd71df37}{Aux\+Xtal\+Osc\+Sel}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a496d220f428afab438b093f63036625a}{Aux\+Aux\+Clk\+Sel}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a2aa508ab57881599413827b6c34af9a2}{IDLE}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a2a4754be3fc614be13a491b4ceb19d5e}{STANDBY}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a5b49f43507869e85f0cd17ad7b2d4f2a}{HALT}} (void)
+\item 
+void \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_a99a0d369fa443d778a3425cd356c471c}{HIB}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a9024ed05f7df784637ef7b44ca8caf97}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!STATUS\_FAIL@{STATUS\_FAIL}}
+\index{STATUS\_FAIL@{STATUS\_FAIL}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{STATUS\_FAIL}{STATUS\_FAIL}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a9024ed05f7df784637ef7b44ca8caf97} 
+\#define STATUS\+\_\+\+FAIL~0}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00056}{56}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_ae56fdb340b23940f7a64ed2e37c1774a}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!STATUS\_SUCCESS@{STATUS\_SUCCESS}}
+\index{STATUS\_SUCCESS@{STATUS\_SUCCESS}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{STATUS\_SUCCESS}{STATUS\_SUCCESS}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_ae56fdb340b23940f7a64ed2e37c1774a} 
+\#define STATUS\+\_\+\+SUCCESS~1}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00057}{57}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_ac975a3655594a6b5d097bb6e37a5eed2}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!SYSCTRL\_CLKSRCCTL1\_DELAY@{SYSCTRL\_CLKSRCCTL1\_DELAY}}
+\index{SYSCTRL\_CLKSRCCTL1\_DELAY@{SYSCTRL\_CLKSRCCTL1\_DELAY}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{SYSCTRL\_CLKSRCCTL1\_DELAY}{SYSCTRL\_CLKSRCCTL1\_DELAY}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_ac975a3655594a6b5d097bb6e37a5eed2} 
+\#define SYSCTRL\+\_\+\+CLKSRCCTL1\+\_\+\+DELAY~asm("{} RPT \#250 \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} NOP \textbackslash{}n RPT \#50 \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} NOP"{})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00089}{89}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a06c1ffadb59fd73ea50a56157fb1fa3d}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!TMR1SYSCLKCTR@{TMR1SYSCLKCTR}}
+\index{TMR1SYSCLKCTR@{TMR1SYSCLKCTR}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{TMR1SYSCLKCTR}{TMR1SYSCLKCTR}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a06c1ffadb59fd73ea50a56157fb1fa3d} 
+\#define TMR1\+SYSCLKCTR~0x\+F0000000}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00058}{58}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_ac266e1d4366a6bfb8c873d58834412ee}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!TMR2INPCLKCTR@{TMR2INPCLKCTR}}
+\index{TMR2INPCLKCTR@{TMR2INPCLKCTR}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{TMR2INPCLKCTR}{TMR2INPCLKCTR}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_ac266e1d4366a6bfb8c873d58834412ee} 
+\#define TMR2\+INPCLKCTR~0x800}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00059}{59}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a496d220f428afab438b093f63036625a}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!AuxAuxClkSel@{AuxAuxClkSel}}
+\index{AuxAuxClkSel@{AuxAuxClkSel}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{AuxAuxClkSel()}{AuxAuxClkSel()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a496d220f428afab438b093f63036625a} 
+void Aux\+Aux\+Clk\+Sel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01231}{1231}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a01c61a826adaf0956f1cadf1cf513cb1}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!AuxIntOsc2Sel@{AuxIntOsc2Sel}}
+\index{AuxIntOsc2Sel@{AuxIntOsc2Sel}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{AuxIntOsc2Sel()}{AuxIntOsc2Sel()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a01c61a826adaf0956f1cadf1cf513cb1} 
+void Aux\+Int\+Osc2\+Sel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01209}{1209}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a130bcafe16f816bd54390295bd71df37}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!AuxXtalOscSel@{AuxXtalOscSel}}
+\index{AuxXtalOscSel@{AuxXtalOscSel}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{AuxXtalOscSel()}{AuxXtalOscSel()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a130bcafe16f816bd54390295bd71df37} 
+void Aux\+Xtal\+Osc\+Sel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01220}{1220}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a5969da080723ffb6a69f29aa7b53dcd1}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!CsmUnlock@{CsmUnlock}}
+\index{CsmUnlock@{CsmUnlock}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{CsmUnlock()}{CsmUnlock()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a5969da080723ffb6a69f29aa7b53dcd1} 
+Uint16 Csm\+Unlock (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01144}{1144}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_aecfa6e351779dbb2aed2ff491ce907ce}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!DisableDog@{DisableDog}}
+\index{DisableDog@{DisableDog}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{DisableDog()}{DisableDog()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_aecfa6e351779dbb2aed2ff491ce907ce} 
+void Disable\+Dog (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00489}{489}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a6bc7421495cae02a7d7aadee882eeb28}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!DisablePeripheralClocks@{DisablePeripheralClocks}}
+\index{DisablePeripheralClocks@{DisablePeripheralClocks}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{DisablePeripheralClocks()}{DisablePeripheralClocks()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a6bc7421495cae02a7d7aadee882eeb28} 
+void Disable\+Peripheral\+Clocks (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00289}{289}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a07d5487ba1355a062dfaa5e959282379}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!FlashOff@{FlashOff}}
+\index{FlashOff@{FlashOff}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{FlashOff()}{FlashOff()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a07d5487ba1355a062dfaa5e959282379} 
+void Flash\+Off (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00419}{419}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a5b49f43507869e85f0cd17ad7b2d4f2a}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!HALT@{HALT}}
+\index{HALT@{HALT}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{HALT()}{HALT()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a5b49f43507869e85f0cd17ad7b2d4f2a} 
+void HALT (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01263}{1263}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a99a0d369fa443d778a3425cd356c471c}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!HIB@{HIB}}
+\index{HIB@{HIB}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{HIB()}{HIB()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a99a0d369fa443d778a3425cd356c471c} 
+void HIB (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01285}{1285}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a2aa508ab57881599413827b6c34af9a2}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!IDLE@{IDLE}}
+\index{IDLE@{IDLE}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{IDLE()}{IDLE()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a2aa508ab57881599413827b6c34af9a2} 
+void IDLE (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01241}{1241}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_ad1210d15280256c3f4f67df45f1956b9}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!InitAuxPll@{InitAuxPll}}
+\index{InitAuxPll@{InitAuxPll}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{InitAuxPll()}{InitAuxPll()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_ad1210d15280256c3f4f67df45f1956b9} 
+void Init\+Aux\+Pll (\begin{DoxyParamCaption}\item[{Uint16}]{clock\+\_\+source}{, }\item[{Uint16}]{imult}{, }\item[{Uint16}]{fmult}{, }\item[{Uint16}]{divsel}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00909}{909}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_acfb15ebe58549117d808383513ee5cc8}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!InitFlash@{InitFlash}}
+\index{InitFlash@{InitFlash}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{InitFlash()}{InitFlash()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_acfb15ebe58549117d808383513ee5cc8} 
+void Init\+Flash (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00328}{328}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a17c664e03a629dcb5c59b71cf5ba6e9c}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!InitPeripheralClocks@{InitPeripheralClocks}}
+\index{InitPeripheralClocks@{InitPeripheralClocks}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{InitPeripheralClocks()}{InitPeripheralClocks()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a17c664e03a629dcb5c59b71cf5ba6e9c} 
+void Init\+Peripheral\+Clocks (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00193}{193}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a881937c4bb55a2120533f2e80dcea828}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!InitSysCtrl@{InitSysCtrl}}
+\index{InitSysCtrl@{InitSysCtrl}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{InitSysCtrl()}{InitSysCtrl()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a881937c4bb55a2120533f2e80dcea828} 
+void Init\+Sys\+Ctrl (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00094}{94}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a5c07c65ec2171ba26c524893453b57e8}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!ReleaseFlashPump@{ReleaseFlashPump}}
+\index{ReleaseFlashPump@{ReleaseFlashPump}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{ReleaseFlashPump()}{ReleaseFlashPump()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a5c07c65ec2171ba26c524893453b57e8} 
+void Release\+Flash\+Pump (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00466}{466}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a925babc12ce633fbbc162d04faf5cee8}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!SeizeFlashPump@{SeizeFlashPump}}
+\index{SeizeFlashPump@{SeizeFlashPump}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{SeizeFlashPump()}{SeizeFlashPump()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a925babc12ce633fbbc162d04faf5cee8} 
+void Seize\+Flash\+Pump (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00445}{445}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_aa5e4faa42368a6024ce1b6b65a16d948}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!ServiceDog@{ServiceDog}}
+\index{ServiceDog@{ServiceDog}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{ServiceDog()}{ServiceDog()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_aa5e4faa42368a6024ce1b6b65a16d948} 
+void Service\+Dog (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l00478}{478}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a2a4754be3fc614be13a491b4ceb19d5e}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!STANDBY@{STANDBY}}
+\index{STANDBY@{STANDBY}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{STANDBY()}{STANDBY()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a2a4754be3fc614be13a491b4ceb19d5e} 
+void STANDBY (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01252}{1252}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_a437ba03019428ea3caf00c6701f3ed2f}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!SysIntOsc1Sel@{SysIntOsc1Sel}}
+\index{SysIntOsc1Sel@{SysIntOsc1Sel}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{SysIntOsc1Sel()}{SysIntOsc1Sel()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_a437ba03019428ea3caf00c6701f3ed2f} 
+void Sys\+Int\+Osc1\+Sel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01171}{1171}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_abc7121b9c44a6b7b42bdb46be52c3f94}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!SysIntOsc2Sel@{SysIntOsc2Sel}}
+\index{SysIntOsc2Sel@{SysIntOsc2Sel}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{SysIntOsc2Sel()}{SysIntOsc2Sel()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_abc7121b9c44a6b7b42bdb46be52c3f94} 
+void Sys\+Int\+Osc2\+Sel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01183}{1183}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+
+\Hypertarget{_f2837x_d___sys_ctrl_8c_af3f5941b38d4dae8537674fac61ba212}\index{F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}!SysXtalOscSel@{SysXtalOscSel}}
+\index{SysXtalOscSel@{SysXtalOscSel}!F2837xD\_SysCtrl.c@{F2837xD\_SysCtrl.c}}
+\doxysubsubsection{\texorpdfstring{SysXtalOscSel()}{SysXtalOscSel()}}
+{\footnotesize\ttfamily \label{_f2837x_d___sys_ctrl_8c_af3f5941b38d4dae8537674fac61ba212} 
+void Sys\+Xtal\+Osc\+Sel (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source_l01197}{1197}} of file \mbox{\hyperlink{_f2837x_d___sys_ctrl_8c_source}{F2837x\+D\+\_\+\+Sys\+Ctrl.\+c}}.
+

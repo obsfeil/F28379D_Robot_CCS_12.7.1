@@ -1,0 +1,141 @@
+\doxysection{RFFT\+\_\+\+F32\+\_\+\+STRUCT Struct Reference}
+\hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t}{}\label{struct_r_f_f_t___f32___s_t_r_u_c_t}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+
+
+Structure for the Real FFT.  
+
+
+
+
+{\ttfamily \#include $<$fpu\+\_\+rfft.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t_acaf37f37c2328d0d30b17226574c0877}{In\+Buf}}
+\begin{DoxyCompactList}\small\item\em Pointer to the input buffer. \end{DoxyCompactList}\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t_a28d3fcf3a2ac34ad0a58571b0be21c3c}{Out\+Buf}}
+\begin{DoxyCompactList}\small\item\em Pointer to the output buffer. \end{DoxyCompactList}\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t_a34c0c9d3cee71e94e1c3ac7bac9a1634}{Cos\+Sin\+Buf}}
+\begin{DoxyCompactList}\small\item\em Pointer to the twiddle factors. \end{DoxyCompactList}\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t_a1746b7b1622980919131bcf49dc23c6e}{Mag\+Buf}}
+\begin{DoxyCompactList}\small\item\em Pointer to the magnitude buffer. \end{DoxyCompactList}\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t_ada59ebba127b6a3ea39033176127416a}{Phase\+Buf}}
+\begin{DoxyCompactList}\small\item\em Pointer to the phase buffer. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t_a2d1967b148a68e6b03ff695fce302c11}{FFTSize}}
+\begin{DoxyCompactList}\small\item\em Size of the FFT (number of real data points) \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t_adc6d40f8218ec9421d864a666877e6d0}{FFTStages}}
+\begin{DoxyCompactList}\small\item\em Number of FFT stages. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure for the Real FFT. 
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00076}{76}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t_a34c0c9d3cee71e94e1c3ac7bac9a1634}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}!CosSinBuf@{CosSinBuf}}
+\index{CosSinBuf@{CosSinBuf}!RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{CosSinBuf}{CosSinBuf}}
+{\footnotesize\ttfamily \label{struct_r_f_f_t___f32___s_t_r_u_c_t_a34c0c9d3cee71e94e1c3ac7bac9a1634} 
+float\texorpdfstring{$\ast$}{*} Cos\+Sin\+Buf}
+
+
+
+Pointer to the twiddle factors. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00079}{79}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+\Hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t_a2d1967b148a68e6b03ff695fce302c11}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}!FFTSize@{FFTSize}}
+\index{FFTSize@{FFTSize}!RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{FFTSize}{FFTSize}}
+{\footnotesize\ttfamily \label{struct_r_f_f_t___f32___s_t_r_u_c_t_a2d1967b148a68e6b03ff695fce302c11} 
+uint16\+\_\+t FFTSize}
+
+
+
+Size of the FFT (number of real data points) 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00082}{82}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+\Hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t_adc6d40f8218ec9421d864a666877e6d0}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}!FFTStages@{FFTStages}}
+\index{FFTStages@{FFTStages}!RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{FFTStages}{FFTStages}}
+{\footnotesize\ttfamily \label{struct_r_f_f_t___f32___s_t_r_u_c_t_adc6d40f8218ec9421d864a666877e6d0} 
+uint16\+\_\+t FFTStages}
+
+
+
+Number of FFT stages. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00083}{83}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+\Hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t_acaf37f37c2328d0d30b17226574c0877}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}!InBuf@{InBuf}}
+\index{InBuf@{InBuf}!RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{InBuf}{InBuf}}
+{\footnotesize\ttfamily \label{struct_r_f_f_t___f32___s_t_r_u_c_t_acaf37f37c2328d0d30b17226574c0877} 
+float\texorpdfstring{$\ast$}{*} In\+Buf}
+
+
+
+Pointer to the input buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00077}{77}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+\Hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t_a1746b7b1622980919131bcf49dc23c6e}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}!MagBuf@{MagBuf}}
+\index{MagBuf@{MagBuf}!RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{MagBuf}{MagBuf}}
+{\footnotesize\ttfamily \label{struct_r_f_f_t___f32___s_t_r_u_c_t_a1746b7b1622980919131bcf49dc23c6e} 
+float\texorpdfstring{$\ast$}{*} Mag\+Buf}
+
+
+
+Pointer to the magnitude buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00080}{80}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+\Hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t_a28d3fcf3a2ac34ad0a58571b0be21c3c}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}!OutBuf@{OutBuf}}
+\index{OutBuf@{OutBuf}!RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{OutBuf}{OutBuf}}
+{\footnotesize\ttfamily \label{struct_r_f_f_t___f32___s_t_r_u_c_t_a28d3fcf3a2ac34ad0a58571b0be21c3c} 
+float\texorpdfstring{$\ast$}{*} Out\+Buf}
+
+
+
+Pointer to the output buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00078}{78}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+\Hypertarget{struct_r_f_f_t___f32___s_t_r_u_c_t_ada59ebba127b6a3ea39033176127416a}\index{RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}!PhaseBuf@{PhaseBuf}}
+\index{PhaseBuf@{PhaseBuf}!RFFT\_F32\_STRUCT@{RFFT\_F32\_STRUCT}}
+\doxysubsubsection{\texorpdfstring{PhaseBuf}{PhaseBuf}}
+{\footnotesize\ttfamily \label{struct_r_f_f_t___f32___s_t_r_u_c_t_ada59ebba127b6a3ea39033176127416a} 
+float\texorpdfstring{$\ast$}{*} Phase\+Buf}
+
+
+
+Pointer to the phase buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00081}{81}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fpu__rfft_8h}{fpu\+\_\+rfft.\+h}}\end{DoxyCompactItemize}

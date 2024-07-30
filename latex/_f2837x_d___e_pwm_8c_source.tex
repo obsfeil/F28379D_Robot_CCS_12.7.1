@@ -1,0 +1,441 @@
+\doxysection{F2837x\+D\+\_\+\+EPwm.\+c}
+\hypertarget{_f2837x_d___e_pwm_8c_source}{}\label{_f2837x_d___e_pwm_8c_source}\mbox{\hyperlink{_f2837x_d___e_pwm_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00001}00001\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00002}00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00003}00003\ \textcolor{comment}{//\ FILE:\ \ \ F2837xD\_EPwm.c}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00004}00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00005}00005\ \textcolor{comment}{//\ TITLE:\ \ F2837xD\ EPwm\ Initialization\ \&\ Support\ Functions.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00006}00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00007}00007\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00008}00008\ \textcolor{comment}{//\ \$TI\ Release:\ F2837xD\ Support\ Library\ v3.10.00.00\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00009}00009\ \textcolor{comment}{//\ \$Release\ Date:\ Tue\ May\ 26\ 17:13:46\ IST\ 2020\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00010}00010\ \textcolor{comment}{//\ \$Copyright:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00011}00011\ \textcolor{comment}{//\ Copyright\ (C)\ 2013-\/2020\ Texas\ Instruments\ Incorporated\ -\/\ http://www.ti.com/}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00012}00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00013}00013\ \textcolor{comment}{//\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00014}00014\ \textcolor{comment}{//\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00015}00015\ \textcolor{comment}{//\ are\ met:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00016}00016\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00017}00017\ \textcolor{comment}{//\ \ \ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00018}00018\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00019}00019\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00020}00020\ \textcolor{comment}{//\ \ \ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00021}00021\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00022}00022\ \textcolor{comment}{//\ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ \ \ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00023}00023\ \textcolor{comment}{//\ \ \ distribution.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00024}00024\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00025}00025\ \textcolor{comment}{//\ \ \ Neither\ the\ name\ of\ Texas\ Instruments\ Incorporated\ nor\ the\ names\ of}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00026}00026\ \textcolor{comment}{//\ \ \ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00027}00027\ \textcolor{comment}{//\ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00028}00028\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00029}00029\ \textcolor{comment}{//\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00030}00030\ \textcolor{comment}{//\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00031}00031\ \textcolor{comment}{//\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00032}00032\ \textcolor{comment}{//\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00033}00033\ \textcolor{comment}{//\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00034}00034\ \textcolor{comment}{//\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00035}00035\ \textcolor{comment}{//\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00036}00036\ \textcolor{comment}{//\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00037}00037\ \textcolor{comment}{//\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00038}00038\ \textcolor{comment}{//\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00039}00039\ \textcolor{comment}{//\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00040}00040\ \textcolor{comment}{//\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00041}00041\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00043}00043\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00044}00044\ \textcolor{comment}{//\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00045}00045\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00046}00046\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_device.h"{}}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_Examples.h"{}}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00049}00049\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00050}00050\ \textcolor{comment}{//\ InitEPwmGpio\ -\/\ Initialize\ all\ EPWM\ modules'\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00051}00051\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00052}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a1360b7aa2de84e75803fb33d3365b8a5}{00052}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a1360b7aa2de84e75803fb33d3365b8a5}{InitEPwmGpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00053}00053\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a5e575b9a8e1596354331e182bf282c22}{InitEPwm1Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7579c9aceea08040c53f890db92da8b6}{InitEPwm2Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a206168f6d25b1025e7483d47ebc0499b}{InitEPwm3Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7853c15dc6d15e6083a13888a17fcc51}{InitEPwm4Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00058}00058\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a5148cf1bf777614ada38d9749a081ac9}{InitEPwm5Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7f66ed8159aed24cea3ae174588a5d46}{InitEPwm6Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a28cb4c2f2219a39cc678936694081ca5}{InitEPwm7Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00061}00061\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_aca5e9cd6d2c64e78ae95ddf94c64e38d}{InitEPwm8Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a19fe70014009e897ab4f0c5c672a663a}{InitEPwm9Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a90a31e19aa84118d00c77cbf6e996762}{InitEPwm10Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a078d3e40c9369d8e7bbe775467aa8a9b}{InitEPwm11Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_ae7872d5922c5d943d40f6d48a593f554}{InitEPwm12Gpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00068}00068\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00069}00069\ \textcolor{comment}{//\ InitEPwm1Gpio\ -\/\ Initialize\ EPWM1\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00070}00070\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00071}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a5e575b9a8e1596354331e182bf282c22}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a5e575b9a8e1596354331e182bf282c22}{InitEPwm1Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00073}00073\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00078}00078\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00081}00081\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO0\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO0\ (EPWM1A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00082}00082\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO1\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO1\ (EPWM1B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO145\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO145\ (EPWM1A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO146\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO146\ (EPWM1B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00087}00087\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/1\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00088}00088\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM1\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00092}00092\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO0\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO0\ as\ EPWM1A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00093}00093\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO1\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO1\ as\ EPWM1B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00094}00094\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO145\ =\ 1;\ \ \ //\ Configure\ GPIO145\ as\ EPWM1A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO146\ =\ 1;\ \ \ //\ Configure\ GPIO0146\ as\ EPWM1B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00097}00097\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00098}00098\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00100}00100\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00101}00101\ \textcolor{comment}{//\ InitEPwm2Gpio\ -\/\ Initialize\ EPWM2\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00102}00102\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00103}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7579c9aceea08040c53f890db92da8b6}{00103}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7579c9aceea08040c53f890db92da8b6}{InitEPwm2Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00104}00104\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00105}00105\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00107}00107\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00111}00111\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00112}00112\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00114}00114\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO2\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO2\ (EPWM2A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00115}00115\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO3\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO3\ (EPWM2B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO147\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO147\ (EPWM2A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00117}00117\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO148\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO148\ (EPWM2B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00119}00119\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPwm-\/2\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00121}00121\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM2\ functional\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00122}00122\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00123}00123\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00124}00124\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO2\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO2\ as\ EPWM2A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00125}00125\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO3\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO3\ as\ EPWM2B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00126}00126\ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO147\ =\ 1;\ \ \ //\ Configure\ GPIO147\ as\ EPWM2A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00127}00127\ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO148\ =\ 1;\ \ \ //\ Configure\ GPIO148\ as\ EPWM2B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00129}00129\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00132}00132\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00133}00133\ \textcolor{comment}{//\ InitEPwm3Gpio\ -\/\ Initialize\ EPWM3\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00134}00134\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00135}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a206168f6d25b1025e7483d47ebc0499b}{00135}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a206168f6d25b1025e7483d47ebc0499b}{InitEPwm3Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00136}00136\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00137}00137\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00139}00139\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00140}00140\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00141}00141\ \ \ \ \ \textcolor{comment}{//\ \ \ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00142}00142\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00143}00143\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00144}00144\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00145}00145\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00146}00146\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO4\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO4\ (EPWM3A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00147}00147\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO5\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO5\ (EPWM3B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00148}00148\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO149\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO149\ (EPWM3A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00149}00149\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO150\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO150\ (EPWM3B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00152}00152\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPwm-\/3\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00153}00153\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM3\ functional\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00154}00154\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00155}00155\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00156}00156\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO4\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO4\ as\ EPWM3A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00157}00157\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO5\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO5\ as\ EPWM3B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00158}00158\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO149\ =\ 1;\ \ \ //\ Configure\ GPIO149\ as\ EPWM3A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00159}00159\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO150\ =\ 1;\ \ \ //\ Configure\ GPIO150\ as\ EPWM3B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00161}00161\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00164}00164\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00165}00165\ \textcolor{comment}{//\ InitEPwm4Gpio\ -\/\ Initialize\ EPWM4\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00166}00166\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00167}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7853c15dc6d15e6083a13888a17fcc51}{00167}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7853c15dc6d15e6083a13888a17fcc51}{InitEPwm4Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00168}00168\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00169}00169\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00171}00171\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00172}00172\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ \ \ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00175}00175\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00176}00176\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00177}00177\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00178}00178\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO6\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO6\ (EPWM4A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00179}00179\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO7\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO7\ (EPWM4B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00180}00180\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO151\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO151\ (EPWM4A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00181}00181\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO152\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO152\ (EPWM4B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00183}00183\ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00184}00184\ \ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/4\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00185}00185\ \ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM4\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00186}00186\ \ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00187}00187\ \ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00188}00188\ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00189}00189\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO6\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO6\ as\ EPWM4A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00190}00190\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO7\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO7\ as\ EPWM4B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00191}00191\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO151\ =\ 1;\ \ \ //\ Configure\ GPIO151\ as\ EPWM4A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00192}00192\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO152\ =\ 1;\ \ \ //\ Configure\ GPIO152\ as\ EPWM4B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00194}00194\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00195}00195\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00196}00196\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00197}00197\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00198}00198\ \textcolor{comment}{//\ InitEPwm5Gpio\ -\/\ Initialize\ EPWM5\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00199}00199\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00200}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a5148cf1bf777614ada38d9749a081ac9}{00200}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a5148cf1bf777614ada38d9749a081ac9}{InitEPwm5Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00201}00201\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00202}00202\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00203}00203\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00204}00204\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00205}00205\ \ \ \ \ \textcolor{comment}{//\ \ \ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00206}00206\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00207}00207\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00208}00208\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00209}00209\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00210}00210\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO8\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO8\ (EPWM5A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00211}00211\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO9\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO9\ (EPWM5B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00212}00212\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO153\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO153\ (EPWM5A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00213}00213\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO154\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO154\ (EPWM5B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00215}00215\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00216}00216\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/5\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00217}00217\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM5\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00218}00218\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00219}00219\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00220}00220\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00221}00221\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO8\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO8\ as\ EPWM5A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00222}00222\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO9\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO9\ as\ EPWM5B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00223}00223\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO153\ =\ 1;\ \ \ //\ Configure\ GPIO153\ as\ EPWM5A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00224}00224\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO154\ =\ 1;\ \ \ //\ Configure\ GPIO0154\ as\ EPWM5B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00226}00226\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00227}00227\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00229}00229\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00230}00230\ \textcolor{comment}{//\ InitEPwm6Gpio\ -\/\ Initialize\ EPWM6\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00231}00231\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00232}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7f66ed8159aed24cea3ae174588a5d46}{00232}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a7f66ed8159aed24cea3ae174588a5d46}{InitEPwm6Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00233}00233\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00234}00234\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00235}00235\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00236}00236\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00237}00237\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00238}00238\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00239}00239\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00240}00240\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00241}00241\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00242}00242\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO10\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO10\ (EPWM6A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00243}00243\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO11\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO11\ (EPWM6B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00244}00244\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO155\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO155\ (EPWM6A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00245}00245\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO156\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO156\ (EPWM6B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00247}00247\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00248}00248\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/6\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00249}00249\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM6\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00250}00250\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00251}00251\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00252}00252\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00253}00253\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO10\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO10\ as\ EPWM6A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00254}00254\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO11\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO11\ as\ EPWM6B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00255}00255\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO155\ =\ 1;\ \ \ //\ Configure\ GPIO155\ as\ EPWM6A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00256}00256\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO156\ =\ 1;\ \ \ //\ Configure\ GPIO156\ as\ EPWM6B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00258}00258\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00259}00259\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00261}00261\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00262}00262\ \textcolor{comment}{//\ InitEPwm7Gpio\ -\/\ Initialize\ EPWM7\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00263}00263\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00264}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a28cb4c2f2219a39cc678936694081ca5}{00264}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a28cb4c2f2219a39cc678936694081ca5}{InitEPwm7Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00265}00265\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00266}00266\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00268}00268\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00269}00269\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00270}00270\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00271}00271\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00272}00272\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00273}00273\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00274}00274\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00275}00275\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO12\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO12\ (EPWM7A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00276}00276\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO13\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO13\ (EPWM7B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00277}00277\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO157\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO157\ (EPWM7A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00278}00278\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEPUD.bit.GPIO158\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO158\ (EPWM7B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00280}00280\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00281}00281\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/6\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00282}00282\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM6\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00283}00283\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00284}00284\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00285}00285\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00286}00286\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO12\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO12\ as\ EPWM7A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00287}00287\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO13\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO13\ as\ EPWM7B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00288}00288\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO157\ =\ 1;\ \ \ //\ Configure\ GPIO157\ as\ EPWM7A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00289}00289\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO158\ =\ 1;\ \ \ //\ Configure\ GPIO158\ as\ EPWM7B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00291}00291\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00292}00292\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00293}00293\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00294}00294\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00295}00295\ \textcolor{comment}{//\ InitEPwm8Gpio\ -\/\ Initialize\ EPWM8\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00296}00296\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00297}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_aca5e9cd6d2c64e78ae95ddf94c64e38d}{00297}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_aca5e9cd6d2c64e78ae95ddf94c64e38d}{InitEPwm8Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00298}00298\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00299}00299\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00300}00300\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00301}00301\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00302}00302\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00303}00303\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00304}00304\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00305}00305\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00306}00306\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00307}00307\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO14\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO14\ (EPWM8A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00308}00308\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO15\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO15\ (EPWM8B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00309}00309\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPEPUD.bit.GPIO159\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO159\ (EPWM8A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00310}00310\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPFPUD.bit.GPIO160\ =\ 1;\ \ \ \ //\ Disable\ pull-\/up\ on\ GPIO160\ (EPWM8B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00311}00311\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00312}00312\ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00313}00313\ \ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/6\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00314}00314\ \ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM6\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00315}00315\ \ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00316}00316\ \ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00317}00317\ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00318}00318\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO14\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO14\ as\ EPWM8A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00319}00319\ \ \ \ \ GpioCtrlRegs.GPAMUX1.bit.GPIO15\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO15\ as\ EPWM8B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00320}00320\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPEMUX2.bit.GPIO159\ =\ 1;\ \ \ //\ Configure\ GPIO159\ as\ EPWM8A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00321}00321\ \ \ \ \ \textcolor{comment}{//\ GpioCtrlRegs.GPFMUX1.bit.GPIO160\ =\ 1;\ \ \ //\ Configure\ GPIO160\ as\ EPWM8B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00323}00323\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00324}00324\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00326}00326\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00327}00327\ \textcolor{comment}{//\ InitEPwm9Gpio\ -\/\ Initialize\ EPWM9\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00328}00328\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00329}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a19fe70014009e897ab4f0c5c672a663a}{00329}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a19fe70014009e897ab4f0c5c672a663a}{InitEPwm9Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00330}00330\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00331}00331\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00332}00332\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00333}00333\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00334}00334\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00335}00335\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00336}00336\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00337}00337\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00338}00338\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00339}00339\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO161\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO161\ (EPWM9A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00340}00340\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO162\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO162\ (EPWM9B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00341}00341\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00342}00342\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00343}00343\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/6\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00344}00344\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM6\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00345}00345\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00346}00346\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00347}00347\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00348}00348\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO161\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO161\ as\ EPWM9A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00349}00349\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO162\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO162\ as\ EPWM9B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00350}00350\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00351}00351\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00352}00352\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00353}00353\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00354}00354\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00355}00355\ \textcolor{comment}{//\ InitEPwm10Gpio\ -\/\ Initialize\ EPWM10\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00356}00356\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00357}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a90a31e19aa84118d00c77cbf6e996762}{00357}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a90a31e19aa84118d00c77cbf6e996762}{InitEPwm10Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00358}00358\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00359}00359\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00360}00360\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00361}00361\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00362}00362\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00363}00363\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00364}00364\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00365}00365\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00366}00366\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00367}00367\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO163\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO163\ (EPWM10A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00368}00368\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO164\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO164\ (EPWM10B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00370}00370\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00371}00371\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/6\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00372}00372\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM6\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00373}00373\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00374}00374\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00375}00375\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00376}00376\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO163\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO163\ as\ EPWM10A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00377}00377\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO164\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO164\ as\ EPWM10B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00379}00379\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00380}00380\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00381}00381\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00382}00382\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00383}00383\ \textcolor{comment}{//\ InitEPwm11Gpio\ -\/\ Initialize\ EPWM11\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00384}00384\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00385}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_a078d3e40c9369d8e7bbe775467aa8a9b}{00385}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_a078d3e40c9369d8e7bbe775467aa8a9b}{InitEPwm11Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00386}00386\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00387}00387\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00388}00388\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00389}00389\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00390}00390\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00391}00391\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00392}00392\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00393}00393\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00394}00394\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00395}00395\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO165\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO165\ (EPWM11A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00396}00396\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO166\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO166\ (EPWM11B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00398}00398\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00399}00399\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/6\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00400}00400\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM6\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00401}00401\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00402}00402\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00403}00403\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00404}00404\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO165\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO165\ as\ EPWM11A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00405}00405\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO166\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO166\ as\ EPWM11B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00407}00407\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00408}00408\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00409}00409\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00410}00410\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00411}00411\ \textcolor{comment}{//\ InitEPwm12Gpio\ -\/\ Initialize\ EPWM12\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00412}00412\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00413}\mbox{\hyperlink{_f2837x_d___e_pwm_8c_ae7872d5922c5d943d40f6d48a593f554}{00413}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___e_pwm_8c_ae7872d5922c5d943d40f6d48a593f554}{InitEPwm12Gpio}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00414}00414\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00415}00415\ \ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00416}00416\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00417}00417\ \ \ \ \ \textcolor{comment}{//\ Disable\ internal\ pull-\/up\ for\ the\ selected\ output\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00418}00418\ \ \ \ \ \textcolor{comment}{//\ for\ reduced\ power\ consumption}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00419}00419\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00420}00420\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00421}00421\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00422}00422\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00423}00423\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO167\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO167\ (EPWM12A)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00424}00424\ \ \ \ \ GpioCtrlRegs.GPFPUD.bit.GPIO168\ =\ 1;\ \ \ \ \textcolor{comment}{//\ Disable\ pull-\/up\ on\ GPIO168\ (EPWM12B)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00425}00425\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00426}00426\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00427}00427\ \ \ \ \ \textcolor{comment}{//\ Configure\ EPWM-\/6\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00428}00428\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ EPWM6\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00429}00429\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00430}00430\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00431}00431\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00432}00432\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO167\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO167\ as\ EPWM12A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00433}00433\ \ \ \ \ GpioCtrlRegs.GPFMUX1.bit.GPIO168\ =\ 1;\ \ \ \textcolor{comment}{//\ Configure\ GPIO168\ as\ EPWM12B}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00435}00435\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___e_pwm_8c_source_l00436}00436\ \}}
+
+\end{DoxyCode}

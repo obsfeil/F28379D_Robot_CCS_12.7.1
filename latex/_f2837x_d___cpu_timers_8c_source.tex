@@ -1,0 +1,186 @@
+\doxysection{F2837x\+D\+\_\+\+Cpu\+Timers.\+c}
+\hypertarget{_f2837x_d___cpu_timers_8c_source}{}\label{_f2837x_d___cpu_timers_8c_source}\mbox{\hyperlink{_f2837x_d___cpu_timers_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00001}00001\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00002}00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00003}00003\ \textcolor{comment}{//\ FILE:\ \ \ \ F2837xD\_CpuTimers.c}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00004}00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00005}00005\ \textcolor{comment}{//\ TITLE:\ \ \ CPU\ 32-\/bit\ Timers\ Initialization\ \&\ Support\ Functions.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00006}00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00007}00007\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00008}00008\ \textcolor{comment}{//\ \$TI\ Release:\ F2837xD\ Support\ Library\ v3.10.00.00\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00009}00009\ \textcolor{comment}{//\ \$Release\ Date:\ Tue\ May\ 26\ 17:13:46\ IST\ 2020\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00010}00010\ \textcolor{comment}{//\ \$Copyright:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00011}00011\ \textcolor{comment}{//\ Copyright\ (C)\ 2013-\/2020\ Texas\ Instruments\ Incorporated\ -\/\ http://www.ti.com/}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00012}00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00013}00013\ \textcolor{comment}{//\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00014}00014\ \textcolor{comment}{//\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00015}00015\ \textcolor{comment}{//\ are\ met:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00016}00016\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00017}00017\ \textcolor{comment}{//\ \ \ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00018}00018\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00019}00019\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00020}00020\ \textcolor{comment}{//\ \ \ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00021}00021\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00022}00022\ \textcolor{comment}{//\ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ \ \ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00023}00023\ \textcolor{comment}{//\ \ \ distribution.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00024}00024\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00025}00025\ \textcolor{comment}{//\ \ \ Neither\ the\ name\ of\ Texas\ Instruments\ Incorporated\ nor\ the\ names\ of}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00026}00026\ \textcolor{comment}{//\ \ \ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00027}00027\ \textcolor{comment}{//\ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00028}00028\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00029}00029\ \textcolor{comment}{//\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00030}00030\ \textcolor{comment}{//\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00031}00031\ \textcolor{comment}{//\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00032}00032\ \textcolor{comment}{//\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00033}00033\ \textcolor{comment}{//\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00034}00034\ \textcolor{comment}{//\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00035}00035\ \textcolor{comment}{//\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00036}00036\ \textcolor{comment}{//\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00037}00037\ \textcolor{comment}{//\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00038}00038\ \textcolor{comment}{//\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00039}00039\ \textcolor{comment}{//\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00040}00040\ \textcolor{comment}{//\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00041}00041\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00043}00043\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00044}00044\ \textcolor{comment}{//\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00045}00045\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00046}00046\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_device.h"{}}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_Examples.h"{}}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00049}00049\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00050}00050\ \textcolor{comment}{//\ Globals}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00051}00051\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00052}\mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ac4d96e0d33fc1ee7a5c22f8a091fcff5}{00052}}\ \textcolor{keyword}{struct\ }CPUTIMER\_VARS\ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ac4d96e0d33fc1ee7a5c22f8a091fcff5}{CpuTimer0}};}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00053}\mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ab0efabdc64b1ff989ecc7654d34e7894}{00053}}\ \textcolor{keyword}{struct\ }CPUTIMER\_VARS\ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ab0efabdc64b1ff989ecc7654d34e7894}{CpuTimer1}};}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00054}\mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ad510e7823bc189dcb96e3b786c3f571e}{00054}}\ \textcolor{keyword}{struct\ }CPUTIMER\_VARS\ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ad510e7823bc189dcb96e3b786c3f571e}{CpuTimer2}};}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00056}00056\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00057}00057\ \textcolor{comment}{//\ InitCpuTimers\ -\/\ This\ function\ initializes\ all\ three\ CPU\ timers\ to\ a\ known}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00058}00058\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ state.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00059}00059\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00060}\mbox{\hyperlink{_f2837x_d___cpu_timers_8c_aa23a1f332721d800fa9b232563403609}{00060}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_aa23a1f332721d800fa9b232563403609}{InitCpuTimers}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00061}00061\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ CPU\ Timer\ 0}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00064}00064\ \ \ \ \ \textcolor{comment}{//\ Initialize\ address\ pointers\ to\ respective\ timer\ registers:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ac4d96e0d33fc1ee7a5c22f8a091fcff5}{CpuTimer0}}.RegsAddr\ =\ \&\mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a755ad1f37e82cdf8eb75ecbd92e08021}{CpuTimer0Regs}};}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00068}00068\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00069}00069\ \ \ \ \ \textcolor{comment}{//\ Initialize\ timer\ period\ to\ maximum:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00070}00070\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a755ad1f37e82cdf8eb75ecbd92e08021}{CpuTimer0Regs}}.PRD.all\ \ =\ 0xFFFFFFFF;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00073}00073\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ Initialize\ pre-\/scale\ counter\ to\ divide\ by\ 1\ (SYSCLKOUT):}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a755ad1f37e82cdf8eb75ecbd92e08021}{CpuTimer0Regs}}.TPR.all\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a755ad1f37e82cdf8eb75ecbd92e08021}{CpuTimer0Regs}}.TPRH.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00079}00079\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00080}00080\ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ timer\ is\ stopped:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a755ad1f37e82cdf8eb75ecbd92e08021}{CpuTimer0Regs}}.TCR.bit.TSS\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ Reload\ all\ counter\ register\ with\ period\ value:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a755ad1f37e82cdf8eb75ecbd92e08021}{CpuTimer0Regs}}.TCR.bit.TRB\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00090}00090\ \ \ \ \ \textcolor{comment}{//\ Reset\ interrupt\ counters:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00091}00091\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ac4d96e0d33fc1ee7a5c22f8a091fcff5}{CpuTimer0}}.InterruptCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00094}00094\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ Initialize\ address\ pointers\ to\ respective\ timer\ registers:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ab0efabdc64b1ff989ecc7654d34e7894}{CpuTimer1}}.RegsAddr\ =\ \&\mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aa8e11544d0283ba6c9929340928d4b1b}{CpuTimer1Regs}};}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00098}00098\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ad510e7823bc189dcb96e3b786c3f571e}{CpuTimer2}}.RegsAddr\ =\ \&\mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aac534b295a9cd13391bc2b414abf0952}{CpuTimer2Regs}};}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00100}00100\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00101}00101\ \ \ \ \ \textcolor{comment}{//\ Initialize\ timer\ period\ to\ maximum:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00102}00102\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00103}00103\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aa8e11544d0283ba6c9929340928d4b1b}{CpuTimer1Regs}}.PRD.all\ \ =\ 0xFFFFFFFF;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00104}00104\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aac534b295a9cd13391bc2b414abf0952}{CpuTimer2Regs}}.PRD.all\ \ =\ 0xFFFFFFFF;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00107}00107\ \ \ \ \ \textcolor{comment}{//\ Initialize\ pre-\/scale\ counter\ to\ divide\ by\ 1\ (SYSCLKOUT):}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00109}00109\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aa8e11544d0283ba6c9929340928d4b1b}{CpuTimer1Regs}}.TPR.all\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00110}00110\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aa8e11544d0283ba6c9929340928d4b1b}{CpuTimer1Regs}}.TPRH.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00111}00111\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aac534b295a9cd13391bc2b414abf0952}{CpuTimer2Regs}}.TPR.all\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aac534b295a9cd13391bc2b414abf0952}{CpuTimer2Regs}}.TPRH.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00114}00114\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//\ Make\ sure\ timers\ are\ stopped:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00116}00116\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00117}00117\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aa8e11544d0283ba6c9929340928d4b1b}{CpuTimer1Regs}}.TCR.bit.TSS\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00118}00118\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aac534b295a9cd13391bc2b414abf0952}{CpuTimer2Regs}}.TCR.bit.TSS\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00121}00121\ \ \ \ \ \textcolor{comment}{//\ Reload\ all\ counter\ register\ with\ period\ value:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00122}00122\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00123}00123\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aa8e11544d0283ba6c9929340928d4b1b}{CpuTimer1Regs}}.TCR.bit.TRB\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00124}00124\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_aac534b295a9cd13391bc2b414abf0952}{CpuTimer2Regs}}.TCR.bit.TRB\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00126}00126\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00127}00127\ \ \ \ \ \textcolor{comment}{//\ Reset\ interrupt\ counters:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00128}00128\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00129}00129\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ab0efabdc64b1ff989ecc7654d34e7894}{CpuTimer1}}.InterruptCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00130}00130\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ad510e7823bc189dcb96e3b786c3f571e}{CpuTimer2}}.InterruptCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00131}00131\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00133}00133\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00134}00134\ \textcolor{comment}{//\ ConfigCpuTimer\ -\/\ This\ function\ initializes\ the\ selected\ timer\ to\ the\ period}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00135}00135\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ specified\ by\ the\ "{}Freq"{}\ and\ "{}Period"{}\ parameters.\ The\ "{}Freq"{}}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00136}00136\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\ entered\ as\ "{}MHz"{}\ and\ the\ period\ in\ "{}uSeconds"{}.\ The\ timer}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00137}00137\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\ held\ in\ the\ stopped\ state\ after\ configuration.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00138}00138\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00139}\mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ab9368e14715e9c17a2223c7433fabe73}{00139}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___cpu_timers_8c_ab9368e14715e9c17a2223c7433fabe73}{ConfigCpuTimer}}(\textcolor{keyword}{struct}\ CPUTIMER\_VARS\ *Timer,\ \textcolor{keywordtype}{float}\ Freq,\ \textcolor{keywordtype}{float}\ Period)}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00140}00140\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00141}00141\ \ \ \ \ Uint32\ \mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a36142ddde297ed1d5577c81230997301}{temp}};}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00143}00143\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00144}00144\ \ \ \ \ \textcolor{comment}{//\ Initialize\ timer\ period:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00145}00145\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00146}00146\ \ \ \ \ Timer-\/>CPUFreqInMHz\ =\ Freq;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00147}00147\ \ \ \ \ Timer-\/>PeriodInUSec\ =\ Period;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a36142ddde297ed1d5577c81230997301}{temp}}\ =\ (long)\ (Freq\ *\ Period);}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00150}00150\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00151}00151\ \ \ \ \ \textcolor{comment}{//\ Counter\ decrements\ PRD+1\ times\ each\ period}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00152}00152\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00153}00153\ \ \ \ \ Timer-\/>RegsAddr-\/>PRD.all\ =\ \mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a36142ddde297ed1d5577c81230997301}{temp}}\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00155}00155\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00156}00156\ \ \ \ \ \textcolor{comment}{//\ Set\ pre-\/scale\ counter\ to\ divide\ by\ 1\ (SYSCLKOUT):}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00158}00158\ \ \ \ \ Timer-\/>RegsAddr-\/>TPR.all\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00159}00159\ \ \ \ \ Timer-\/>RegsAddr-\/>TPRH.all\ \ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00161}00161\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00162}00162\ \ \ \ \ \textcolor{comment}{//\ Initialize\ timer\ control\ register:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00163}00163\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00164}00164\ \ \ \ \ Timer-\/>RegsAddr-\/>TCR.bit.TSS\ =\ 1;\ \ \ \ \ \textcolor{comment}{//\ 1\ =\ Stop\ timer,\ 0\ =\ Start/Restart}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Timer}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00166}00166\ \ \ \ \ Timer-\/>RegsAddr-\/>TCR.bit.TRB\ =\ 1;\ \ \ \ \ \textcolor{comment}{//\ 1\ =\ reload\ timer}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00167}00167\ \ \ \ \ Timer-\/>RegsAddr-\/>TCR.bit.SOFT\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00168}00168\ \ \ \ \ Timer-\/>RegsAddr-\/>TCR.bit.FREE\ =\ 0;\ \ \ \ \textcolor{comment}{//\ Timer\ Free\ Run\ Disabled}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00169}00169\ \ \ \ \ Timer-\/>RegsAddr-\/>TCR.bit.TIE\ =\ 1;\ \ \ \ \ \textcolor{comment}{//\ 0\ =\ Disable/\ 1\ =\ Enable\ Timer}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Interrupt}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00172}00172\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00173}00173\ \ \ \ \ \textcolor{comment}{//\ Reset\ interrupt\ counter:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00174}00174\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00175}00175\ \ \ \ \ Timer-\/>InterruptCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00176}00176\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00179}00179\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00180}00180\ \textcolor{comment}{//\ End\ of\ file}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___cpu_timers_8c_source_l00181}00181\ \textcolor{comment}{//}}
+
+\end{DoxyCode}

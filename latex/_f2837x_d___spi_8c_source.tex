@@ -1,0 +1,180 @@
+\doxysection{F2837x\+D\+\_\+\+Spi.\+c}
+\hypertarget{_f2837x_d___spi_8c_source}{}\label{_f2837x_d___spi_8c_source}\mbox{\hyperlink{_f2837x_d___spi_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00001}00001\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00002}00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00003}00003\ \textcolor{comment}{//\ FILE:\ \ \ F2837xD\_Spi.c}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00004}00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00005}00005\ \textcolor{comment}{//\ TITLE:\ \ F2837xD\ SPI\ Initialization\ \&\ Support\ Functions.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00006}00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00007}00007\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00008}00008\ \textcolor{comment}{//\ \$TI\ Release:\ F2837xD\ Support\ Library\ v3.10.00.00\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00009}00009\ \textcolor{comment}{//\ \$Release\ Date:\ Tue\ May\ 26\ 17:13:46\ IST\ 2020\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00010}00010\ \textcolor{comment}{//\ \$Copyright:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00011}00011\ \textcolor{comment}{//\ Copyright\ (C)\ 2013-\/2020\ Texas\ Instruments\ Incorporated\ -\/\ http://www.ti.com/}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00012}00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00013}00013\ \textcolor{comment}{//\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00014}00014\ \textcolor{comment}{//\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00015}00015\ \textcolor{comment}{//\ are\ met:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00016}00016\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00017}00017\ \textcolor{comment}{//\ \ \ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00018}00018\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00019}00019\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00020}00020\ \textcolor{comment}{//\ \ \ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00021}00021\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00022}00022\ \textcolor{comment}{//\ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ \ \ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00023}00023\ \textcolor{comment}{//\ \ \ distribution.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00024}00024\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00025}00025\ \textcolor{comment}{//\ \ \ Neither\ the\ name\ of\ Texas\ Instruments\ Incorporated\ nor\ the\ names\ of}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00026}00026\ \textcolor{comment}{//\ \ \ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00027}00027\ \textcolor{comment}{//\ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00028}00028\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00029}00029\ \textcolor{comment}{//\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00030}00030\ \textcolor{comment}{//\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00031}00031\ \textcolor{comment}{//\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00032}00032\ \textcolor{comment}{//\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00033}00033\ \textcolor{comment}{//\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00034}00034\ \textcolor{comment}{//\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00035}00035\ \textcolor{comment}{//\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00036}00036\ \textcolor{comment}{//\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00037}00037\ \textcolor{comment}{//\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00038}00038\ \textcolor{comment}{//\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00039}00039\ \textcolor{comment}{//\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00040}00040\ \textcolor{comment}{//\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00041}00041\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00043}00043\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00044}00044\ \textcolor{comment}{//\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00045}00045\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00046}00046\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_device.h"{}}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_Examples.h"{}}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00049}00049\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00050}00050\ \textcolor{comment}{//\ Calculate\ BRR:\ 7-\/bit\ baud\ rate\ register\ value}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00051}00051\ \textcolor{comment}{//\ SPI\ CLK\ freq\ =\ 500\ kHz}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00052}00052\ \textcolor{comment}{//\ LSPCLK\ freq\ \ =\ CPU\ freq\ /\ 4\ \ (by\ default)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00053}00053\ \textcolor{comment}{//\ BRR\ \ \ \ \ \ \ \ \ \ =\ (LSPCLK\ freq\ /\ SPI\ CLK\ freq)\ -\/\ 1}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00054}00054\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00055}00055\ \textcolor{preprocessor}{\#if\ CPU\_FRQ\_200MHZ}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00056}00056\ \textcolor{preprocessor}{\#define\ SPI\_BRR\ \ \ \ \ \ \ \ ((200E6\ /\ 4)\ /\ 500E3)\ -\/\ 1}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00057}00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00059}00059\ \textcolor{preprocessor}{\#if\ CPU\_FRQ\_150MHZ}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00060}00060\ \textcolor{preprocessor}{\#define\ SPI\_BRR\ \ \ \ \ \ \ \ ((150E6\ /\ 4)\ /\ 500E3)\ -\/\ 1}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00061}00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00063}00063\ \textcolor{preprocessor}{\#if\ CPU\_FRQ\_120MHZ}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00064}00064\ \textcolor{preprocessor}{\#define\ SPI\_BRR\ \ \ \ \ \ \ \ ((120E6\ /\ 4)\ /\ 500E3)\ -\/\ 1}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00065}00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00067}00067\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00068}00068\ \textcolor{comment}{//\ InitSPI\ -\/\ This\ function\ initializes\ the\ SPI\ to\ a\ known\ state}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00069}00069\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00070}\mbox{\hyperlink{_f2837x_d___spi_8c_abc5b3bd4febb79c0c63a256ba64fda3c}{00070}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___spi_8c_abc5b3bd4febb79c0c63a256ba64fda3c}{InitSpi}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00072}00072\ \ \ \ \ \textcolor{comment}{//\ Initialize\ SPI-\/A}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00074}00074\ \ \ \ \ \textcolor{comment}{//\ Set\ reset\ low\ before\ configuration\ changes}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ Clock\ polarity\ (0\ ==\ rising,\ 1\ ==\ falling)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00076}00076\ \ \ \ \ \textcolor{comment}{//\ 16-\/bit\ character}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00077}00077\ \ \ \ \ \textcolor{comment}{//\ Enable\ loop-\/back}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICCR.bit.SPISWRESET\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICCR.bit.CLKPOLARITY\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICCR.bit.SPICHAR\ =\ (16-\/1);}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00081}00081\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICCR.bit.SPILBK\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//\ Enable\ master\ (0\ ==\ slave,\ 1\ ==\ master)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00084}00084\ \ \ \ \ \textcolor{comment}{//\ Enable\ transmission\ (Talk)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//\ Clock\ phase\ (0\ ==\ normal,\ 1\ ==\ delayed)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00086}00086\ \ \ \ \ \textcolor{comment}{//\ SPI\ interrupts\ are\ disabled}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICTL.bit.MASTER\_SLAVE\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICTL.bit.TALK\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICTL.bit.CLK\_PHASE\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICTL.bit.SPIINTENA\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ Set\ the\ baud\ rate}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPIBRR.bit.SPI\_BIT\_RATE\ =\ SPI\_BRR;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00095}00095\ \ \ \ \ \textcolor{comment}{//\ Set\ FREE\ bit}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//\ Halting\ on\ a\ breakpoint\ will\ not\ halt\ the\ SPI}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00097}00097\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPIPRI.bit.FREE\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00099}00099\ \ \ \ \ \textcolor{comment}{//\ Release\ the\ SPI\ from\ reset}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00100}00100\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a64b2ac3aa341112a497f7ac2bf21a3a9}{SpiaRegs}}.SPICCR.bit.SPISWRESET\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00103}00103\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00104}00104\ \textcolor{comment}{//\ InitSpiGpio\ -\/\ This\ function\ initializes\ GPIO\ pins\ to\ function\ as\ SPI\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00105}00105\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Each\ GPIO\ pin\ can\ be\ configured\ as\ a\ GPIO\ pin\ or\ up\ to\ 3}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00106}00106\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ different\ peripheral\ functional\ pins.\ By\ default\ all\ pins\ come}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00107}00107\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ up\ as\ GPIO\ inputs\ after\ reset.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00108}00108\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00109}00109\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Caution:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00110}00110\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ For\ each\ SPI\ peripheral}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00111}00111\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Only\ one\ GPIO\ pin\ should\ be\ enabled\ for\ SPISOMO\ operation.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00112}00112\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Only\ one\ GPIO\ pin\ should\ be\ enabled\ for\ SPISOMI\ operation.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00113}00113\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Only\ one\ GPIO\ pin\ should\ be\ enabled\ for\ SPICLK\ \ operation.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00114}00114\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Only\ one\ GPIO\ pin\ should\ be\ enabled\ for\ SPISTE\ \ operation.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00115}00115\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00116}00116\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00117}\mbox{\hyperlink{_f2837x_d___spi_8c_a451ac38b9c01f6f268bea0afa70048fe}{00117}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___spi_8c_a451ac38b9c01f6f268bea0afa70048fe}{InitSpiGpio}}()}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00118}00118\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00119}00119\ \ \ \ \mbox{\hyperlink{_f2837x_d___spi_8c_aa3f4729bee5047fe222878f5e6495c4b}{InitSpiaGpio}}();}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00120}00120\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00122}00122\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00123}00123\ \textcolor{comment}{//\ InitSpiaGpio\ -\/\ Initialize\ SPIA\ GPIOs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00124}00124\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00125}\mbox{\hyperlink{_f2837x_d___spi_8c_aa3f4729bee5047fe222878f5e6495c4b}{00125}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___spi_8c_aa3f4729bee5047fe222878f5e6495c4b}{InitSpiaGpio}}()}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00126}00126\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00127}00127\ \ \ \ EALLOW;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00129}00129\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00130}00130\ \ \ \ \ \textcolor{comment}{//\ Enable\ internal\ pull-\/up\ for\ the\ selected\ pins}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00131}00131\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00132}00132\ \ \ \ \ \textcolor{comment}{//\ Pull-\/ups\ can\ be\ enabled\ or\ disabled\ by\ the\ user.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00133}00133\ \ \ \ \ \textcolor{comment}{//\ This\ will\ enable\ the\ pullups\ for\ the\ specified\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00135}00135\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00136}00136\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO16\ =\ 0;\ \ \textcolor{comment}{//\ Enable\ pull-\/up\ on\ GPIO16\ (SPISIMOA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00137}00137\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPAPUD.bit.GPIO5\ =\ 0;\ \ \ //\ Enable\ pull-\/up\ on\ GPIO5\ (SPISIMOA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00138}00138\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO17\ =\ 0;\ \ \textcolor{comment}{//\ Enable\ pull-\/up\ on\ GPIO17\ (SPISOMIA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00139}00139\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPAPUD.bit.GPIO3\ =\ 0;\ \ \ //\ Enable\ pull-\/up\ on\ GPIO3\ (SPISOMIA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00140}00140\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO18\ =\ 0;\ \ \textcolor{comment}{//\ Enable\ pull-\/up\ on\ GPIO18\ (SPICLKA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00141}00141\ \ \ \ \ GpioCtrlRegs.GPAPUD.bit.GPIO19\ =\ 0;\ \ \textcolor{comment}{//\ Enable\ pull-\/up\ on\ GPIO19\ (SPISTEA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00143}00143\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00144}00144\ \ \ \ \ \textcolor{comment}{//\ Set\ qualification\ for\ selected\ pins\ to\ asynch\ only}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00145}00145\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00146}00146\ \ \ \ \ \textcolor{comment}{//\ This\ will\ select\ asynch\ (no\ qualification)\ for\ the\ selected\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00147}00147\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00148}00148\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00149}00149\ \ \ \ \ GpioCtrlRegs.GPAQSEL2.bit.GPIO16\ =\ 3;\ \textcolor{comment}{//\ Asynch\ input\ GPIO16\ (SPISIMOA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00150}00150\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPAQSEL1.bit.GPIO5\ =\ 3;\ \ //\ Asynch\ input\ GPIO5\ (SPISIMOA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00151}00151\ \ \ \ \ GpioCtrlRegs.GPAQSEL2.bit.GPIO17\ =\ 3;\ \textcolor{comment}{//\ Asynch\ input\ GPIO17\ (SPISOMIA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00152}00152\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPAQSEL1.bit.GPIO3\ =\ 3;\ \ //\ Asynch\ input\ GPIO3\ (SPISOMIA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00153}00153\ \ \ \ \ GpioCtrlRegs.GPAQSEL2.bit.GPIO18\ =\ 3;\ \textcolor{comment}{//\ Asynch\ input\ GPIO18\ (SPICLKA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00154}00154\ \ \ \ \ GpioCtrlRegs.GPAQSEL2.bit.GPIO19\ =\ 3;\ \textcolor{comment}{//\ Asynch\ input\ GPIO19\ (SPISTEA)}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00155}00155\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00156}00156\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00157}00157\ \ \ \ \ \textcolor{comment}{//Configure\ SPI-\/A\ pins\ using\ GPIO\ regs}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00158}00158\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00159}00159\ \ \ \ \ \textcolor{comment}{//\ This\ specifies\ which\ of\ the\ possible\ GPIO\ pins\ will\ be\ SPI\ functional}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00160}00160\ \ \ \ \ \textcolor{comment}{//\ pins.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00161}00161\ \ \ \ \ \textcolor{comment}{//\ Comment\ out\ other\ unwanted\ lines.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00162}00162\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00163}00163\ \ \ \ \ GpioCtrlRegs.GPAMUX2.bit.GPIO16\ =\ 1;\ \textcolor{comment}{//\ Configure\ GPIO16\ as\ SPISIMOA}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00164}00164\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPAMUX1.bit.GPIO5\ =\ 2;\ \ //\ Configure\ GPIO5\ as\ SPISIMOA}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00165}00165\ \ \ \ \ GpioCtrlRegs.GPAMUX2.bit.GPIO17\ =\ 1;\ \textcolor{comment}{//\ Configure\ GPIO17\ as\ SPISOMIA}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00166}00166\ \textcolor{comment}{//\ \ GpioCtrlRegs.GPAMUX1.bit.GPIO3\ =\ 2;\ \ //\ Configure\ GPIO3\ as\ SPISOMIA}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00167}00167\ \ \ \ \ GpioCtrlRegs.GPAMUX2.bit.GPIO18\ =\ 1;\ \textcolor{comment}{//\ Configure\ GPIO18\ as\ SPICLKA}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00168}00168\ \ \ \ \ GpioCtrlRegs.GPAMUX2.bit.GPIO19\ =\ 1;\ \textcolor{comment}{//\ Configure\ GPIO19\ as\ SPISTEA}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00170}00170\ \ \ \ \ EDIS;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00171}00171\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00173}00173\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00174}00174\ \textcolor{comment}{//\ End\ of\ file}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___spi_8c_source_l00175}00175\ \textcolor{comment}{//}}
+
+\end{DoxyCode}

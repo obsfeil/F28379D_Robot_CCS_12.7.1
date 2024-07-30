@@ -1,0 +1,27 @@
+float K1, K2, K3, turnrate, FwdBackOffset;
+
+void updateVariablesFromStrapi() {
+    // Kall en funksjon for å hente data fra Strapi
+    // For eksempel, gjennom en REST API eller MQTT hvis din mikrokontroller støtter det
+    // Dette er en pseudokode, du må implementere riktig API-kall basert på ditt oppsett
+    K1 = getStrapiVariable("K1");
+    K2 = getStrapiVariable("K2");
+    K3 = getStrapiVariable("K3");
+    turnrate = getStrapiVariable("turnRate");
+    FwdBackOffset = getStrapiVariable("FwdBackOffset");
+}
+
+void main(void) {
+    // Initialisering...
+    updateVariablesFromStrapi();
+    
+    // Bruk de oppdaterte variablene
+    // ...
+    while(1) {
+        // Eksempel på bruk av variabler i kontrollkoden
+        float ubal = -K1 * tilt_value - K2 * gyro_value - K3 * (LeftVel + RightVel) / 2.0;
+        float turn = Kp * eDif + Ki * iDif - Kd * velWheelDif;
+
+        // Resten av koden...
+    }
+}

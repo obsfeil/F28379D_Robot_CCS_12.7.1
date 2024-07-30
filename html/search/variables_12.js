@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['sci_0',['sci',['../structserial__s.html#afaca11dcab6b039ed3a4f6718f9a28c3',1,'serial_s']]],
+  ['sciaregs_1',['SciaRegs',['../_f2837x_d___global_variable_defs_8c.html#a127722a23d7d2002a58f342fd887ced1',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['scibregs_2',['ScibRegs',['../_f2837x_d___global_variable_defs_8c.html#a9be4c60673ada32620f395e8612ad7c8',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['scicregs_3',['ScicRegs',['../_f2837x_d___global_variable_defs_8c.html#a021693d0c349cc5e22d2d9f5a4e93de9',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['scidregs_4',['ScidRegs',['../_f2837x_d___global_variable_defs_8c.html#a9378cf44884d3910f512d4a1f1f3fddb',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['sdfm1regs_5',['Sdfm1Regs',['../_f2837x_d___global_variable_defs_8c.html#af6daf245f1bd7bef65cade420e3cf221',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['sdfm2regs_6',['Sdfm2Regs',['../_f2837x_d___global_variable_defs_8c.html#aefed73af3cf5e891150ff4d8fab6c877',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['sendback_7',['sendback',['../_segbot___steer__and___celebrate_8c.html#a1b6825db1ce4ea04ff3f004c0f7af146',1,'sendback:&#160;Segbot_Steer_and_Celebrate.c'],['../_u_a_r_t___chip___main_8c.html#a1b6825db1ce4ea04ff3f004c0f7af146',1,'sendback:&#160;UART_Chip_Main.c'],['../_u_a_r_t___segbot_8_8c.html#a1b6825db1ce4ea04ff3f004c0f7af146',1,'sendback:&#160;UART_Segbot..c'],['../_u_a_r_t___segbot2_8c.html#a1b6825db1ce4ea04ff3f004c0f7af146',1,'sendback:&#160;UART_Segbot2.c'],['../_u_a_r_t___segbot3_8c.html#a1b6825db1ce4ea04ff3f004c0f7af146',1,'sendback:&#160;UART_Segbot3.c'],['../_u_a_r_t___segbot4_8c.html#a1b6825db1ce4ea04ff3f004c0f7af146',1,'sendback:&#160;UART_Segbot4.c']]],
+  ['seriala_8',['SerialA',['../_f28379d_serial_8c.html#a43b293f0a3ee2617eba5143fcc3e50d7',1,'SerialA:&#160;F28379dSerial.c'],['../_f28379d_serial_8h.html#a43b293f0a3ee2617eba5143fcc3e50d7',1,'SerialA:&#160;F28379dSerial.c']]],
+  ['serialc_9',['SerialC',['../_f28379d_serial_8c.html#ae801915e5742ce528d32338ac3e7d712',1,'SerialC:&#160;F28379dSerial.c'],['../_f28379d_serial_8h.html#ae801915e5742ce528d32338ac3e7d712',1,'SerialC:&#160;F28379dSerial.c']]],
+  ['seriald_10',['SerialD',['../_f28379d_serial_8c.html#a74a3cb62cb556e316055d98ade6d309d',1,'SerialD:&#160;F28379dSerial.c'],['../_f28379d_serial_8h.html#a74a3cb62cb556e316055d98ade6d309d',1,'SerialD:&#160;F28379dSerial.c']]],
+  ['size_11',['size',['../structbuffer__s.html#ad658ca46eae08c06bdb60ca38ad87e13',1,'buffer_s']]],
+  ['song_12',['song',['../_segbot___steer__and___celebrate_8c.html#a8dcb745c86f48661d1c19889d9dc4cfe',1,'song:&#160;Segbot_Steer_and_Celebrate.c'],['../_u_a_r_t___segbot4_8c.html#a8dcb745c86f48661d1c19889d9dc4cfe',1,'song:&#160;UART_Segbot4.c']]],
+  ['songarray_13',['songarray',['../song_8h.html#a1dea113ae5d8c10dd606623ceb93bdc7',1,'song.h']]],
+  ['spiaregs_14',['SpiaRegs',['../_f2837x_d___global_variable_defs_8c.html#a64b2ac3aa341112a497f7ac2bf21a3a9',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['spibnumcalls_15',['SpibNumCalls',['../_segbot___steer__and___celebrate_8c.html#a9582f2e70020e715c48d546358a3c03f',1,'SpibNumCalls:&#160;Segbot_Steer_and_Celebrate.c'],['../_u_a_r_t___segbot_8_8c.html#a9582f2e70020e715c48d546358a3c03f',1,'SpibNumCalls:&#160;UART_Segbot..c'],['../_u_a_r_t___segbot2_8c.html#a9582f2e70020e715c48d546358a3c03f',1,'SpibNumCalls:&#160;UART_Segbot2.c'],['../_u_a_r_t___segbot3_8c.html#a9582f2e70020e715c48d546358a3c03f',1,'SpibNumCalls:&#160;UART_Segbot3.c'],['../_u_a_r_t___segbot4_8c.html#a9582f2e70020e715c48d546358a3c03f',1,'SpibNumCalls:&#160;UART_Segbot4.c']]],
+  ['spibregs_16',['SpibRegs',['../_f2837x_d___global_variable_defs_8c.html#a48c33cabc678e417a30224dbb1106546',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['spicregs_17',['SpicRegs',['../_f2837x_d___global_variable_defs_8c.html#a97bebbdee32a8f68ff65245182ba272a',1,'F2837xD_GlobalVariableDefs.c']]],
+  ['steeroff_18',['steeroff',['../_segbot___steer__and___celebrate_8c.html#a4a33b62282ba04191a3e885db95b0115',1,'steeroff:&#160;Segbot_Steer_and_Celebrate.c'],['../_u_a_r_t___segbot4_8c.html#a4a33b62282ba04191a3e885db95b0115',1,'steeroff:&#160;UART_Segbot4.c']]]
+];

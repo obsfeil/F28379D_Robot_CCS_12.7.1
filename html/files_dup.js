@@ -1,0 +1,27 @@
+var files_dup =
+[
+    [ "buffer.h", "buffer_8h.html", "buffer_8h" ],
+    [ "dsp.h", "dsp_8h.html", "dsp_8h" ],
+    [ "F28379dSerial.c", "_f28379d_serial_8c.html", "_f28379d_serial_8c" ],
+    [ "F28379dSerial.h", "_f28379d_serial_8h.html", "_f28379d_serial_8h" ],
+    [ "F2837xD_Adc.c", "_f2837x_d___adc_8c.html", "_f2837x_d___adc_8c" ],
+    [ "F2837xD_CpuTimers.c", "_f2837x_d___cpu_timers_8c.html", "_f2837x_d___cpu_timers_8c" ],
+    [ "F2837xD_DefaultISR.c", "_f2837x_d___default_i_s_r_8c.html", "_f2837x_d___default_i_s_r_8c" ],
+    [ "F2837xD_EPwm.c", "_f2837x_d___e_pwm_8c.html", "_f2837x_d___e_pwm_8c" ],
+    [ "F2837xD_GlobalVariableDefs.c", "_f2837x_d___global_variable_defs_8c.html", "_f2837x_d___global_variable_defs_8c" ],
+    [ "F2837xD_Gpio.c", "_f2837x_d___gpio_8c.html", "_f2837x_d___gpio_8c" ],
+    [ "F2837xD_PieCtrl.c", "_f2837x_d___pie_ctrl_8c.html", "_f2837x_d___pie_ctrl_8c" ],
+    [ "F2837xD_PieVect.c", "_f2837x_d___pie_vect_8c.html", "_f2837x_d___pie_vect_8c" ],
+    [ "F2837xD_Spi.c", "_f2837x_d___spi_8c.html", "_f2837x_d___spi_8c" ],
+    [ "F2837xD_SysCtrl.c", "_f2837x_d___sys_ctrl_8c.html", "_f2837x_d___sys_ctrl_8c" ],
+    [ "fpu_rfft.h", "fpu__rfft_8h.html", "fpu__rfft_8h" ],
+    [ "LEDPatterns.c", "_l_e_d_patterns_8c.html", "_l_e_d_patterns_8c" ],
+    [ "LEDPatterns.h", "_l_e_d_patterns_8h.html", "_l_e_d_patterns_8h" ],
+    [ "Segbot_Steer_and_Celebrate.c", "_segbot___steer__and___celebrate_8c.html", "_segbot___steer__and___celebrate_8c" ],
+    [ "song.h", "song_8h.html", "song_8h" ],
+    [ "UART_Chip_Main.c", "_u_a_r_t___chip___main_8c.html", "_u_a_r_t___chip___main_8c" ],
+    [ "UART_Segbot..c", "_u_a_r_t___segbot_8_8c.html", "_u_a_r_t___segbot_8_8c" ],
+    [ "UART_Segbot2.c", "_u_a_r_t___segbot2_8c.html", "_u_a_r_t___segbot2_8c" ],
+    [ "UART_Segbot3.c", "_u_a_r_t___segbot3_8c.html", "_u_a_r_t___segbot3_8c" ],
+    [ "UART_Segbot4.c", "_u_a_r_t___segbot4_8c.html", "_u_a_r_t___segbot4_8c" ]
+];

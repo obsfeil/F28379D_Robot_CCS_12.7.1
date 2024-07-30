@@ -1,0 +1,126 @@
+\doxysection{F2837x\+D\+\_\+\+Pie\+Ctrl.\+c}
+\hypertarget{_f2837x_d___pie_ctrl_8c_source}{}\label{_f2837x_d___pie_ctrl_8c_source}\mbox{\hyperlink{_f2837x_d___pie_ctrl_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00001}00001\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00002}00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00003}00003\ \textcolor{comment}{//\ FILE:\ \ \ \ F2837xD\_PieCtrl.c}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00004}00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00005}00005\ \textcolor{comment}{//\ TITLE:\ \ \ F2837xD\ Device\ PIE\ Control\ Register\ Initialization\ Functions.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00006}00006\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00007}00007\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00008}00008\ \textcolor{comment}{//\ \$TI\ Release:\ F2837xD\ Support\ Library\ v3.10.00.00\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00009}00009\ \textcolor{comment}{//\ \$Release\ Date:\ Tue\ May\ 26\ 17:13:46\ IST\ 2020\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00010}00010\ \textcolor{comment}{//\ \$Copyright:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00011}00011\ \textcolor{comment}{//\ Copyright\ (C)\ 2013-\/2020\ Texas\ Instruments\ Incorporated\ -\/\ http://www.ti.com/}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00012}00012\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00013}00013\ \textcolor{comment}{//\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00014}00014\ \textcolor{comment}{//\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00015}00015\ \textcolor{comment}{//\ are\ met:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00016}00016\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00017}00017\ \textcolor{comment}{//\ \ \ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00018}00018\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00019}00019\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00020}00020\ \textcolor{comment}{//\ \ \ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00021}00021\ \textcolor{comment}{//\ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00022}00022\ \textcolor{comment}{//\ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ \ \ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00023}00023\ \textcolor{comment}{//\ \ \ distribution.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00024}00024\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00025}00025\ \textcolor{comment}{//\ \ \ Neither\ the\ name\ of\ Texas\ Instruments\ Incorporated\ nor\ the\ names\ of}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00026}00026\ \textcolor{comment}{//\ \ \ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products\ derived}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00027}00027\ \textcolor{comment}{//\ \ \ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00028}00028\ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00029}00029\ \textcolor{comment}{//\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00030}00030\ \textcolor{comment}{//\ "{}AS\ IS"{}\ AND\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00031}00031\ \textcolor{comment}{//\ LIMITED\ TO,\ THE\ IMPLIED\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00032}00032\ \textcolor{comment}{//\ A\ PARTICULAR\ PURPOSE\ ARE\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ THE\ COPYRIGHT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00033}00033\ \textcolor{comment}{//\ OWNER\ OR\ CONTRIBUTORS\ BE\ LIABLE\ FOR\ ANY\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00034}00034\ \textcolor{comment}{//\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES\ (INCLUDING,\ BUT\ NOT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00035}00035\ \textcolor{comment}{//\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;\ LOSS\ OF\ USE,}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00036}00036\ \textcolor{comment}{//\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND\ ON\ ANY}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00037}00037\ \textcolor{comment}{//\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00038}00038\ \textcolor{comment}{//\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ }}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00039}00039\ \textcolor{comment}{//\ OF\ THIS\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00040}00040\ \textcolor{comment}{//\ \$}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00041}00041\ \textcolor{comment}{//\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00043}00043\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00044}00044\ \textcolor{comment}{//\ Included\ Files}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00045}00045\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00046}00046\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_device.h"{}}\ \ \ \ \ \textcolor{comment}{//\ F2837xD\ Headerfile\ Include\ File}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00047}00047\ \textcolor{preprocessor}{\#include\ "{}F2837xD\_Examples.h"{}}\ \ \ \textcolor{comment}{//\ F2837xD\ Examples\ Include\ File}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00049}00049\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00050}00050\ \textcolor{comment}{//\ InitPieCtrl\ -\/\ This\ function\ initializes\ the\ PIE\ control\ registers\ to\ a}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00051}00051\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ known\ state.}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00052}00052\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00053}\mbox{\hyperlink{_f2837x_d___pie_ctrl_8c_afc2722078adcaf1343954319297bd1e7}{00053}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___pie_ctrl_8c_afc2722078adcaf1343954319297bd1e7}{InitPieCtrl}}(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00054}00054\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ Disable\ Interrupts\ at\ the\ CPU\ level:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00057}00057\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00058}00058\ \ \ \ \ DINT;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00060}00060\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00061}00061\ \ \ \ \ \textcolor{comment}{//\ Disable\ the\ PIE}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00062}00062\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00063}00063\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIECTRL.bit.ENPIE\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00065}00065\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00066}00066\ \ \ \ \ \textcolor{comment}{//\ Clear\ all\ PIEIER\ registers:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00067}00067\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER1.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER2.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER3.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00071}00071\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER4.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER5.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER6.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER7.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER8.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER9.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER10.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER11.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00079}00079\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIER12.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00081}00081\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ Clear\ all\ PIEIFR\ registers:}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00083}00083\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR1.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR2.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR3.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR4.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR5.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR6.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR7.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00091}00091\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR8.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR9.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR10.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00094}00094\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR11.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEIFR12.all\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00098}00098\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00099}00099\ \textcolor{comment}{//\ EnableInterrupts\ -\/\ This\ function\ enables\ the\ PIE\ module\ and\ CPU\ \_\_interrupts}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00100}00100\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00101}\mbox{\hyperlink{_f2837x_d___pie_ctrl_8c_a360f67c504ebee80bc6a785f411dcb7e}{00101}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f2837x_d___pie_ctrl_8c_a360f67c504ebee80bc6a785f411dcb7e}{EnableInterrupts}}()}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00102}00102\ \{}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00103}00103\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00104}00104\ \ \ \ \ \textcolor{comment}{//\ Enable\ the\ PIE}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00105}00105\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00106}00106\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIECTRL.bit.ENPIE\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00109}00109\ \ \ \ \ \textcolor{comment}{//\ Enables\ PIE\ to\ drive\ a\ pulse\ into\ the\ CPU}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00110}00110\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00111}00111\ \ \ \ \ \mbox{\hyperlink{_f2837x_d___global_variable_defs_8c_a579f1d8d9bc4c040e835462377a6af82}{PieCtrlRegs}}.PIEACK.all\ =\ 0xFFFF;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00113}00113\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00114}00114\ \ \ \ \ \textcolor{comment}{//\ Enable\ Interrupts\ at\ the\ CPU\ level}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00116}00116\ \ \ \ \ EINT;}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00117}00117\ \}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00119}00119\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00120}00120\ \textcolor{comment}{//\ End\ of\ file}}
+\DoxyCodeLine{\Hypertarget{_f2837x_d___pie_ctrl_8c_source_l00121}00121\ \textcolor{comment}{//}}
+
+\end{DoxyCode}

@@ -1,0 +1,1571 @@
+\doxysection{UART\+\_\+\+Segbot4.\+c File Reference}
+\hypertarget{_u_a_r_t___segbot4_8c}{}\label{_u_a_r_t___segbot4_8c}\index{UART\_Segbot4.c@{UART\_Segbot4.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include "{}F28x\+\_\+\+Project.\+h"{}}\newline
+{\ttfamily \#include "{}driverlib.\+h"{}}\newline
+{\ttfamily \#include "{}F2837x\+D\+\_\+device.\+h"{}}\newline
+{\ttfamily \#include "{}f28379d\+Serial.\+h"{}}\newline
+{\ttfamily \#include "{}LEDPatterns.\+h"{}}\newline
+{\ttfamily \#include "{}song.\+h"{}}\newline
+{\ttfamily \#include "{}dsp.\+h"{}}\newline
+{\ttfamily \#include "{}fpu\+\_\+rfft.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionphonedata__s}{phonedata\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a598a3330b3c21701223ee0ca14316eca}{PI}}~3.\+1415926535897932384626433832795
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a4912c64aec0c943b7985db6cb61ff83a}{TWOPI}}~6.\+283185307179586476925286766559
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a59d83d878ab677f99e48bd48ad80eef0}{HALFPI}}~1.\+5707963267948966192313216916398
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a8a623c2c943d593b8ff37a7d1e9ae3f9}{songsize}}~14
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a15b6ace7969c00f473670e2042187efa}{sampling\+\_\+rate}}~10000
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a1ad73526ce07d2f3564dfd83c982ca3f}{NOTE}}~625
+\item 
+\#define \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aab27045b12b466aae6ace10be403104c}{n\+\_\+samples}}~1000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef union \mbox{\hyperlink{unionphonedata__s}{phonedata\+\_\+s}} \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aeca8f6ccbde993030b6497a94531b89f}{phonedata\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a86fe0c671efefef1c28fbd97ea76e877}{cpu\+\_\+timer0\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a30977770440e333a1ceef9eaf48849e4}{cpu\+\_\+timer1\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a111765978a6788bfdd41176b94a0efea}{cpu\+\_\+timer2\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a227552a4fee98154077bdff5de6d82c1}{SWI\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a3c3733077966a76e1a4a17c5f3cd2d52}{SPIB\+\_\+isr}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9a7cfcfe52b03b328b39fa38348918f9}{ADCA\+\_\+\+ISR}} (void)
+\item 
+\+\_\+\+\_\+interrupt void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a71eb8de1648c274069347f39c40789fe}{ADCB\+\_\+\+ISR}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a84419e8acac0fd4d55a4121b811b77fe}{setup\+Spib}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a4bccff1bd644f3a8fc17373e920eecc1}{serial\+RXA}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char data)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a626f3d78526b1bcba0d2868e61255cf9}{serial\+RXC}} (\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}s, char data)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_afa4af864bf564c5523cbf4377605582e}{init\+\_\+e\+QEPs}} (void)
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a82ca4baf82627aac944e20d826f64d9d}{read\+Enc\+Left}} (void)
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a014525478fc048454edb76af6b6f8874}{read\+Enc\+Right}} (void)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a6d31bc745cc4a3a3724dfb052c9440b1}{set\+EPWM2A}} (float)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a220a4beda3bde5557444d66954781804}{set\+EPWM2B}} (float)
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a89bf462f6d1b40f7e82a106638443976}{goertzel\+\_\+mag}} (int num\+Samples, int TARGET\+\_\+\+FREQUENCY, int SAMPLING\+\_\+\+RATE, float \texorpdfstring{$\ast$}{*}data)
+\item 
+void \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_aeca8f6ccbde993030b6497a94531b89f}{phonedata\+\_\+t}} \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a65723bb794252c6de3d88d72887e837e}{phoneaccel}}
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a8dcb745c86f48661d1c19889d9dc4cfe}{song}} \mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a8a623c2c943d593b8ff37a7d1e9ae3f9}{songsize}}\mbox{]}
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9eb54429ec0860e978e70b8b5d863a66}{dance}} \mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a8a623c2c943d593b8ff37a7d1e9ae3f9}{songsize}}\mbox{]}
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab7bf01815ba3a851a4c1bbc835dfdc53}{pwm12prd}} = 50000000/\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a15b6ace7969c00f473670e2042187efa}{sampling\+\_\+rate}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a646e39a0f295760649910a5f1e3e3d78}{note\+\_\+detected}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ac88929ce5b667b230d1b985be5be9951}{thresh}} = 150
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a983a7b4aa8e771762a63c9924dc0d25e}{adcb\+\_\+array\+Ping}} \mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_aab27045b12b466aae6ace10be403104c}{n\+\_\+samples}}\mbox{]} = \{0\}
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9d35bd7a8af499d3df1ffe1b3b982023}{adcb\+\_\+array\+Pong}} \mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_aab27045b12b466aae6ace10be403104c}{n\+\_\+samples}}\mbox{]} = \{0\}
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a0679a862fea7a256ee85e84d73c651f2}{adcb0result}} = 0
+\item 
+int32\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ac232bd4fbae320451a243b18a09778d9}{adcbcount}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_af0def47d1ee21c980ee3ed44d0363c3c}{Ping\+Pong}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a78b36ad080a41861b93bbcbb992f8d35}{Run\+Pong}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ad1142cd7d4f4060f7e5901e779e34a38}{Run\+Ping}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a249bb7f8ca8e538f6782e604321eff9a}{goer\+\_\+result}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a4a33b62282ba04191a3e885db95b0115}{steeroff}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a359d8ee30e1fdd2cd449a11b53b00cbf}{num\+Timer0calls}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ad4277f93f06ab692088fba564b326516}{num\+SWIcalls}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a1c854a19cf671bacd6d72b01852af1f7}{num\+RXA}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a87dea28501134dbab375f2c5fd62bb59}{UARTPrint}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a1f4a259881a2ffbdae6a94d10d50b1b8}{UARTPrint2}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab21d76af30d4dcf078c2f25f0ce7516d}{LEDdisplaynum}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aa6756c1eb1d45f2e56d37b6e84dc5313}{Junk}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a2a7e77ebfd95fe12aae04df4e80700cf}{accelxraw}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aa977d5a3d92ae5698b83b539d4e56858}{accelyraw}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a07c3cefda610626d381e121a486f9c14}{accelzraw}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a6173d9ed49e2e436db274b2f3fe3deca}{gyroxraw}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a096d6b33bb5b5650df39784a103b0db3}{gyroyraw}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ae6e297579a508b3f59a6bd68e6614229}{gyrozraw}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ad7a34fc24b66a5d7f8d511ce31773fbb}{accelx}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_af01ee10012f9dcf7ab7014f5028c9107}{accely}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_acad1f1d192ddce6e2711feb8fcd32c9a}{accelz}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a4cb517c5ebc0eec1f323677e70863772}{gyrox}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a00eac15d2e43297feb02c34ee65718e8}{gyroy}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_af734b79979be96e2aa0f0db033043c9e}{gyroz}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aef7dd3ec94236a84d1b8165ff61329cb}{Left\+Wheel}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a39b0985d0a3e30e943ef186c58a1f5f1}{Right\+Wheel}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a2a1e52ac53e7ae3819fc39589b6a82f8}{Left\+Wheel\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a7de1ce52533e74e6c2eb0c89571754fe}{Right\+Wheel\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a6d6cbc80caa1cc0d9cd995a51f81e958}{Left\+Vel}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab4ee952fcc394d478c323a0d371e7954}{Right\+Vel}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab9ff7f9abbde0133f661d5d7a33f8096}{Left\+Vel\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a4c4c57ae2d2b3c84f82a76793ad16826}{Right\+Vel\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a3e8759fba72965ae73dd06909aabc357}{ubal}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab17d264405c0970e6cb3bf7a6409b280}{K1}} = -\/60
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a5c3b94a2c78937abe4d5d091c0e2613b}{K2}} = -\/7.\+0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a3b359c5462a51834ec6a5e2c435b6665}{K3}} = -\/1.\+1
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a2d558569ba644b17d8deb477619b897e}{Wheel\+Dif}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aa4488ea6dc3180be65f8e323b81e5a48}{vel\+Wheel\+Dif}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a0127d5212af54bf96f615f4514eaa4e0}{Wheel\+Dif\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab13f49774c1765211de75011b1fc9bce}{vel\+Wheel\+Dif\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a315c9632af6afb41f6e3ac90971353ce}{turnref}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a5a4eb1b09f2e58e10b102d8ec5cd53ca}{turnref\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a7c62439be29f890eb5be2350381aa181}{u\+Left}} = 5.\+0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a87ca961e0912c4eebab5cfbac7941336}{u\+Right}} = 5.\+0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a0e5aff7a90561cb9d6f5618916afd984}{e\+Dif}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_af3aa3ba14f91a517b7fea78e4da78078}{i\+Dif}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aa4461789d523c1ac24dca095239801a3}{e\+Dif\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a4a4d52bbdcfb3aad610ad04577a1ecc1}{i\+Dif\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a610313636194c4234b6130ce65c1874b}{turn}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a09cfc766a233ad617270562cc4146d07}{Kp}} = 3.\+0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a59fac16f568541187ff485c4c47b0ec5}{Ki}} = 20.\+0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a98268d71502ba080d88a9b1f50fdbe80}{Kd}} = .\+01
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9b9fd7fb4fd3db9a006544c3f5668fb2}{Fwd\+Back\+Offset}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab27b573479cc9a352c4dfa8ef71ee64c}{turnrate}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a0e8f1cbedebe413b3182cffdcf6010fd}{turnrate\+\_\+1}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a964af4c2c394e33052e5537ec590a7b3}{adca0\+\_\+volts}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a3ca00757a0589715b9a08c54ed278cae}{adca1\+\_\+volts}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ac9428499a88624e6978618ff1e39c3f8}{adca0result}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a0a8dd9a1bb5fa9374b21553488c62659}{adca1result}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a469745c76f678e741cefdbf232ae9226}{accelx\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a2dcba2c0fc6ad2ce7a79ccd7d0b98c82}{accely\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a76bd4e964fc4df2ddf3cf8521941f656}{accelz\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab67ca521632d76f5a41549239027b9cf}{gyrox\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_abe2ce374de672164558c85d0be095649}{gyroy\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ae28a924e3a9fa9da6a11993c63700a67}{gyroz\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9840e8a263f6170ea5f8749169ab6be9}{accelz\+Balance\+Point}} = -\/.\+73
+\item 
+int16 \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a5dddd0725a87c5845eac56583a1677b8}{IMU\+\_\+data}} \mbox{[}9\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a36142ddde297ed1d5577c81230997301}{temp}} =0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a7689bc67e18fecbf695ea5a08c05c935}{done\+Cal}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a1f8ef9ec096b5ca8f867b3661aba0c13}{tilt\+\_\+value}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a32fa8412f04765ed6daf5f94ce9c3413}{tilt\+\_\+array}} \mbox{[}4\mbox{]} = \{0, 0, 0, 0\}
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a87d7c7ac4a01adf93f47d4d4e7e649b5}{gyro\+\_\+value}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ab5ff52647980ea49a98cb47569548000}{gyro\+\_\+array}} \mbox{[}4\mbox{]} = \{0, 0, 0, 0\}
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9ac0e20abc77acbc0adf60b18078f520}{Left\+Wheel\+Array}} \mbox{[}4\mbox{]} = \{0,0,0,0\}
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ac6d7f1b842f90982b40ebea1aad90593}{Right\+Wheel\+Array}} \mbox{[}4\mbox{]} = \{0,0,0,0\}
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a1e59dd36aafb310776e617456b9415b5}{T}} = 0.\+001
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a2297f86a6b8c26836b1f21bcf17c7a8b}{Q}} = 0.\+01
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a4c4b08e61e92b3da1ed512f4e006f34a}{R}} = 25000
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ac6c6a1e69960c97245876a565d996407}{kalman\+\_\+tilt}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a883c9c09c6555c2d7e57f75880adf3f7}{kalman\+\_\+P}} = 22.\+365
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9582f2e70020e715c48d546358a3c03f}{Spib\+Num\+Calls}} = -\/1
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a6d57158910a5118f8dcfe26c33ba715d}{pred\+\_\+P}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ad07357fafffbdbb31efbd42bc13c122b}{kalman\+\_\+K}} = 0
+\item 
+int32\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a3c5a07cbb2e9360c4cdfaf7f78181496}{timecount}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a5c051e605d42514273eaf7a82c824dde}{calibration\+\_\+state}} = 0
+\item 
+int32\+\_\+t \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a6f8ff3d531cca99815c4bee24960cd6c}{calibration\+\_\+count}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_ad07a7fa71bf17bd26e3c6da1b58aab01}{ble\+\_\+x}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a9da7669aa29c16aad05e67ddc9009a26}{ble\+\_\+y}} = 0
+\item 
+float \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a6e045019b2bd30fa8a418195fe9e1a56}{ble\+\_\+z}} = 0
+\item 
+char \mbox{\hyperlink{_u_a_r_t___segbot4_8c_a1b6825db1ce4ea04ff3f004c0f7af146}{sendback}} \mbox{[}10\mbox{]}
+\item 
+char \mbox{\hyperlink{_u_a_r_t___segbot4_8c_aab93e4720dae178ca92adb6ac40582fb}{past}} \mbox{[}14\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_u_a_r_t___segbot4_8c_a59d83d878ab677f99e48bd48ad80eef0}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!HALFPI@{HALFPI}}
+\index{HALFPI@{HALFPI}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{HALFPI}{HALFPI}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a59d83d878ab677f99e48bd48ad80eef0} 
+\#define HALFPI~1.\+5707963267948966192313216916398}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00023}{23}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_aab27045b12b466aae6ace10be403104c}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!n\_samples@{n\_samples}}
+\index{n\_samples@{n\_samples}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{n\_samples}{n\_samples}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aab27045b12b466aae6ace10be403104c} 
+\#define n\+\_\+samples~1000}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00029}{29}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a1ad73526ce07d2f3564dfd83c982ca3f}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!NOTE@{NOTE}}
+\index{NOTE@{NOTE}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{NOTE}{NOTE}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a1ad73526ce07d2f3564dfd83c982ca3f} 
+\#define NOTE~625}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00028}{28}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a598a3330b3c21701223ee0ca14316eca}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!PI@{PI}}
+\index{PI@{PI}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a598a3330b3c21701223ee0ca14316eca} 
+\#define PI~3.\+1415926535897932384626433832795}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00021}{21}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a15b6ace7969c00f473670e2042187efa}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!sampling\_rate@{sampling\_rate}}
+\index{sampling\_rate@{sampling\_rate}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{sampling\_rate}{sampling\_rate}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a15b6ace7969c00f473670e2042187efa} 
+\#define sampling\+\_\+rate~10000}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00027}{27}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a8a623c2c943d593b8ff37a7d1e9ae3f9}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!songsize@{songsize}}
+\index{songsize@{songsize}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{songsize}{songsize}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a8a623c2c943d593b8ff37a7d1e9ae3f9} 
+\#define songsize~14}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00026}{26}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a4912c64aec0c943b7985db6cb61ff83a}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!TWOPI@{TWOPI}}
+\index{TWOPI@{TWOPI}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{TWOPI}{TWOPI}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a4912c64aec0c943b7985db6cb61ff83a} 
+\#define TWOPI~6.\+283185307179586476925286766559}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00022}{22}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_u_a_r_t___segbot4_8c_aeca8f6ccbde993030b6497a94531b89f}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!phonedata\_t@{phonedata\_t}}
+\index{phonedata\_t@{phonedata\_t}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{phonedata\_t}{phonedata\_t}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aeca8f6ccbde993030b6497a94531b89f} 
+typedef union \mbox{\hyperlink{unionphonedata__s}{phonedata\+\_\+s}} \mbox{\hyperlink{_segbot___steer__and___celebrate_8c_aeca8f6ccbde993030b6497a94531b89f}{phonedata\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_u_a_r_t___segbot4_8c_a9a7cfcfe52b03b328b39fa38348918f9}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!ADCA\_ISR@{ADCA\_ISR}}
+\index{ADCA\_ISR@{ADCA\_ISR}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{ADCA\_ISR()}{ADCA\_ISR()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9a7cfcfe52b03b328b39fa38348918f9} 
+\+\_\+\+\_\+interrupt void ADCA\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00776}{776}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a71eb8de1648c274069347f39c40789fe}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!ADCB\_ISR@{ADCB\_ISR}}
+\index{ADCB\_ISR@{ADCB\_ISR}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{ADCB\_ISR()}{ADCB\_ISR()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a71eb8de1648c274069347f39c40789fe} 
+\+\_\+\+\_\+interrupt void ADCB\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00911}{911}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a86fe0c671efefef1c28fbd97ea76e877}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!cpu\_timer0\_isr@{cpu\_timer0\_isr}}
+\index{cpu\_timer0\_isr@{cpu\_timer0\_isr}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{cpu\_timer0\_isr()}{cpu\_timer0\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a86fe0c671efefef1c28fbd97ea76e877} 
+\+\_\+\+\_\+interrupt void cpu\+\_\+timer0\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00645}{645}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a30977770440e333a1ceef9eaf48849e4}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!cpu\_timer1\_isr@{cpu\_timer1\_isr}}
+\index{cpu\_timer1\_isr@{cpu\_timer1\_isr}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{cpu\_timer1\_isr()}{cpu\_timer1\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a30977770440e333a1ceef9eaf48849e4} 
+\+\_\+\+\_\+interrupt void cpu\+\_\+timer1\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00675}{675}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a111765978a6788bfdd41176b94a0efea}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!cpu\_timer2\_isr@{cpu\_timer2\_isr}}
+\index{cpu\_timer2\_isr@{cpu\_timer2\_isr}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{cpu\_timer2\_isr()}{cpu\_timer2\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a111765978a6788bfdd41176b94a0efea} 
+\+\_\+\+\_\+interrupt void cpu\+\_\+timer2\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00682}{682}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a89bf462f6d1b40f7e82a106638443976}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!goertzel\_mag@{goertzel\_mag}}
+\index{goertzel\_mag@{goertzel\_mag}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{goertzel\_mag()}{goertzel\_mag()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a89bf462f6d1b40f7e82a106638443976} 
+float goertzel\+\_\+mag (\begin{DoxyParamCaption}\item[{int}]{num\+Samples}{, }\item[{int}]{TARGET\+\_\+\+FREQUENCY}{, }\item[{int}]{SAMPLING\+\_\+\+RATE}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l01243}{1243}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_afa4af864bf564c5523cbf4377605582e}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!init\_eQEPs@{init\_eQEPs}}
+\index{init\_eQEPs@{init\_eQEPs}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{init\_eQEPs()}{init\_eQEPs()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_afa4af864bf564c5523cbf4377605582e} 
+void init\+\_\+e\+QEPs (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00968}{968}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a6288eba0f8e8ad3ab1544ad731eb7667}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!main@{main}}
+\index{main@{main}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a6288eba0f8e8ad3ab1544ad731eb7667} 
+void main (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00182}{182}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a82ca4baf82627aac944e20d826f64d9d}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!readEncLeft@{readEncLeft}}
+\index{readEncLeft@{readEncLeft}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{readEncLeft()}{readEncLeft()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a82ca4baf82627aac944e20d826f64d9d} 
+float read\+Enc\+Left (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00941}{941}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a014525478fc048454edb76af6b6f8874}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!readEncRight@{readEncRight}}
+\index{readEncRight@{readEncRight}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{readEncRight()}{readEncRight()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a014525478fc048454edb76af6b6f8874} 
+float read\+Enc\+Right (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00954}{954}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a4bccff1bd644f3a8fc17373e920eecc1}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!serialRXA@{serialRXA}}
+\index{serialRXA@{serialRXA}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{serialRXA()}{serialRXA()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a4bccff1bd644f3a8fc17373e920eecc1} 
+void serial\+RXA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{char}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00692}{692}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a626f3d78526b1bcba0d2868e61255cf9}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!serialRXC@{serialRXC}}
+\index{serialRXC@{serialRXC}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{serialRXC()}{serialRXC()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a626f3d78526b1bcba0d2868e61255cf9} 
+void serial\+RXC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_f28379d_serial_8h_af8f14cde53cf29b42e3a46f0f3e347cd}{serial\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{s}{, }\item[{char}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00698}{698}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a6d31bc745cc4a3a3724dfb052c9440b1}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!setEPWM2A@{setEPWM2A}}
+\index{setEPWM2A@{setEPWM2A}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{setEPWM2A()}{setEPWM2A()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a6d31bc745cc4a3a3724dfb052c9440b1} 
+void set\+EPWM2A (\begin{DoxyParamCaption}\item[{float}]{controleffort}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l01014}{1014}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a220a4beda3bde5557444d66954781804}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!setEPWM2B@{setEPWM2B}}
+\index{setEPWM2B@{setEPWM2B}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{setEPWM2B()}{setEPWM2B()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a220a4beda3bde5557444d66954781804} 
+void set\+EPWM2B (\begin{DoxyParamCaption}\item[{float}]{controleffort}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l01025}{1025}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a84419e8acac0fd4d55a4121b811b77fe}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!setupSpib@{setupSpib}}
+\index{setupSpib@{setupSpib}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{setupSpib()}{setupSpib()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a84419e8acac0fd4d55a4121b811b77fe} 
+void setup\+Spib (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l01035}{1035}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a3c3733077966a76e1a4a17c5f3cd2d52}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!SPIB\_isr@{SPIB\_isr}}
+\index{SPIB\_isr@{SPIB\_isr}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{SPIB\_isr()}{SPIB\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a3c3733077966a76e1a4a17c5f3cd2d52} 
+\+\_\+\+\_\+interrupt void SPIB\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00803}{803}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a227552a4fee98154077bdff5de6d82c1}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!SWI\_isr@{SWI\_isr}}
+\index{SWI\_isr@{SWI\_isr}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{SWI\_isr()}{SWI\_isr()}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a227552a4fee98154077bdff5de6d82c1} 
+\+\_\+\+\_\+interrupt void SWI\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00582}{582}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_u_a_r_t___segbot4_8c_ad7a34fc24b66a5d7f8d511ce31773fbb}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelx@{accelx}}
+\index{accelx@{accelx}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelx}{accelx}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ad7a34fc24b66a5d7f8d511ce31773fbb} 
+float accelx = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00099}{99}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a469745c76f678e741cefdbf232ae9226}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelx\_offset@{accelx\_offset}}
+\index{accelx\_offset@{accelx\_offset}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelx\_offset}{accelx\_offset}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a469745c76f678e741cefdbf232ae9226} 
+float accelx\+\_\+offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00147}{147}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a2a7e77ebfd95fe12aae04df4e80700cf}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelxraw@{accelxraw}}
+\index{accelxraw@{accelxraw}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelxraw}{accelxraw}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a2a7e77ebfd95fe12aae04df4e80700cf} 
+int16\+\_\+t accelxraw = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00092}{92}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_af01ee10012f9dcf7ab7014f5028c9107}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accely@{accely}}
+\index{accely@{accely}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accely}{accely}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_af01ee10012f9dcf7ab7014f5028c9107} 
+float accely = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00100}{100}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a2dcba2c0fc6ad2ce7a79ccd7d0b98c82}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accely\_offset@{accely\_offset}}
+\index{accely\_offset@{accely\_offset}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accely\_offset}{accely\_offset}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a2dcba2c0fc6ad2ce7a79ccd7d0b98c82} 
+float accely\+\_\+offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00148}{148}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_aa977d5a3d92ae5698b83b539d4e56858}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelyraw@{accelyraw}}
+\index{accelyraw@{accelyraw}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelyraw}{accelyraw}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aa977d5a3d92ae5698b83b539d4e56858} 
+int16\+\_\+t accelyraw = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00093}{93}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_acad1f1d192ddce6e2711feb8fcd32c9a}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelz@{accelz}}
+\index{accelz@{accelz}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelz}{accelz}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_acad1f1d192ddce6e2711feb8fcd32c9a} 
+float accelz = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00101}{101}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a76bd4e964fc4df2ddf3cf8521941f656}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelz\_offset@{accelz\_offset}}
+\index{accelz\_offset@{accelz\_offset}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelz\_offset}{accelz\_offset}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a76bd4e964fc4df2ddf3cf8521941f656} 
+float accelz\+\_\+offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00149}{149}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a9840e8a263f6170ea5f8749169ab6be9}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelzBalancePoint@{accelzBalancePoint}}
+\index{accelzBalancePoint@{accelzBalancePoint}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelzBalancePoint}{accelzBalancePoint}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9840e8a263f6170ea5f8749169ab6be9} 
+float accelz\+Balance\+Point = -\/.\+73}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00154}{154}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a07c3cefda610626d381e121a486f9c14}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!accelzraw@{accelzraw}}
+\index{accelzraw@{accelzraw}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{accelzraw}{accelzraw}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a07c3cefda610626d381e121a486f9c14} 
+int16\+\_\+t accelzraw = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00094}{94}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a964af4c2c394e33052e5537ec590a7b3}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adca0\_volts@{adca0\_volts}}
+\index{adca0\_volts@{adca0\_volts}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adca0\_volts}{adca0\_volts}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a964af4c2c394e33052e5537ec590a7b3} 
+float adca0\+\_\+volts = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00141}{141}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ac9428499a88624e6978618ff1e39c3f8}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adca0result@{adca0result}}
+\index{adca0result@{adca0result}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adca0result}{adca0result}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ac9428499a88624e6978618ff1e39c3f8} 
+int16\+\_\+t adca0result = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00143}{143}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a3ca00757a0589715b9a08c54ed278cae}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adca1\_volts@{adca1\_volts}}
+\index{adca1\_volts@{adca1\_volts}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adca1\_volts}{adca1\_volts}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a3ca00757a0589715b9a08c54ed278cae} 
+float adca1\+\_\+volts = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00142}{142}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a0a8dd9a1bb5fa9374b21553488c62659}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adca1result@{adca1result}}
+\index{adca1result@{adca1result}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adca1result}{adca1result}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a0a8dd9a1bb5fa9374b21553488c62659} 
+int16\+\_\+t adca1result = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00144}{144}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a0679a862fea7a256ee85e84d73c651f2}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adcb0result@{adcb0result}}
+\index{adcb0result@{adcb0result}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adcb0result}{adcb0result}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a0679a862fea7a256ee85e84d73c651f2} 
+int16\+\_\+t adcb0result = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00074}{74}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a983a7b4aa8e771762a63c9924dc0d25e}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adcb\_arrayPing@{adcb\_arrayPing}}
+\index{adcb\_arrayPing@{adcb\_arrayPing}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adcb\_arrayPing}{adcb\_arrayPing}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a983a7b4aa8e771762a63c9924dc0d25e} 
+float adcb\+\_\+array\+Ping\mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_aab27045b12b466aae6ace10be403104c}{n\+\_\+samples}}\mbox{]} = \{0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00072}{72}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a9d35bd7a8af499d3df1ffe1b3b982023}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adcb\_arrayPong@{adcb\_arrayPong}}
+\index{adcb\_arrayPong@{adcb\_arrayPong}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adcb\_arrayPong}{adcb\_arrayPong}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9d35bd7a8af499d3df1ffe1b3b982023} 
+float adcb\+\_\+array\+Pong\mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_aab27045b12b466aae6ace10be403104c}{n\+\_\+samples}}\mbox{]} = \{0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00073}{73}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ac232bd4fbae320451a243b18a09778d9}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!adcbcount@{adcbcount}}
+\index{adcbcount@{adcbcount}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{adcbcount}{adcbcount}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ac232bd4fbae320451a243b18a09778d9} 
+int32\+\_\+t adcbcount = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00075}{75}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ad07a7fa71bf17bd26e3c6da1b58aab01}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!ble\_x@{ble\_x}}
+\index{ble\_x@{ble\_x}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{ble\_x}{ble\_x}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ad07a7fa71bf17bd26e3c6da1b58aab01} 
+float ble\+\_\+x = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00178}{178}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a9da7669aa29c16aad05e67ddc9009a26}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!ble\_y@{ble\_y}}
+\index{ble\_y@{ble\_y}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{ble\_y}{ble\_y}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9da7669aa29c16aad05e67ddc9009a26} 
+float ble\+\_\+y = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00179}{179}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a6e045019b2bd30fa8a418195fe9e1a56}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!ble\_z@{ble\_z}}
+\index{ble\_z@{ble\_z}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{ble\_z}{ble\_z}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a6e045019b2bd30fa8a418195fe9e1a56} 
+float ble\+\_\+z = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00180}{180}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a6f8ff3d531cca99815c4bee24960cd6c}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!calibration\_count@{calibration\_count}}
+\index{calibration\_count@{calibration\_count}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{calibration\_count}{calibration\_count}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a6f8ff3d531cca99815c4bee24960cd6c} 
+int32\+\_\+t calibration\+\_\+count = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00175}{175}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a5c051e605d42514273eaf7a82c824dde}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!calibration\_state@{calibration\_state}}
+\index{calibration\_state@{calibration\_state}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{calibration\_state}{calibration\_state}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a5c051e605d42514273eaf7a82c824dde} 
+int16\+\_\+t calibration\+\_\+state = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00174}{174}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a9eb54429ec0860e978e70b8b5d863a66}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!dance@{dance}}
+\index{dance@{dance}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{dance}{dance}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9eb54429ec0860e978e70b8b5d863a66} 
+float dance\mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a8a623c2c943d593b8ff37a7d1e9ae3f9}{songsize}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{-\/6,6,-\/6,6,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/6,6,-\/6,6,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/6,6,-\/6,6,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/6,6}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00063}{63}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a7689bc67e18fecbf695ea5a08c05c935}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!doneCal@{doneCal}}
+\index{doneCal@{doneCal}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{doneCal}{doneCal}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a7689bc67e18fecbf695ea5a08c05c935} 
+int16\+\_\+t done\+Cal = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00157}{157}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a0e5aff7a90561cb9d6f5618916afd984}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!eDif@{eDif}}
+\index{eDif@{eDif}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{eDif}{eDif}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a0e5aff7a90561cb9d6f5618916afd984} 
+float e\+Dif = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00126}{126}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_aa4461789d523c1ac24dca095239801a3}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!eDif\_1@{eDif\_1}}
+\index{eDif\_1@{eDif\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{eDif\_1}{eDif\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aa4461789d523c1ac24dca095239801a3} 
+float e\+Dif\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00128}{128}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a9b9fd7fb4fd3db9a006544c3f5668fb2}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!FwdBackOffset@{FwdBackOffset}}
+\index{FwdBackOffset@{FwdBackOffset}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{FwdBackOffset}{FwdBackOffset}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9b9fd7fb4fd3db9a006544c3f5668fb2} 
+float Fwd\+Back\+Offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00135}{135}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a249bb7f8ca8e538f6782e604321eff9a}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!goer\_result@{goer\_result}}
+\index{goer\_result@{goer\_result}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{goer\_result}{goer\_result}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a249bb7f8ca8e538f6782e604321eff9a} 
+float goer\+\_\+result = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00079}{79}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab5ff52647980ea49a98cb47569548000}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyro\_array@{gyro\_array}}
+\index{gyro\_array@{gyro\_array}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyro\_array}{gyro\_array}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab5ff52647980ea49a98cb47569548000} 
+float gyro\+\_\+array\mbox{[}4\mbox{]} = \{0, 0, 0, 0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00161}{161}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a87d7c7ac4a01adf93f47d4d4e7e649b5}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyro\_value@{gyro\_value}}
+\index{gyro\_value@{gyro\_value}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyro\_value}{gyro\_value}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a87d7c7ac4a01adf93f47d4d4e7e649b5} 
+float gyro\+\_\+value = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00160}{160}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a4cb517c5ebc0eec1f323677e70863772}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyrox@{gyrox}}
+\index{gyrox@{gyrox}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyrox}{gyrox}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a4cb517c5ebc0eec1f323677e70863772} 
+float gyrox = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00102}{102}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab67ca521632d76f5a41549239027b9cf}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyrox\_offset@{gyrox\_offset}}
+\index{gyrox\_offset@{gyrox\_offset}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyrox\_offset}{gyrox\_offset}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab67ca521632d76f5a41549239027b9cf} 
+float gyrox\+\_\+offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00150}{150}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a6173d9ed49e2e436db274b2f3fe3deca}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyroxraw@{gyroxraw}}
+\index{gyroxraw@{gyroxraw}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyroxraw}{gyroxraw}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a6173d9ed49e2e436db274b2f3fe3deca} 
+int16\+\_\+t gyroxraw = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00095}{95}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a00eac15d2e43297feb02c34ee65718e8}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyroy@{gyroy}}
+\index{gyroy@{gyroy}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyroy}{gyroy}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a00eac15d2e43297feb02c34ee65718e8} 
+float gyroy = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00103}{103}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_abe2ce374de672164558c85d0be095649}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyroy\_offset@{gyroy\_offset}}
+\index{gyroy\_offset@{gyroy\_offset}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyroy\_offset}{gyroy\_offset}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_abe2ce374de672164558c85d0be095649} 
+float gyroy\+\_\+offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00151}{151}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a096d6b33bb5b5650df39784a103b0db3}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyroyraw@{gyroyraw}}
+\index{gyroyraw@{gyroyraw}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyroyraw}{gyroyraw}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a096d6b33bb5b5650df39784a103b0db3} 
+int16\+\_\+t gyroyraw = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00096}{96}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_af734b79979be96e2aa0f0db033043c9e}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyroz@{gyroz}}
+\index{gyroz@{gyroz}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyroz}{gyroz}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_af734b79979be96e2aa0f0db033043c9e} 
+float gyroz = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00104}{104}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ae28a924e3a9fa9da6a11993c63700a67}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyroz\_offset@{gyroz\_offset}}
+\index{gyroz\_offset@{gyroz\_offset}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyroz\_offset}{gyroz\_offset}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ae28a924e3a9fa9da6a11993c63700a67} 
+float gyroz\+\_\+offset = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00152}{152}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ae6e297579a508b3f59a6bd68e6614229}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!gyrozraw@{gyrozraw}}
+\index{gyrozraw@{gyrozraw}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{gyrozraw}{gyrozraw}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ae6e297579a508b3f59a6bd68e6614229} 
+int16\+\_\+t gyrozraw = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00097}{97}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_af3aa3ba14f91a517b7fea78e4da78078}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!iDif@{iDif}}
+\index{iDif@{iDif}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{iDif}{iDif}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_af3aa3ba14f91a517b7fea78e4da78078} 
+float i\+Dif = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00127}{127}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a4a4d52bbdcfb3aad610ad04577a1ecc1}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!iDif\_1@{iDif\_1}}
+\index{iDif\_1@{iDif\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{iDif\_1}{iDif\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a4a4d52bbdcfb3aad610ad04577a1ecc1} 
+float i\+Dif\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00129}{129}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a5dddd0725a87c5845eac56583a1677b8}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!IMU\_data@{IMU\_data}}
+\index{IMU\_data@{IMU\_data}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{IMU\_data}{IMU\_data}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a5dddd0725a87c5845eac56583a1677b8} 
+int16 IMU\+\_\+data\mbox{[}9\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00155}{155}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_aa6756c1eb1d45f2e56d37b6e84dc5313}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!Junk@{Junk}}
+\index{Junk@{Junk}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{Junk}{Junk}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aa6756c1eb1d45f2e56d37b6e84dc5313} 
+int16\+\_\+t Junk = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00090}{90}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab17d264405c0970e6cb3bf7a6409b280}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!K1@{K1}}
+\index{K1@{K1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{K1}{K1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab17d264405c0970e6cb3bf7a6409b280} 
+float K1 = -\/60}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00114}{114}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a5c3b94a2c78937abe4d5d091c0e2613b}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!K2@{K2}}
+\index{K2@{K2}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{K2}{K2}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a5c3b94a2c78937abe4d5d091c0e2613b} 
+float K2 = -\/7.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00116}{116}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a3b359c5462a51834ec6a5e2c435b6665}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!K3@{K3}}
+\index{K3@{K3}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{K3}{K3}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a3b359c5462a51834ec6a5e2c435b6665} 
+float K3 = -\/1.\+1}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00117}{117}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ad07357fafffbdbb31efbd42bc13c122b}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!kalman\_K@{kalman\_K}}
+\index{kalman\_K@{kalman\_K}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{kalman\_K}{kalman\_K}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ad07357fafffbdbb31efbd42bc13c122b} 
+float kalman\+\_\+K = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00172}{172}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a883c9c09c6555c2d7e57f75880adf3f7}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!kalman\_P@{kalman\_P}}
+\index{kalman\_P@{kalman\_P}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{kalman\_P}{kalman\_P}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a883c9c09c6555c2d7e57f75880adf3f7} 
+float kalman\+\_\+P = 22.\+365}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00169}{169}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ac6c6a1e69960c97245876a565d996407}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!kalman\_tilt@{kalman\_tilt}}
+\index{kalman\_tilt@{kalman\_tilt}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{kalman\_tilt}{kalman\_tilt}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ac6c6a1e69960c97245876a565d996407} 
+float kalman\+\_\+tilt = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00168}{168}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a98268d71502ba080d88a9b1f50fdbe80}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!Kd@{Kd}}
+\index{Kd@{Kd}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{Kd}{Kd}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a98268d71502ba080d88a9b1f50fdbe80} 
+float Kd = .\+01}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00134}{134}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a59fac16f568541187ff485c4c47b0ec5}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!Ki@{Ki}}
+\index{Ki@{Ki}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{Ki}{Ki}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a59fac16f568541187ff485c4c47b0ec5} 
+float Ki = 20.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00132}{132}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a09cfc766a233ad617270562cc4146d07}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!Kp@{Kp}}
+\index{Kp@{Kp}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{Kp}{Kp}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a09cfc766a233ad617270562cc4146d07} 
+float Kp = 3.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00131}{131}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab21d76af30d4dcf078c2f25f0ce7516d}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!LEDdisplaynum@{LEDdisplaynum}}
+\index{LEDdisplaynum@{LEDdisplaynum}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{LEDdisplaynum}{LEDdisplaynum}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab21d76af30d4dcf078c2f25f0ce7516d} 
+uint16\+\_\+t LEDdisplaynum = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00088}{88}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a6d6cbc80caa1cc0d9cd995a51f81e958}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!LeftVel@{LeftVel}}
+\index{LeftVel@{LeftVel}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{LeftVel}{LeftVel}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a6d6cbc80caa1cc0d9cd995a51f81e958} 
+float Left\+Vel = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00109}{109}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab9ff7f9abbde0133f661d5d7a33f8096}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!LeftVel\_1@{LeftVel\_1}}
+\index{LeftVel\_1@{LeftVel\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{LeftVel\_1}{LeftVel\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab9ff7f9abbde0133f661d5d7a33f8096} 
+float Left\+Vel\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00111}{111}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_aef7dd3ec94236a84d1b8165ff61329cb}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!LeftWheel@{LeftWheel}}
+\index{LeftWheel@{LeftWheel}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{LeftWheel}{LeftWheel}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aef7dd3ec94236a84d1b8165ff61329cb} 
+float Left\+Wheel = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00105}{105}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a2a1e52ac53e7ae3819fc39589b6a82f8}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!LeftWheel\_1@{LeftWheel\_1}}
+\index{LeftWheel\_1@{LeftWheel\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{LeftWheel\_1}{LeftWheel\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a2a1e52ac53e7ae3819fc39589b6a82f8} 
+float Left\+Wheel\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00107}{107}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a9ac0e20abc77acbc0adf60b18078f520}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!LeftWheelArray@{LeftWheelArray}}
+\index{LeftWheelArray@{LeftWheelArray}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{LeftWheelArray}{LeftWheelArray}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9ac0e20abc77acbc0adf60b18078f520} 
+float Left\+Wheel\+Array\mbox{[}4\mbox{]} = \{0,0,0,0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00162}{162}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a646e39a0f295760649910a5f1e3e3d78}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!note\_detected@{note\_detected}}
+\index{note\_detected@{note\_detected}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{note\_detected}{note\_detected}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a646e39a0f295760649910a5f1e3e3d78} 
+int16\+\_\+t note\+\_\+detected = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00070}{70}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a1c854a19cf671bacd6d72b01852af1f7}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!numRXA@{numRXA}}
+\index{numRXA@{numRXA}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{numRXA}{numRXA}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a1c854a19cf671bacd6d72b01852af1f7} 
+uint32\+\_\+t num\+RXA = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00085}{85}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ad4277f93f06ab692088fba564b326516}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!numSWIcalls@{numSWIcalls}}
+\index{numSWIcalls@{numSWIcalls}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{numSWIcalls}{numSWIcalls}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ad4277f93f06ab692088fba564b326516} 
+uint32\+\_\+t num\+SWIcalls = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00084}{84}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a359d8ee30e1fdd2cd449a11b53b00cbf}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!numTimer0calls@{numTimer0calls}}
+\index{numTimer0calls@{numTimer0calls}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{numTimer0calls}{numTimer0calls}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a359d8ee30e1fdd2cd449a11b53b00cbf} 
+uint32\+\_\+t num\+Timer0calls = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00083}{83}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_aab93e4720dae178ca92adb6ac40582fb}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!past@{past}}
+\index{past@{past}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{past}{past}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aab93e4720dae178ca92adb6ac40582fb} 
+char past\mbox{[}14\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00697}{697}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a65723bb794252c6de3d88d72887e837e}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!phoneaccel@{phoneaccel}}
+\index{phoneaccel@{phoneaccel}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{phoneaccel}{phoneaccel}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a65723bb794252c6de3d88d72887e837e} 
+\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_aeca8f6ccbde993030b6497a94531b89f}{phonedata\+\_\+t}} phoneaccel}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00055}{55}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_af0def47d1ee21c980ee3ed44d0363c3c}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!PingPong@{PingPong}}
+\index{PingPong@{PingPong}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{PingPong}{PingPong}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_af0def47d1ee21c980ee3ed44d0363c3c} 
+int16\+\_\+t Ping\+Pong = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00076}{76}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a6d57158910a5118f8dcfe26c33ba715d}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!pred\_P@{pred\_P}}
+\index{pred\_P@{pred\_P}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{pred\_P}{pred\_P}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a6d57158910a5118f8dcfe26c33ba715d} 
+float pred\+\_\+P = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00171}{171}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab7bf01815ba3a851a4c1bbc835dfdc53}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!pwm12prd@{pwm12prd}}
+\index{pwm12prd@{pwm12prd}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{pwm12prd}{pwm12prd}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab7bf01815ba3a851a4c1bbc835dfdc53} 
+int16\+\_\+t pwm12prd = 50000000/\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a15b6ace7969c00f473670e2042187efa}{sampling\+\_\+rate}}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00069}{69}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a2297f86a6b8c26836b1f21bcf17c7a8b}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!Q@{Q}}
+\index{Q@{Q}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{Q}{Q}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a2297f86a6b8c26836b1f21bcf17c7a8b} 
+float Q = 0.\+01}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00166}{166}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a4c4b08e61e92b3da1ed512f4e006f34a}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!R@{R}}
+\index{R@{R}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a4c4b08e61e92b3da1ed512f4e006f34a} 
+float R = 25000}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00167}{167}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab4ee952fcc394d478c323a0d371e7954}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!RightVel@{RightVel}}
+\index{RightVel@{RightVel}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{RightVel}{RightVel}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab4ee952fcc394d478c323a0d371e7954} 
+float Right\+Vel = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00110}{110}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a4c4c57ae2d2b3c84f82a76793ad16826}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!RightVel\_1@{RightVel\_1}}
+\index{RightVel\_1@{RightVel\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{RightVel\_1}{RightVel\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a4c4c57ae2d2b3c84f82a76793ad16826} 
+float Right\+Vel\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00112}{112}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a39b0985d0a3e30e943ef186c58a1f5f1}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!RightWheel@{RightWheel}}
+\index{RightWheel@{RightWheel}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{RightWheel}{RightWheel}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a39b0985d0a3e30e943ef186c58a1f5f1} 
+float Right\+Wheel = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00106}{106}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a7de1ce52533e74e6c2eb0c89571754fe}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!RightWheel\_1@{RightWheel\_1}}
+\index{RightWheel\_1@{RightWheel\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{RightWheel\_1}{RightWheel\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a7de1ce52533e74e6c2eb0c89571754fe} 
+float Right\+Wheel\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00108}{108}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ac6d7f1b842f90982b40ebea1aad90593}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!RightWheelArray@{RightWheelArray}}
+\index{RightWheelArray@{RightWheelArray}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{RightWheelArray}{RightWheelArray}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ac6d7f1b842f90982b40ebea1aad90593} 
+float Right\+Wheel\+Array\mbox{[}4\mbox{]} = \{0,0,0,0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00163}{163}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ad1142cd7d4f4060f7e5901e779e34a38}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!RunPing@{RunPing}}
+\index{RunPing@{RunPing}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{RunPing}{RunPing}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ad1142cd7d4f4060f7e5901e779e34a38} 
+int16\+\_\+t Run\+Ping = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00078}{78}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a78b36ad080a41861b93bbcbb992f8d35}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!RunPong@{RunPong}}
+\index{RunPong@{RunPong}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{RunPong}{RunPong}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a78b36ad080a41861b93bbcbb992f8d35} 
+int16\+\_\+t Run\+Pong = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00077}{77}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a1b6825db1ce4ea04ff3f004c0f7af146}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!sendback@{sendback}}
+\index{sendback@{sendback}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{sendback}{sendback}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a1b6825db1ce4ea04ff3f004c0f7af146} 
+char sendback\mbox{[}10\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00696}{696}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a8dcb745c86f48661d1c19889d9dc4cfe}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!song@{song}}
+\index{song@{song}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{song}{song}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a8dcb745c86f48661d1c19889d9dc4cfe} 
+float song\mbox{[}\mbox{\hyperlink{_segbot___steer__and___celebrate_8c_a8a623c2c943d593b8ff37a7d1e9ae3f9}{songsize}}\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{\mbox{\hyperlink{song_8h_ac35520014f3c60643d566eba7c7a7385}{F5NOTE}},\mbox{\hyperlink{song_8h_ac35520014f3c60643d566eba7c7a7385}{F5NOTE}},\mbox{\hyperlink{song_8h_ac35520014f3c60643d566eba7c7a7385}{F5NOTE}},\mbox{\hyperlink{song_8h_ac35520014f3c60643d566eba7c7a7385}{F5NOTE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{song_8h_a0b0679e9199e6df6a457d52e77d6bb40}{E5NOTE}},\mbox{\hyperlink{song_8h_a0b0679e9199e6df6a457d52e77d6bb40}{E5NOTE}},\mbox{\hyperlink{song_8h_ac35520014f3c60643d566eba7c7a7385}{F5NOTE}},\mbox{\hyperlink{song_8h_ac35520014f3c60643d566eba7c7a7385}{F5NOTE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{song_8h_a0b0679e9199e6df6a457d52e77d6bb40}{E5NOTE}},\mbox{\hyperlink{song_8h_a0b0679e9199e6df6a457d52e77d6bb40}{E5NOTE}},\mbox{\hyperlink{song_8h_a97eb177a99cdf2d89e5bb08874a97b20}{D5NOTE}},\mbox{\hyperlink{song_8h_a97eb177a99cdf2d89e5bb08874a97b20}{D5NOTE}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{song_8h_a698369ac392bb84ac23bbbb27e18a997}{G5NOTE}},\mbox{\hyperlink{song_8h_a698369ac392bb84ac23bbbb27e18a997}{G5NOTE}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00058}{58}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a9582f2e70020e715c48d546358a3c03f}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!SpibNumCalls@{SpibNumCalls}}
+\index{SpibNumCalls@{SpibNumCalls}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{SpibNumCalls}{SpibNumCalls}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a9582f2e70020e715c48d546358a3c03f} 
+int16\+\_\+t Spib\+Num\+Calls = -\/1}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00170}{170}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a4a33b62282ba04191a3e885db95b0115}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!steeroff@{steeroff}}
+\index{steeroff@{steeroff}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{steeroff}{steeroff}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a4a33b62282ba04191a3e885db95b0115} 
+int16\+\_\+t steeroff = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00080}{80}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a1e59dd36aafb310776e617456b9415b5}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!T@{T}}
+\index{T@{T}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a1e59dd36aafb310776e617456b9415b5} 
+float T = 0.\+001}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00165}{165}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a36142ddde297ed1d5577c81230997301}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!temp@{temp}}
+\index{temp@{temp}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{temp}{temp}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a36142ddde297ed1d5577c81230997301} 
+uint16\+\_\+t temp =0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00156}{156}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ac88929ce5b667b230d1b985be5be9951}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!thresh@{thresh}}
+\index{thresh@{thresh}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{thresh}{thresh}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ac88929ce5b667b230d1b985be5be9951} 
+int16\+\_\+t thresh = 150}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00071}{71}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a32fa8412f04765ed6daf5f94ce9c3413}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!tilt\_array@{tilt\_array}}
+\index{tilt\_array@{tilt\_array}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{tilt\_array}{tilt\_array}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a32fa8412f04765ed6daf5f94ce9c3413} 
+float tilt\+\_\+array\mbox{[}4\mbox{]} = \{0, 0, 0, 0\}}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00159}{159}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a1f8ef9ec096b5ca8f867b3661aba0c13}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!tilt\_value@{tilt\_value}}
+\index{tilt\_value@{tilt\_value}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{tilt\_value}{tilt\_value}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a1f8ef9ec096b5ca8f867b3661aba0c13} 
+float tilt\+\_\+value = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00158}{158}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a3c5a07cbb2e9360c4cdfaf7f78181496}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!timecount@{timecount}}
+\index{timecount@{timecount}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{timecount}{timecount}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a3c5a07cbb2e9360c4cdfaf7f78181496} 
+int32\+\_\+t timecount = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00173}{173}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a610313636194c4234b6130ce65c1874b}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!turn@{turn}}
+\index{turn@{turn}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{turn}{turn}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a610313636194c4234b6130ce65c1874b} 
+float turn = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00130}{130}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab27b573479cc9a352c4dfa8ef71ee64c}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!turnrate@{turnrate}}
+\index{turnrate@{turnrate}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{turnrate}{turnrate}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab27b573479cc9a352c4dfa8ef71ee64c} 
+float turnrate = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00136}{136}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a0e8f1cbedebe413b3182cffdcf6010fd}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!turnrate\_1@{turnrate\_1}}
+\index{turnrate\_1@{turnrate\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{turnrate\_1}{turnrate\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a0e8f1cbedebe413b3182cffdcf6010fd} 
+float turnrate\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00137}{137}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a315c9632af6afb41f6e3ac90971353ce}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!turnref@{turnref}}
+\index{turnref@{turnref}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{turnref}{turnref}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a315c9632af6afb41f6e3ac90971353ce} 
+float turnref = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00122}{122}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a5a4eb1b09f2e58e10b102d8ec5cd53ca}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!turnref\_1@{turnref\_1}}
+\index{turnref\_1@{turnref\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{turnref\_1}{turnref\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a5a4eb1b09f2e58e10b102d8ec5cd53ca} 
+float turnref\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00123}{123}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a87dea28501134dbab375f2c5fd62bb59}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!UARTPrint@{UARTPrint}}
+\index{UARTPrint@{UARTPrint}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{UARTPrint}{UARTPrint}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a87dea28501134dbab375f2c5fd62bb59} 
+uint16\+\_\+t UARTPrint = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00086}{86}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a1f4a259881a2ffbdae6a94d10d50b1b8}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!UARTPrint2@{UARTPrint2}}
+\index{UARTPrint2@{UARTPrint2}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{UARTPrint2}{UARTPrint2}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a1f4a259881a2ffbdae6a94d10d50b1b8} 
+uint16\+\_\+t UARTPrint2 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00087}{87}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a3e8759fba72965ae73dd06909aabc357}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!ubal@{ubal}}
+\index{ubal@{ubal}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{ubal}{ubal}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a3e8759fba72965ae73dd06909aabc357} 
+float ubal = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00113}{113}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a7c62439be29f890eb5be2350381aa181}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!uLeft@{uLeft}}
+\index{uLeft@{uLeft}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{uLeft}{uLeft}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a7c62439be29f890eb5be2350381aa181} 
+float u\+Left = 5.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00124}{124}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a87ca961e0912c4eebab5cfbac7941336}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!uRight@{uRight}}
+\index{uRight@{uRight}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{uRight}{uRight}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a87ca961e0912c4eebab5cfbac7941336} 
+float u\+Right = 5.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00125}{125}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_aa4488ea6dc3180be65f8e323b81e5a48}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!velWheelDif@{velWheelDif}}
+\index{velWheelDif@{velWheelDif}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{velWheelDif}{velWheelDif}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_aa4488ea6dc3180be65f8e323b81e5a48} 
+float vel\+Wheel\+Dif = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00119}{119}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_ab13f49774c1765211de75011b1fc9bce}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!velWheelDif\_1@{velWheelDif\_1}}
+\index{velWheelDif\_1@{velWheelDif\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{velWheelDif\_1}{velWheelDif\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_ab13f49774c1765211de75011b1fc9bce} 
+float vel\+Wheel\+Dif\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00121}{121}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a2d558569ba644b17d8deb477619b897e}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!WheelDif@{WheelDif}}
+\index{WheelDif@{WheelDif}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{WheelDif}{WheelDif}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a2d558569ba644b17d8deb477619b897e} 
+float Wheel\+Dif = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00118}{118}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+
+\Hypertarget{_u_a_r_t___segbot4_8c_a0127d5212af54bf96f615f4514eaa4e0}\index{UART\_Segbot4.c@{UART\_Segbot4.c}!WheelDif\_1@{WheelDif\_1}}
+\index{WheelDif\_1@{WheelDif\_1}!UART\_Segbot4.c@{UART\_Segbot4.c}}
+\doxysubsubsection{\texorpdfstring{WheelDif\_1}{WheelDif\_1}}
+{\footnotesize\ttfamily \label{_u_a_r_t___segbot4_8c_a0127d5212af54bf96f615f4514eaa4e0} 
+float Wheel\+Dif\+\_\+1 = 0}
+
+
+
+Definition at line \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source_l00120}{120}} of file \mbox{\hyperlink{_u_a_r_t___segbot4_8c_source}{UART\+\_\+\+Segbot4.\+c}}.
+

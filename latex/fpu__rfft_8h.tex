@@ -1,0 +1,505 @@
+\doxysection{fpu\+\_\+rfft.\+h File Reference}
+\hypertarget{fpu__rfft_8h}{}\label{fpu__rfft_8h}\index{fpu\_rfft.h@{fpu\_rfft.h}}
+{\ttfamily \#include "{}fpu\+\_\+types.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t}{RFFT\+\_\+\+F32\+\_\+\+STRUCT}}
+\begin{DoxyCompactList}\small\item\em Structure for the Real FFT. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_r_f_f_t___a_d_c___f32___s_t_r_u_c_t}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT}}
+\begin{DoxyCompactList}\small\item\em Structure for the Real FFT with ADC input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t}{RFFT\+\_\+\+F32\+\_\+\+STRUCT}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}
+\begin{DoxyCompactList}\small\item\em Handle to the Real FFT object. \end{DoxyCompactList}\item 
+typedef \mbox{\hyperlink{struct_r_f_f_t___a_d_c___f32___s_t_r_u_c_t}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}
+\begin{DoxyCompactList}\small\item\em Handle to the Real FFT (with ADC input) structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fpu__rfft_8h_a4ba62438408b6dbbe39975f316fe4429}{RFFT\+\_\+f32}} (\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Real Fast Fourier Transform (RFFT). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_a9124e5c81f2cf7c0b2b8be3e761117bf}{RFFT\+\_\+f32u}} (\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Real FFT (Unaligned). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_aa982a487f6da0f5d2137d4ee9cea234e}{RFFT\+\_\+adc\+\_\+f32}} (\mbox{\hyperlink{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+ADC\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Real FFT with ADC Input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_a8688a6fb4f4f8a893268fc7dd8a8374f}{RFFT\+\_\+adc\+\_\+f32u}} (\mbox{\hyperlink{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+ADC\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Real FFT with ADC Input (Unaligned). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_aee841a4f8b872d083983d709f6d77d91}{RFFT\+\_\+f32\+\_\+win}} (float \texorpdfstring{$\ast$}{*}p\+Buffer, const float \texorpdfstring{$\ast$}{*}p\+Window, const uint16\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Windowing function for the 32-\/bit real FFT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_ac2a9398355a4c3432d915c539dc1c1b2}{RFFT\+\_\+adc\+\_\+f32\+\_\+win}} (uint16\+\_\+t \texorpdfstring{$\ast$}{*}p\+Buffer, const uint16\+\_\+t \texorpdfstring{$\ast$}{*}p\+Window, const uint16\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Windowing function for the 32-\/bit real FFT with ADC Input. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_aa72d6bf63e23a75e7f3ac08a5d64158c}{RFFT\+\_\+f32\+\_\+mag}} (\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Real FFT Magnitude. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_abe4eba3f2d44c18e1c198929aa094570}{RFFT\+\_\+f32s\+\_\+mag}} (\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Real FFT Magnitude (Scaled). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_affb4b7030f76eacc85c7dc8e26a380ec}{RFFT\+\_\+f32\+\_\+phase}} (\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Real FFT Phase. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fpu__rfft_8h_a9ba057440b48ec821d12b3afe3223d2e}{RFFT\+\_\+f32\+\_\+sincostable}} (\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}} hnd\+RFFT\+\_\+\+F32)
+\begin{DoxyCompactList}\small\item\em Generate twiddle factors for the Real FFT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{fpu__rfft_8h_a7ee4950c0f3a0aa89000ac36ffffcd16}{RFFT\+\_\+f32\+\_\+twiddle\+Factors}} \mbox{[}1020\mbox{]}
+\begin{DoxyCompactList}\small\item\em Twiddle Factor Table for a 2048-\/pt (max) Real FFT. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{fpu__rfft_8h_a9903744e1b4aa7f22343b3af65be67af}{FPU32\+RFFTtwiddle\+Factors}} \mbox{[}1020\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_ADC\_F32\_STRUCT\_Handle@{RFFT\_ADC\_F32\_STRUCT\_Handle}}
+\index{RFFT\_ADC\_F32\_STRUCT\_Handle@{RFFT\_ADC\_F32\_STRUCT\_Handle}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_ADC\_F32\_STRUCT\_Handle}{RFFT\_ADC\_F32\_STRUCT\_Handle}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a} 
+typedef \mbox{\hyperlink{struct_r_f_f_t___a_d_c___f32___s_t_r_u_c_t}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}
+
+
+
+Handle to the Real FFT (with ADC input) structure. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00099}{99}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+\Hypertarget{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_F32\_STRUCT\_Handle@{RFFT\_F32\_STRUCT\_Handle}}
+\index{RFFT\_F32\_STRUCT\_Handle@{RFFT\_F32\_STRUCT\_Handle}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_F32\_STRUCT\_Handle}{RFFT\_F32\_STRUCT\_Handle}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf} 
+typedef \mbox{\hyperlink{struct_r_f_f_t___f32___s_t_r_u_c_t}{RFFT\+\_\+\+F32\+\_\+\+STRUCT}}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}
+
+
+
+Handle to the Real FFT object. 
+
+
+
+Definition at line \mbox{\hyperlink{fpu__rfft_8h_source_l00088}{88}} of file \mbox{\hyperlink{fpu__rfft_8h_source}{fpu\+\_\+rfft.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{fpu__rfft_8h_aa982a487f6da0f5d2137d4ee9cea234e}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_adc\_f32@{RFFT\_adc\_f32}}
+\index{RFFT\_adc\_f32@{RFFT\_adc\_f32}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_adc\_f32()}{RFFT\_adc\_f32()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_aa982a487f6da0f5d2137d4ee9cea234e} 
+void RFFT\+\_\+adc\+\_\+f32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+ADC\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Real FFT with ADC Input. 
+
+This routine computes the 32-\/bit single precision FFT for an N-\/pt ( $ N = 2^{n}, n = 5 : 10$) real 12-\/bit ADC input. This function reorders the input in bit-\/reversed format as part of the stage 1,2 and 3 computations. The routine uses two buffers in ping-\/pong fashion i.\+e. after each FFT stage the output and input buffers become the input and output buffers respectively for the next stage. This algorithm only allocates memory, and performs computation, for the non-\/zero elements of the input (the real part). The complex conjugate nature of the spectrum (for real only data) affords savings in space and computaion, therefore the algorithm only calculates the spectrum from the 0th bin to the nyquist bin (included).
+
+Another approach to calculate the real FFT would be to treat the real N-\/point data as N/2 complex, run the forward complex N/2 point FFT followed by an "{}unpack"{} function
+
+
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+ADC\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+ADC F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The routine requires the use of two buffers, the input of size 2N and type uint16\+\_\+t, the output of size N and type float, for computation; the input buffer must be aligned to a memory address of N words (16-\/bit). Refer to the RFFT linker command file to see an example of this.
+\item If alignment is not possible the user can use the alternative, albeit slower, function RFFT\+\_\+adc\+\_\+f32u
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &1295 \\\cline{1-2}
+128 &2769 \\\cline{1-2}
+256 &6059 \\\cline{1-2}
+512 &13360 \\\cline{1-2}
+1024 &29466 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_ac2a9398355a4c3432d915c539dc1c1b2}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_adc\_f32\_win@{RFFT\_adc\_f32\_win}}
+\index{RFFT\_adc\_f32\_win@{RFFT\_adc\_f32\_win}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_adc\_f32\_win()}{RFFT\_adc\_f32\_win()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_ac2a9398355a4c3432d915c539dc1c1b2} 
+void RFFT\+\_\+adc\+\_\+f32\+\_\+win (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Buffer}{, }\item[{const uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Window}{, }\item[{const uint16\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Windowing function for the 32-\/bit real FFT with ADC Input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Buffer} & pointer to the uint16\+\_\+t buffer that needs to be windowed \\
+\hline
+{\em p\+Window} & pointer to the float windowing table \\
+\hline
+{\em size} & size of the buffer This function applies the window to a 2N point real data buffer that has not been reordered in the bit-\/reversed format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The routine requires the window to be unsigned int (16-\/bit). The user must take the desired floating point window from the header files (e.\+g. HANN1024 from fpu32/fpu\+\_\+fft\+\_\+hann.\+h)and convert it to Q16 by multiplying by 2\texorpdfstring{$^\wedge$}{\string^}16 and then flooring the value before converting it to uint16\+\_\+t
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &346 \\\cline{1-2}
+128 &666 \\\cline{1-2}
+256 &1306 \\\cline{1-2}
+512 &2586 \\\cline{1-2}
+1024 &5146 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_a8688a6fb4f4f8a893268fc7dd8a8374f}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_adc\_f32u@{RFFT\_adc\_f32u}}
+\index{RFFT\_adc\_f32u@{RFFT\_adc\_f32u}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_adc\_f32u()}{RFFT\_adc\_f32u()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a8688a6fb4f4f8a893268fc7dd8a8374f} 
+void RFFT\+\_\+adc\+\_\+f32u (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8a977d8b9a2c1763124388928d94204a}{RFFT\+\_\+\+ADC\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+ADC\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Real FFT with ADC Input (Unaligned). 
+
+This routine computes the 64-\/bit double precision FFT for an N-\/pt ( $ N = 2^{n}, n = 5 : 10$) real 12-\/bit ADC input. This function reorders the input in bit-\/reversed format as part of the stage 1,2 and 3 computations. The routine uses two buffers in ping-\/pong fashion i.\+e. after each FFT stage the output and input buffers become the input and output buffers respectively for the next stage. This algorithm only allocates memory, and performs computation, for the non-\/zero elements of the input (the real part). The complex conjugate nature of the spectrum (for real only data) affords savings in space and computaion, therefore the algorithm only calculates the spectrum from the 0th bin to the nyquist bin (included).
+
+Another approach to calculate the real FFT would be to treat the real N-\/point data as N/2 complex, run the forward complex N/2 point FFT followed by an "{}unpack"{} function
+
+
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+ADC\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+ADC F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The routine requires the use of two buffers, the input of size 2N and type uint16\+\_\+t, the output of size N and type float, for computation; the input buffer need not be aligned to any boundary.
+\item If alignment is possible it is recommended to use the faster function RFFT\+\_\+adc\+\_\+f32
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &1415 \\\cline{1-2}
+128 &3009 \\\cline{1-2}
+256 &6539 \\\cline{1-2}
+512 &14320 \\\cline{1-2}
+1024 &31386 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_a4ba62438408b6dbbe39975f316fe4429}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32@{RFFT\_f32}}
+\index{RFFT\_f32@{RFFT\_f32}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32()}{RFFT\_f32()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a4ba62438408b6dbbe39975f316fe4429} 
+void RFFT\+\_\+f32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Real Fast Fourier Transform (RFFT). 
+
+This routine computes the 32-\/bit floating-\/point FFT for an N-\/pt ( $ N = 2^{n}, n = 5 : 10$) This routine computes the 32-\/bit single precision FFT for an N-\/pt ( $ N = 2^{n}, n = 5 : 10$) real input. This function reorders the input in bit-\/reversed format as part of the stage 1,2 and 3 computations. The routine uses two buffers in ping-\/pong fashion i.\+e. after each FFT stage the output and input buffers become the input and output buffers respectively for the next stage. This algorithm only allocates memory, and performs computation, for the non-\/zero elements of the input (the real part). The complex conjugate nature of the spectrum (for real only data) affords savings in space and computaion, therefore the algorithm only calculates the spectrum from the 0th bin to the nyquist bin (included).
+
+Another approach to calculate the real FFT would be to treat the real N-\/point data as N/2 complex, run the forward complex N/2 point FFT followed by an "{}unpack"{} function
+
+
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The routine requires the use of two buffers, each of size N (32-\/bit float), for computation; the input buffer must be aligned to a memory address of 2N words (16-\/bit). Refer to the RFFT linker command file to see an example of this.
+\item If alignment is not possible the user can use the alternative, albeit slower, function RFFT\+\_\+f32u 
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+SSEC\+\_\+\+RFFT\+\_\+\+F32\+\_\+\+USING\+\_\+\+CFFT\+\_\+\+F32
+\end{DoxySeeAlso}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &1281 \\\cline{1-2}
+128 &2779 \\\cline{1-2}
+256 &6149 \\\cline{1-2}
+512 &13674 \\\cline{1-2}
+1024 &30356 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_aa72d6bf63e23a75e7f3ac08a5d64158c}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32\_mag@{RFFT\_f32\_mag}}
+\index{RFFT\_f32\_mag@{RFFT\_f32\_mag}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32\_mag()}{RFFT\_f32\_mag()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_aa72d6bf63e23a75e7f3ac08a5d64158c} 
+void RFFT\+\_\+f32\+\_\+mag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Real FFT Magnitude. 
+
+This module computes the real FFT magnitude. The output from RFFT\+\_\+f32\+\_\+mag matches the magnitude output from the FFT found in common mathematics software and Code Composer Studio FFT graphs. If instead a normalized magnitude like that performed by the fixed-\/point TMS320\+C28x IQmath FFT library is required, then the RFFT\+\_\+f32s\+\_\+mag function can be used. In fixed-\/point algorithms scaling is performed to avoid overflowing data. Floating-\/point calculations do not need this scaling to avoid overflow and therefore the RFFT\+\_\+f32\+\_\+mag function can be used instead. 
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The Magnitude buffer does not require memory alignment to a boundary
+\item For C28x devices that have the TMU0 (or higher) module, use RFFT\+\_\+f32\+\_\+mag\+\_\+\+TMU0() instead for better performance.
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &635 \\\cline{1-2}
+128 &1243 \\\cline{1-2}
+256 &2459 \\\cline{1-2}
+512 &4888 \\\cline{1-2}
+1024 &9752 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_affb4b7030f76eacc85c7dc8e26a380ec}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32\_phase@{RFFT\_f32\_phase}}
+\index{RFFT\_f32\_phase@{RFFT\_f32\_phase}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32\_phase()}{RFFT\_f32\_phase()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_affb4b7030f76eacc85c7dc8e26a380ec} 
+void RFFT\+\_\+f32\+\_\+phase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Real FFT Phase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The Phase buffer does not require memory alignment to a boundary
+\item For C28x devices that have the TMU0 (or higher) module, use RFFT\+\_\+f32\+\_\+phase\+\_\+\+TMU0() instead for better performance.
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &1949 \\\cline{1-2}
+128 &3933 \\\cline{1-2}
+256 &7901 \\\cline{1-2}
+512 &16835 \\\cline{1-2}
+1024 &31707 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_a9ba057440b48ec821d12b3afe3223d2e}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32\_sincostable@{RFFT\_f32\_sincostable}}
+\index{RFFT\_f32\_sincostable@{RFFT\_f32\_sincostable}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32\_sincostable()}{RFFT\_f32\_sincostable()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a9ba057440b48ec821d12b3afe3223d2e} 
+void RFFT\+\_\+f32\+\_\+sincostable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Generate twiddle factors for the Real FFT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+This function is written in C and compiled without optimization turned on. 
+\end{DoxyAttention}
+\Hypertarget{fpu__rfft_8h_aee841a4f8b872d083983d709f6d77d91}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32\_win@{RFFT\_f32\_win}}
+\index{RFFT\_f32\_win@{RFFT\_f32\_win}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32\_win()}{RFFT\_f32\_win()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_aee841a4f8b872d083983d709f6d77d91} 
+void RFFT\+\_\+f32\+\_\+win (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{p\+Buffer}{, }\item[{const float \texorpdfstring{$\ast$}{*}}]{p\+Window}{, }\item[{const uint16\+\_\+t}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Windowing function for the 32-\/bit real FFT. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Buffer} & pointer to the buffer that needs to be windowed \\
+\hline
+{\em p\+Window} & pointer to the windowing table \\
+\hline
+{\em size} & size of the buffer This function applies the window to a 2N point real data buffer that has not been reordered in the bit-\/reversed format\\
+\hline
+\end{DoxyParams}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &308 \\\cline{1-2}
+128 &596 \\\cline{1-2}
+256 &1172 \\\cline{1-2}
+512 &2324 \\\cline{1-2}
+1024 &4628 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_abe4eba3f2d44c18e1c198929aa094570}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32s\_mag@{RFFT\_f32s\_mag}}
+\index{RFFT\_f32s\_mag@{RFFT\_f32s\_mag}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32s\_mag()}{RFFT\_f32s\_mag()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_abe4eba3f2d44c18e1c198929aa094570} 
+void RFFT\+\_\+f32s\+\_\+mag (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Real FFT Magnitude (Scaled). 
+
+This module computes the scaled real FFT magnitude. The scaling is $\frac{1}{[2^{FFT\_STAGES-1}]}$, and is done to match the normalization performed by the fixed-\/point TMS320\+C28x IQmath FFT library for overflow avoidance. Floating-\/point calculations do not need this scaling to avoid overflow and therefore the RFFT\+\_\+f32\+\_\+mag function can be used instead. The output from RFFT\+\_\+f32s\+\_\+mag matches the magnitude output from the FFT found in common mathematics software and Code Composer Studio FFT graphs. 
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The Magnitude buffer does not require memory alignment to a boundary
+\item For C28x devices that have the TMU0 (or higher) module, use RFFT\+\_\+f32s\+\_\+mag\+\_\+\+TMU0() instead for better performance.
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &723 \\\cline{1-2}
+128 &1336 \\\cline{1-2}
+256 &2557 \\\cline{1-2}
+512 &4990 \\\cline{1-2}
+1024 &9859 \\\cline{1-2}
+\end{longtabu}
+\Hypertarget{fpu__rfft_8h_a9124e5c81f2cf7c0b2b8be3e761117bf}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32u@{RFFT\_f32u}}
+\index{RFFT\_f32u@{RFFT\_f32u}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32u()}{RFFT\_f32u()}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a9124e5c81f2cf7c0b2b8be3e761117bf} 
+void RFFT\+\_\+f32u (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fpu__rfft_8h_a8e0e8c088fc134b9afc9994c3b253faf}{RFFT\+\_\+\+F32\+\_\+\+STRUCT\+\_\+\+Handle}}}]{hnd\+RFFT\+\_\+\+F32}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Real FFT (Unaligned). 
+
+This routine computes the 32-\/bit single precision FFT for an N-\/pt ( $ N = 2^{n}, n = 5 : 10$) real input. This function reorders the input in bit-\/reversed format as part of the stage 1,2 and 3 computations. The routine uses two buffers in ping-\/pong fashion i.\+e. after each FFT stage the output and input buffers become the input and output buffers respectively for the next stage. This algorithm only allocates memory, and performs computation, for the non-\/zero elements of the input (the real part). The complex conjugate nature of the spectrum (for real only data) affords savings in space and computaion, therefore the algorithm only calculates the spectrum from the 0th bin to the nyquist bin (included).
+
+Another approach to calculate the real FFT would be to treat the real N-\/point data as N/2 complex, run the forward complex N/2 point FFT followed by an "{}unpack"{} function
+
+
+\begin{DoxyParams}{Parameters}
+{\em hnd\+RFFT\+\_\+\+F32} & Pointer to the RFFT\+\_\+\+F32 object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAttention}{Attention}
+
+\begin{DoxyEnumerate}
+\item The routine requires the use of two buffers, each of size N (32-\/bit float), for computation; the input buffer need not be aligned to a boundary
+\item If alignment is possible it is recommended to use the faster routine, RFFT\+\_\+f32 
+\end{DoxyEnumerate}
+\end{DoxyAttention}
+\begin{DoxySeeAlso}{See also}
+SSEC\+\_\+\+RFFT\+\_\+\+F32\+\_\+\+USING\+\_\+\+CFFT\+\_\+\+F32
+\end{DoxySeeAlso}
+\hypertarget{fpu__rfft_8h_multi_row}{}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\caption{Performance Data}\label{fpu__rfft_8h_multi_row}\\
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ Samples }&\cellcolor{\tableheadbgcolor}\textbf{ Cycles }\\\cline{1-2}
+\endhead
+64 &1393 \\\cline{1-2}
+128 &3003 \\\cline{1-2}
+256 &6597 \\\cline{1-2}
+512 &14570 \\\cline{1-2}
+1024 &32148 \\\cline{1-2}
+\end{longtabu}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{fpu__rfft_8h_a9903744e1b4aa7f22343b3af65be67af}\index{fpu\_rfft.h@{fpu\_rfft.h}!FPU32RFFTtwiddleFactors@{FPU32RFFTtwiddleFactors}}
+\index{FPU32RFFTtwiddleFactors@{FPU32RFFTtwiddleFactors}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{FPU32RFFTtwiddleFactors}{FPU32RFFTtwiddleFactors}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a9903744e1b4aa7f22343b3af65be67af} 
+float FPU32\+RFFTtwiddle\+Factors\mbox{[}1020\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{fpu__rfft_8h_a7ee4950c0f3a0aa89000ac36ffffcd16}\index{fpu\_rfft.h@{fpu\_rfft.h}!RFFT\_f32\_twiddleFactors@{RFFT\_f32\_twiddleFactors}}
+\index{RFFT\_f32\_twiddleFactors@{RFFT\_f32\_twiddleFactors}!fpu\_rfft.h@{fpu\_rfft.h}}
+\doxysubsubsection{\texorpdfstring{RFFT\_f32\_twiddleFactors}{RFFT\_f32\_twiddleFactors}}
+{\footnotesize\ttfamily \label{fpu__rfft_8h_a7ee4950c0f3a0aa89000ac36ffffcd16} 
+float RFFT\+\_\+f32\+\_\+twiddle\+Factors\mbox{[}1020\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Twiddle Factor Table for a 2048-\/pt (max) Real FFT. 
+
+Note\+:
+\begin{DoxyEnumerate}
+\item RFFT\+\_\+f32\+\_\+twiddle\+Factors name is deprecated and only supported for legacy reasons. Users are encouraged to use FPU32\+RFFTtwiddle\+Factors as the table symbol.
+\item The RFFT\+\_\+f32\+\_\+twiddle\+Factors is an alias for the new table. It is not a separate table. 
+\end{DoxyEnumerate}

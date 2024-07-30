@@ -1,0 +1,290 @@
+\doxysection{song.\+h File Reference}
+\hypertarget{song_8h}{}\label{song_8h}\index{song.h@{song.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}~1
+\item 
+\#define \mbox{\hyperlink{song_8h_a93e9568a968770ee9775cf4ef69e2407}{C4\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/261.\+63))
+\item 
+\#define \mbox{\hyperlink{song_8h_aa24e00c7967a08e3cb9dcffad7c498d9}{D4\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/293.\+66))
+\item 
+\#define \mbox{\hyperlink{song_8h_abef3f0cbc629cf49a79b5897348f4437}{E4\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/329.\+63))
+\item 
+\#define \mbox{\hyperlink{song_8h_ad8434d08b43e46c9bb842b29496af09b}{F4\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/349.\+23))
+\item 
+\#define \mbox{\hyperlink{song_8h_a4da6085887e4ee2988086e4240add820}{G4\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/392.\+00))
+\item 
+\#define \mbox{\hyperlink{song_8h_a73c71ff3a957eb349b4cfc5b633210b8}{A4\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/440.\+00))
+\item 
+\#define \mbox{\hyperlink{song_8h_a5cc4b190f676683b83f9a0ef90405107}{B4\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/493.\+88))
+\item 
+\#define \mbox{\hyperlink{song_8h_af7ff6e471ed90484b0cc5d14fd05c1c8}{C5\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/523.\+25))
+\item 
+\#define \mbox{\hyperlink{song_8h_a97eb177a99cdf2d89e5bb08874a97b20}{D5\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/587.\+33))
+\item 
+\#define \mbox{\hyperlink{song_8h_a0b0679e9199e6df6a457d52e77d6bb40}{E5\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/659.\+25))
+\item 
+\#define \mbox{\hyperlink{song_8h_ac35520014f3c60643d566eba7c7a7385}{F5\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/698.\+46))
+\item 
+\#define \mbox{\hyperlink{song_8h_a698369ac392bb84ac23bbbb27e18a997}{G5\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/783.\+99))
+\item 
+\#define \mbox{\hyperlink{song_8h_a8f3898ef7ec675b912a7e525a616147e}{A5\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/880.\+00))
+\item 
+\#define \mbox{\hyperlink{song_8h_a8a042d7103ee375fc38d57dd1ab68367}{B5\+NOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/987.\+77))
+\item 
+\#define \mbox{\hyperlink{song_8h_a5fa78f49131edb0b97ec47afaf9a1762}{F4\+SHARPNOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/369.\+99))
+\item 
+\#define \mbox{\hyperlink{song_8h_a1a8f54dc372a224f69e10f28ee2c06fd}{G4\+SHARPNOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/415.\+3))
+\item 
+\#define \mbox{\hyperlink{song_8h_acae35d6ee78cdfc6ca1751656fe53024}{A4\+FLATNOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/415.\+3))
+\item 
+\#define \mbox{\hyperlink{song_8h_a5e070de40bfd0d1ce2bc3a756846fa7f}{C5\+SHARPNOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/554.\+37))
+\item 
+\#define \mbox{\hyperlink{song_8h_a7b4b564a79190514b21ca60d6eb4800b}{A5\+FLATNOTE}}~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/830.\+61))
+\item 
+\#define \mbox{\hyperlink{song_8h_a5d156f35ea5e0a43e9d10653f5b27852}{OFFNOTE}}~1
+\item 
+\#define \mbox{\hyperlink{song_8h_acbe434c077abb42ebfb7db87e36a0cca}{SONG\+\_\+\+LENGTH}}~516
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{song_8h_a1dea113ae5d8c10dd606623ceb93bdc7}{songarray}} \mbox{[}\mbox{\hyperlink{song_8h_acbe434c077abb42ebfb7db87e36a0cca}{SONG\+\_\+\+LENGTH}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{song_8h_acae35d6ee78cdfc6ca1751656fe53024}\index{song.h@{song.h}!A4FLATNOTE@{A4FLATNOTE}}
+\index{A4FLATNOTE@{A4FLATNOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{A4FLATNOTE}{A4FLATNOTE}}
+{\footnotesize\ttfamily \label{song_8h_acae35d6ee78cdfc6ca1751656fe53024} 
+\#define A4\+FLATNOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/415.\+3))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00018}{18}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a73c71ff3a957eb349b4cfc5b633210b8}\index{song.h@{song.h}!A4NOTE@{A4NOTE}}
+\index{A4NOTE@{A4NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{A4NOTE}{A4NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a73c71ff3a957eb349b4cfc5b633210b8} 
+\#define A4\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/440.\+00))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00007}{7}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a7b4b564a79190514b21ca60d6eb4800b}\index{song.h@{song.h}!A5FLATNOTE@{A5FLATNOTE}}
+\index{A5FLATNOTE@{A5FLATNOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{A5FLATNOTE}{A5FLATNOTE}}
+{\footnotesize\ttfamily \label{song_8h_a7b4b564a79190514b21ca60d6eb4800b} 
+\#define A5\+FLATNOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/830.\+61))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00020}{20}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a8f3898ef7ec675b912a7e525a616147e}\index{song.h@{song.h}!A5NOTE@{A5NOTE}}
+\index{A5NOTE@{A5NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{A5NOTE}{A5NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a8f3898ef7ec675b912a7e525a616147e} 
+\#define A5\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/880.\+00))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00014}{14}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a5cc4b190f676683b83f9a0ef90405107}\index{song.h@{song.h}!B4NOTE@{B4NOTE}}
+\index{B4NOTE@{B4NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{B4NOTE}{B4NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a5cc4b190f676683b83f9a0ef90405107} 
+\#define B4\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/493.\+88))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00008}{8}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a8a042d7103ee375fc38d57dd1ab68367}\index{song.h@{song.h}!B5NOTE@{B5NOTE}}
+\index{B5NOTE@{B5NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{B5NOTE}{B5NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a8a042d7103ee375fc38d57dd1ab68367} 
+\#define B5\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/987.\+77))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00015}{15}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a93e9568a968770ee9775cf4ef69e2407}\index{song.h@{song.h}!C4NOTE@{C4NOTE}}
+\index{C4NOTE@{C4NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{C4NOTE}{C4NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a93e9568a968770ee9775cf4ef69e2407} 
+\#define C4\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/261.\+63))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00002}{2}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_af7ff6e471ed90484b0cc5d14fd05c1c8}\index{song.h@{song.h}!C5NOTE@{C5NOTE}}
+\index{C5NOTE@{C5NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{C5NOTE}{C5NOTE}}
+{\footnotesize\ttfamily \label{song_8h_af7ff6e471ed90484b0cc5d14fd05c1c8} 
+\#define C5\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/523.\+25))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00009}{9}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a5e070de40bfd0d1ce2bc3a756846fa7f}\index{song.h@{song.h}!C5SHARPNOTE@{C5SHARPNOTE}}
+\index{C5SHARPNOTE@{C5SHARPNOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{C5SHARPNOTE}{C5SHARPNOTE}}
+{\footnotesize\ttfamily \label{song_8h_a5e070de40bfd0d1ce2bc3a756846fa7f} 
+\#define C5\+SHARPNOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/554.\+37))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00019}{19}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_aa24e00c7967a08e3cb9dcffad7c498d9}\index{song.h@{song.h}!D4NOTE@{D4NOTE}}
+\index{D4NOTE@{D4NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{D4NOTE}{D4NOTE}}
+{\footnotesize\ttfamily \label{song_8h_aa24e00c7967a08e3cb9dcffad7c498d9} 
+\#define D4\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/293.\+66))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00003}{3}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a97eb177a99cdf2d89e5bb08874a97b20}\index{song.h@{song.h}!D5NOTE@{D5NOTE}}
+\index{D5NOTE@{D5NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{D5NOTE}{D5NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a97eb177a99cdf2d89e5bb08874a97b20} 
+\#define D5\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/587.\+33))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00010}{10}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_abef3f0cbc629cf49a79b5897348f4437}\index{song.h@{song.h}!E4NOTE@{E4NOTE}}
+\index{E4NOTE@{E4NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{E4NOTE}{E4NOTE}}
+{\footnotesize\ttfamily \label{song_8h_abef3f0cbc629cf49a79b5897348f4437} 
+\#define E4\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/329.\+63))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00004}{4}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a0b0679e9199e6df6a457d52e77d6bb40}\index{song.h@{song.h}!E5NOTE@{E5NOTE}}
+\index{E5NOTE@{E5NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{E5NOTE}{E5NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a0b0679e9199e6df6a457d52e77d6bb40} 
+\#define E5\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/659.\+25))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00011}{11}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_ad8434d08b43e46c9bb842b29496af09b}\index{song.h@{song.h}!F4NOTE@{F4NOTE}}
+\index{F4NOTE@{F4NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{F4NOTE}{F4NOTE}}
+{\footnotesize\ttfamily \label{song_8h_ad8434d08b43e46c9bb842b29496af09b} 
+\#define F4\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/349.\+23))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00005}{5}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a5fa78f49131edb0b97ec47afaf9a1762}\index{song.h@{song.h}!F4SHARPNOTE@{F4SHARPNOTE}}
+\index{F4SHARPNOTE@{F4SHARPNOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{F4SHARPNOTE}{F4SHARPNOTE}}
+{\footnotesize\ttfamily \label{song_8h_a5fa78f49131edb0b97ec47afaf9a1762} 
+\#define F4\+SHARPNOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/369.\+99))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00016}{16}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_ac35520014f3c60643d566eba7c7a7385}\index{song.h@{song.h}!F5NOTE@{F5NOTE}}
+\index{F5NOTE@{F5NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{F5NOTE}{F5NOTE}}
+{\footnotesize\ttfamily \label{song_8h_ac35520014f3c60643d566eba7c7a7385} 
+\#define F5\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/698.\+46))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00012}{12}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a0738e82113d6928a8c49c6fbac16c82c}\index{song.h@{song.h}!FUDGEFACTORNOTE@{FUDGEFACTORNOTE}}
+\index{FUDGEFACTORNOTE@{FUDGEFACTORNOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{FUDGEFACTORNOTE}{FUDGEFACTORNOTE}}
+{\footnotesize\ttfamily \label{song_8h_a0738e82113d6928a8c49c6fbac16c82c} 
+\#define FUDGEFACTORNOTE~1}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00001}{1}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a4da6085887e4ee2988086e4240add820}\index{song.h@{song.h}!G4NOTE@{G4NOTE}}
+\index{G4NOTE@{G4NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{G4NOTE}{G4NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a4da6085887e4ee2988086e4240add820} 
+\#define G4\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/392.\+00))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00006}{6}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a1a8f54dc372a224f69e10f28ee2c06fd}\index{song.h@{song.h}!G4SHARPNOTE@{G4SHARPNOTE}}
+\index{G4SHARPNOTE@{G4SHARPNOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{G4SHARPNOTE}{G4SHARPNOTE}}
+{\footnotesize\ttfamily \label{song_8h_a1a8f54dc372a224f69e10f28ee2c06fd} 
+\#define G4\+SHARPNOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/415.\+3))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00017}{17}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a698369ac392bb84ac23bbbb27e18a997}\index{song.h@{song.h}!G5NOTE@{G5NOTE}}
+\index{G5NOTE@{G5NOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{G5NOTE}{G5NOTE}}
+{\footnotesize\ttfamily \label{song_8h_a698369ac392bb84ac23bbbb27e18a997} 
+\#define G5\+NOTE~((uint16\+\_\+t)(((\mbox{\hyperlink{song_8h_a0738e82113d6928a8c49c6fbac16c82c}{FUDGEFACTORNOTE}}\texorpdfstring{$\ast$}{*}50000000/2)/2)/783.\+99))}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00013}{13}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_a5d156f35ea5e0a43e9d10653f5b27852}\index{song.h@{song.h}!OFFNOTE@{OFFNOTE}}
+\index{OFFNOTE@{OFFNOTE}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{OFFNOTE}{OFFNOTE}}
+{\footnotesize\ttfamily \label{song_8h_a5d156f35ea5e0a43e9d10653f5b27852} 
+\#define OFFNOTE~1}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00023}{23}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+\Hypertarget{song_8h_acbe434c077abb42ebfb7db87e36a0cca}\index{song.h@{song.h}!SONG\_LENGTH@{SONG\_LENGTH}}
+\index{SONG\_LENGTH@{SONG\_LENGTH}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{SONG\_LENGTH}{SONG\_LENGTH}}
+{\footnotesize\ttfamily \label{song_8h_acbe434c077abb42ebfb7db87e36a0cca} 
+\#define SONG\+\_\+\+LENGTH~516}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00025}{25}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{song_8h_a1dea113ae5d8c10dd606623ceb93bdc7}\index{song.h@{song.h}!songarray@{songarray}}
+\index{songarray@{songarray}!song.h@{song.h}}
+\doxysubsubsection{\texorpdfstring{songarray}{songarray}}
+{\footnotesize\ttfamily \label{song_8h_a1dea113ae5d8c10dd606623ceb93bdc7} 
+uint16\+\_\+t songarray\mbox{[}\mbox{\hyperlink{song_8h_acbe434c077abb42ebfb7db87e36a0cca}{SONG\+\_\+\+LENGTH}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{song_8h_source_l00026}{26}} of file \mbox{\hyperlink{song_8h_source}{song.\+h}}.
+
